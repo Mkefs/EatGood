@@ -13,7 +13,13 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import java.util.List;
+
+import mx.mcardenas.eatgood.api.ApiService;
+import mx.mcardenas.eatgood.api.Info;
 import mx.mcardenas.eatgood.ui.main.SectionsPagerAdapter;
+import retrofit2.Call;
+import retrofit2.Retrofit;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -26,6 +32,13 @@ public class MainActivity extends AppCompatActivity {
 		viewPager.setAdapter(sectionsPagerAdapter);
 		TabLayout tabs = findViewById(R.id.tabs);
 		tabs.setupWithViewPager(viewPager);
+		Retrofit retrofit = new Retrofit.Builder()
+				.baseUrl("https://gr.kiwilimon.com/v6")
+				.build();
+
+		ApiService service = retrofit.create(ApiService.class);
+
+		Call<Info> language, device = service.getFeed("es", "android");
 
 	}
 }

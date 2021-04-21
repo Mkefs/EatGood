@@ -2,23 +2,17 @@ package mx.mcardenas.eatgood;
 
 import android.os.Bundle;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.tabs.TabLayout;
 
 import androidx.viewpager.widget.ViewPager;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
+import java.io.IOException;
 
-import java.util.List;
-
-import mx.mcardenas.eatgood.api.ApiService;
-import mx.mcardenas.eatgood.api.Info;
+import mx.mcardenas.eatgood.api.ApiManagement;
 import mx.mcardenas.eatgood.ui.main.SectionsPagerAdapter;
 import retrofit2.Call;
+import retrofit2.Response;
 import retrofit2.Retrofit;
 
 public class MainActivity extends AppCompatActivity {
@@ -36,9 +30,18 @@ public class MainActivity extends AppCompatActivity {
 				.baseUrl("https://gr.kiwilimon.com/v6")
 				.build();
 
-		ApiService service = retrofit.create(ApiService.class);
+		ApiManagement.API_INTERACTION  interaction = retrofit.create(ApiManagement.API_INTERACTION.class);
+		Call<String> consulta = interaction.feed_json("es", "android");
+		try {
+			Response<String> respuesta = consulta.execute();
+			String resultado = respuesta.body();
+			System.out.println(resultado);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 
-		Call<Info> language, device = service.getFeed("es", "android");
+
+
 
 	}
 }

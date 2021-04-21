@@ -1,6 +1,7 @@
 package mx.mcardenas.eatgood;
 
 import android.os.Bundle;
+import android.os.StrictMode;
 
 import com.google.android.material.tabs.TabLayout;
 
@@ -11,12 +12,15 @@ import java.io.IOException;
 
 import mx.mcardenas.eatgood.api.ApiManagement;
 import mx.mcardenas.eatgood.ui.main.SectionsPagerAdapter;
+import okhttp3.ResponseBody;
 import retrofit2.Call;
+import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+import retrofit2.converter.scalars.ScalarsConverterFactory;
 
 public class MainActivity extends AppCompatActivity {
-
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -26,22 +30,28 @@ public class MainActivity extends AppCompatActivity {
 		viewPager.setAdapter(sectionsPagerAdapter);
 		TabLayout tabs = findViewById(R.id.tabs);
 		tabs.setupWithViewPager(viewPager);
+
 		Retrofit retrofit = new Retrofit.Builder()
-				.baseUrl("https://gr.kiwilimon.com/v6")
+				.addConverterFactory(ScalarsConverterFactory.create())
+				.addConverterFactory(GsonConverterFactory.create())
+				.baseUrl("https://gr.kiwilimon.com/v6/")
 				.build();
-
 		ApiManagement.API_INTERACTION  interaction = retrofit.create(ApiManagement.API_INTERACTION.class);
-		Call<String> consulta = interaction.feed_json("es", "android");
-		try {
-			Response<String> respuesta = consulta.execute();
-			String resultado = respuesta.body();
-			System.out.println(resultado);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		Call<ResponseBody> consulta = interaction.feed_json();
+		consulta.enqueue(new Callback<ResponseBody>() {
+			@Override
+			public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+				try {
+					System.out.println(response.body().string());
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
 
+			@Override
+			public void onFailure(Call<ResponseBody> call, Throwable t) {
 
-
-
+			}
+		});
 	}
 }

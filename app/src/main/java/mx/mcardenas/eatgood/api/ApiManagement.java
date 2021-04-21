@@ -1,14 +1,13 @@
 package mx.mcardenas.eatgood.api;
 
+import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Query;
 
 public class ApiManagement {
     public interface  API_INTERACTION{
-        @GET("https://gr.kiwilimon.com/v6")
-        Call<String>feed_json(
-                @Query("language")String language,
-                @Query("device")String device);
+        @GET("feed?language=es&device=android&type=recetaclasificacion&v=1&key=1000")
+        Call<ResponseBody>feed_json();
     }
 }

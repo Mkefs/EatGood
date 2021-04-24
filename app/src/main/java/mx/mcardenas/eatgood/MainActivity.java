@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import java.io.IOException;
 
 import mx.mcardenas.eatgood.api.ApiManagement;
+import mx.mcardenas.eatgood.api.Recetas;
 import mx.mcardenas.eatgood.ui.main.SectionsPagerAdapter;
 import okhttp3.ResponseBody;
 import retrofit2.Call;
@@ -33,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
 		tabs.setupWithViewPager(viewPager);
 
 
-		Retrofit retrofit = new Retrofit.Builder()
+        Retrofit retrofit = new Retrofit.Builder()
 				.addConverterFactory(ScalarsConverterFactory.create())
 				.addConverterFactory(GsonConverterFactory.create())
 				.baseUrl("https://gr.kiwilimon.com/v6/")

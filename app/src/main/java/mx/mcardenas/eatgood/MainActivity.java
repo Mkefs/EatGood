@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.os.StrictMode;
 
 import com.google.android.material.tabs.TabLayout;
+import com.google.gson.Gson;
 
 import androidx.viewpager.widget.ViewPager;
 import androidx.appcompat.app.AppCompatActivity;
@@ -30,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
 		viewPager.setAdapter(sectionsPagerAdapter);
 		TabLayout tabs = findViewById(R.id.tabs);
 		tabs.setupWithViewPager(viewPager);
+
 
 		Retrofit retrofit = new Retrofit.Builder()
 				.addConverterFactory(ScalarsConverterFactory.create())

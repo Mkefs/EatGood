@@ -34,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
 		TabLayout tabs = findViewById(R.id.tabs);
 		tabs.setupWithViewPager(viewPager);
 		
+
         Retrofit retrofit = new Retrofit.Builder()
 				.addConverterFactory(ScalarsConverterFactory.create())
 				.addConverterFactory(GsonConverterFactory.create())
@@ -45,16 +46,16 @@ public class MainActivity extends AppCompatActivity {
 			@Override
 			public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
 				try {
-					System.out.println(response.body().string());
-				} catch (IOException e) {
+                    Gson gson = new Gson();
+                    Recetas receta = gson.fromJson(response.body().string(), Recetas.class);
+					System.out.println(receta);
+				} catch (Exception e) {
 					e.printStackTrace();
 				}
 			}
 
 			@Override
-			public void onFailure(Call<ResponseBody> call, Throwable t) {
-
-			}
+			public void onFailure(Call<ResponseBody> call, Throwable t) {}
 		});
 	}
 }

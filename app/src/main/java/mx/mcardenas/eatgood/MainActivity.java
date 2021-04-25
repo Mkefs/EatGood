@@ -10,6 +10,7 @@ import androidx.viewpager.widget.ViewPager;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.io.IOException;
+import java.util.List;
 
 import mx.mcardenas.eatgood.api.ApiManagement;
 import mx.mcardenas.eatgood.api.Recetas;
@@ -32,8 +33,7 @@ public class MainActivity extends AppCompatActivity {
 		viewPager.setAdapter(sectionsPagerAdapter);
 		TabLayout tabs = findViewById(R.id.tabs);
 		tabs.setupWithViewPager(viewPager);
-
-
+		
         Retrofit retrofit = new Retrofit.Builder()
 				.addConverterFactory(ScalarsConverterFactory.create())
 				.addConverterFactory(GsonConverterFactory.create())

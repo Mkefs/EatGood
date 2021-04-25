@@ -13,6 +13,7 @@ import java.io.IOException;
 import java.util.List;
 
 import mx.mcardenas.eatgood.api.ApiManagement;
+import mx.mcardenas.eatgood.api.Descripcion;
 import mx.mcardenas.eatgood.api.Recetas;
 import mx.mcardenas.eatgood.ui.main.SectionsPagerAdapter;
 import okhttp3.ResponseBody;
@@ -46,9 +47,9 @@ public class MainActivity extends AppCompatActivity {
 			@Override
 			public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
 				try {
-                    Gson gson = new Gson();
-                    Recetas receta = gson.fromJson(response.body().string(), Recetas.class);
-					System.out.println(receta);
+					String resp = response.body().string();
+					Gson gson = new Gson();
+                    Recetas receta = gson.fromJson(resp, Recetas.class);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}

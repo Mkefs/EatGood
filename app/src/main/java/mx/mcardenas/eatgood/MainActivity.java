@@ -13,6 +13,7 @@ import java.io.IOException;
 import java.util.List;
 
 import mx.mcardenas.eatgood.api.ApiManagement;
+import mx.mcardenas.eatgood.api.Busqueda;
 import mx.mcardenas.eatgood.api.Descripcion;
 import mx.mcardenas.eatgood.api.Recetas;
 import mx.mcardenas.eatgood.ui.main.SectionsPagerAdapter;
@@ -58,5 +59,23 @@ public class MainActivity extends AppCompatActivity {
 			@Override
 			public void onFailure(Call<ResponseBody> call, Throwable t) {}
 		});
+        ApiManagement.API_INTERACTION  interaction2 = retrofit.create(ApiManagement.API_INTERACTION.class);
+        Call<ResponseBody> consulta2 = interaction2.feed_json();
+        consulta2.enqueue(new Callback<ResponseBody>() {
+            @Override
+            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                try {
+                    String resp = response.body().string();
+                    Gson gson = new Gson();
+                    Busqueda busqueda = gson.fromJson(resp, Busqueda.class);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ResponseBody> call, Throwable t) {}
+        });
+
 	}
 }

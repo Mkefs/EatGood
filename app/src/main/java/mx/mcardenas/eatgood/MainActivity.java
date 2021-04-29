@@ -1,7 +1,9 @@
 package mx.mcardenas.eatgood;
 
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.StrictMode;
+import android.widget.Button;
 
 import com.google.android.material.tabs.TabLayout;
 import com.google.gson.Gson;
@@ -14,6 +16,7 @@ import java.util.List;
 
 import mx.mcardenas.eatgood.api.ApiManagement;
 import mx.mcardenas.eatgood.api.Busqueda;
+import mx.mcardenas.eatgood.api.Datos;
 import mx.mcardenas.eatgood.api.Descripcion;
 import mx.mcardenas.eatgood.api.Recetas;
 import mx.mcardenas.eatgood.ui.main.SectionsPagerAdapter;
@@ -26,6 +29,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.converter.scalars.ScalarsConverterFactory;
 
 public class MainActivity extends AppCompatActivity {
+	ApiManagement.API_INTERACTION interaction;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -42,40 +46,13 @@ public class MainActivity extends AppCompatActivity {
 				.addConverterFactory(GsonConverterFactory.create())
 				.baseUrl("https://gr.kiwilimon.com/v6/")
 				.build();
-		ApiManagement.API_INTERACTION  interaction = retrofit.create(ApiManagement.API_INTERACTION.class);
-		Call<ResponseBody> consulta = interaction.feed_json();
-		consulta.enqueue(new Callback<ResponseBody>() {
-			@Override
-			public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
-				try {
-					String resp = response.body().string();
-					Gson gson = new Gson();
-                    Recetas receta = gson.fromJson(resp, Recetas.class);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
 
-			@Override
-			public void onFailure(Call<ResponseBody> call, Throwable t) {}
-		});
-        ApiManagement.API_INTERACTION  interaction2 = retrofit.create(ApiManagement.API_INTERACTION.class);
-        Call<ResponseBody> consulta2 = interaction2.feed_json();
-        consulta2.enqueue(new Callback<ResponseBody>() {
-            @Override
-            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
-                try {
-                    String resp = response.body().string();
-                    Gson gson = new Gson();
-                    Busqueda busqueda = gson.fromJson(resp, Busqueda.class);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-
-            @Override
-            public void onFailure(Call<ResponseBody> call, Throwable t) {}
-        });
-
+		interaction = retrofit.create(ApiManagement.API_INTERACTION.class);
+		//AsyncTask.execute(new Runnable() {
+		//	@Override
+		//	public void run() {
+		//		Recetas recetas = Datos.getfeed(interaction);
+		//	}
+		//});
 	}
 }

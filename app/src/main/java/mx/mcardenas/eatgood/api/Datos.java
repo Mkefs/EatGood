@@ -15,7 +15,7 @@ public class Datos {
         }
     }
     static public Busqueda getsearch(ApiManagement.API_INTERACTION api) {
-        Call<Busqueda> consulta = api.search_json();
+        Call<Busqueda> consulta = api.search_json("pollo", 1);
         try {
             Response<Busqueda> respuesta = consulta.execute();
             return respuesta.body();

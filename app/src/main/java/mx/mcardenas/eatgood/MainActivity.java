@@ -51,8 +51,9 @@ public class MainActivity extends AppCompatActivity {
 		//AsyncTask.execute(new Runnable() {
 		//	@Override
 		//	public void run() {
-		//		Recetas recetas = Datos.getfeed(interaction);
+		//		Recetas recetas = Datos.getsearch(interaction);
 		//	}
 		//});
+
 	}
 }

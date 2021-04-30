@@ -2,27 +2,11 @@ package mx.mcardenas.eatgood;
 
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.StrictMode;
-import android.widget.Button;
-
 import com.google.android.material.tabs.TabLayout;
-import com.google.gson.Gson;
-
 import androidx.viewpager.widget.ViewPager;
 import androidx.appcompat.app.AppCompatActivity;
-
-import java.io.IOException;
-import java.util.List;
-
 import mx.mcardenas.eatgood.api.ApiManagement;
-import mx.mcardenas.eatgood.api.Descripcion;
-import mx.mcardenas.eatgood.api.Recetas;
-import mx.mcardenas.eatgood.api.interaccion_programatica;
 import mx.mcardenas.eatgood.ui.main.SectionsPagerAdapter;
-import okhttp3.ResponseBody;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.converter.scalars.ScalarsConverterFactory;
@@ -45,7 +29,13 @@ public class MainActivity extends AppCompatActivity {
 				.addConverterFactory(GsonConverterFactory.create())
 				.baseUrl("https://gr.kiwilimon.com/v6/")
 				.build();
+		interaction = retrofit.create(ApiManagement.API_INTERACTION.class);
 
-        interaction = retrofit.create(ApiManagement.API_INTERACTION.class);
+		//AsyncTask.execute(new Runnable() {
+		//	@Override
+		//	public void run() {
+		//		Recetas recetas = Datos.getsearch(interaction);
+		//	}
+		//});
 	}
 }

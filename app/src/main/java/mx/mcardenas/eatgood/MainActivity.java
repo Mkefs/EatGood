@@ -33,7 +33,13 @@ public class MainActivity extends AppCompatActivity {
 				.addConverterFactory(GsonConverterFactory.create())
 				.baseUrl("https://gr.kiwilimon.com/v6/")
 				.build();
+		interaction = retrofit.create(ApiManagement.API_INTERACTION.class);
 
-        interaction = retrofit.create(ApiManagement.API_INTERACTION.class);
+		//AsyncTask.execute(new Runnable() {
+		//	@Override
+		//	public void run() {
+		//		Recetas recetas = Datos.getsearch(interaction);
+		//	}
+		//});
 	}
 }

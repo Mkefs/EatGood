@@ -6,8 +6,13 @@ import retrofit2.http.GET;
 import retrofit2.http.Query;
 
 public class ApiManagement {
-    public interface  API_INTERACTION{
+    public interface  API_INTERACTION {
         @GET("feed?language=es&device=android&type=recetaclasificacion&v=1&key=1000")
         Call<Recetas> feed_json();
+        @GET("search?language=es&device=android&human=1&page=1&quantity=10")
+        Call<Busqueda> search_json(
+                @Query("q") String busqueda,
+                @Query("page") int pagina
+        );
     }
 }

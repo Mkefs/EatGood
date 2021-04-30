@@ -6,3 +6,4 @@ public class Recetas{
     String type;
     public Descripcion[] payload;
 }
+

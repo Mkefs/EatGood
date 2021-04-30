@@ -14,8 +14,9 @@ public class Datos {
             return null;
         }
     }
-    static public Busqueda getsearch(ApiManagement.API_INTERACTION api) {
-        Call<Busqueda> consulta = api.search_json("", 1);
+    static public Busqueda getsearch(ApiManagement.API_INTERACTION api, String[] ingredientes) {
+        String ingredientes2 = Busqueda.getingredientes(ingredientes);
+        Call<Busqueda> consulta = api.search_json(ingredientes2, 1);
         try {
             Response<Busqueda> respuesta = consulta.execute();
             return respuesta.body();

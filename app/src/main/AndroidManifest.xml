@@ -9,6 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.EatGood">
+        <activity android:name=".MostrarReceta"></activity>
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"

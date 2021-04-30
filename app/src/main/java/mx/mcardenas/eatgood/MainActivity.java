@@ -30,6 +30,7 @@ import retrofit2.converter.scalars.ScalarsConverterFactory;
 
 public class MainActivity extends AppCompatActivity {
 	ApiManagement.API_INTERACTION interaction;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -48,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
 				.build();
 
 		interaction = retrofit.create(ApiManagement.API_INTERACTION.class);
+
 		//AsyncTask.execute(new Runnable() {
 		//	@Override
 		//	public void run() {

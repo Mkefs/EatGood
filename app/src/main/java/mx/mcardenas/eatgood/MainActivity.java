@@ -11,7 +11,7 @@ import mx.mcardenas.eatgood.ui.main.SectionsPagerAdapter;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.converter.scalars.ScalarsConverterFactory;
-
+//abc
 public class MainActivity extends AppCompatActivity {
 	ItemsDB db;
 	ApiManagement.API_INTERACTION interaction;

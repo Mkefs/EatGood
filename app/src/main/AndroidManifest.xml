@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="dev.cotapro.mx">
 
+    *Permisos de internet para imagenes Carlos*>
+    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,6 +12,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.EatGood">
+        <activity android:name=".ui.recetas.RecetasFragmento"></activity>
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name">

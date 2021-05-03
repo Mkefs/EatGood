@@ -1,5 +1,5 @@
 package dev.cotapro.mx;
 
-public class FeddData {
+public class FeedData {
 
 }

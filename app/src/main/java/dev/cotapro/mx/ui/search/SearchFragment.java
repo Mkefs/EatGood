@@ -12,12 +12,14 @@ import androidx.fragment.app.Fragment;
 import dev.cotapro.mx.R;
 
 public class SearchFragment extends Fragment {
+	View vista;
 	@Nullable
 	@Override
 	public View onCreateView(@NonNull LayoutInflater inflater,
 							 @Nullable ViewGroup container,
 							 @Nullable Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		return inflater.inflate(R.layout.search_layout, container, false);
+		vista = inflater.inflate(R.layout.search_layout, container, false);
+		return vista;
 	}
 }

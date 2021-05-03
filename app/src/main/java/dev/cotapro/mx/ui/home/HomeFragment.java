@@ -15,7 +15,6 @@ import dev.cotapro.mx.R;
 
 public class HomeFragment extends Fragment {
 	View vista;
-	Text texto;
 	@Nullable
 	@Override
 	public View onCreateView(@NonNull LayoutInflater inflater,
@@ -23,8 +22,6 @@ public class HomeFragment extends Fragment {
 							 @Nullable Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		vista = inflater.inflate(R.layout.home_layout, container, false);
-		// Mi codigo
-		texto = vista.findViewById(R.id.textView);
 
 		return vista;
 	}

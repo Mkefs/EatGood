@@ -9,17 +9,18 @@
         android:id="@+id/navigation_home"
         android:name="dev.cotapro.mx.ui.home.HomeFragment"
         android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
-
-    <fragment
-        android:id="@+id/navigation_dashboard"
-        android:name="dev.cotapro.mx.ui.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        tools:layout="@layout/home_layout" />
 
     <fragment
         android:id="@+id/navigation_notifications"
-        android:name="dev.cotapro.mx.ui.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+        android:name="dev.cotapro.mx.ui.feed.FeedFragment"
+        android:label="@string/title_feed"
+        tools:layout="@layout/feed_layout" />
+
+    <fragment
+        android:id="@+id/navigation_dashboard"
+        android:name="dev.cotapro.mx.ui.search.SearchFragment"
+        android:label="@string/title_search"
+        tools:layout="@layout/search_layout" />
+
 </navigation>

@@ -1,4 +1,4 @@
-package mx.mcardenas.eatgood;
+package dev.cotapro.mx;
 
 import org.junit.Test;
 

@@ -2,6 +2,8 @@ package dev.cotapro.mx.ui.recetas;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.widget.ImageView;
 
@@ -17,10 +19,11 @@ public class RecetasFragmento extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.receta_vista);
 
-        imageView = findViewById(R.id.imgPlatilloPrueba);
+        ImageView imageView = (ImageView) findViewById(R.id.imgPlatilloPrueba);
 
-        String url="https://media-adsa.camilyo.software/media-adsa/static/3228/270.png";
         Glide.with(this)
-                .load(url).placeholder(R.drawable.ic_launcher_background).error(R.drawable.ic_launcher_background).into(imageView);
+            .load("https://www.laespanolaaceites.com/wp-content/uploads/2019/06/pizza-con-chorizo-jamon-y-queso-1080x671.jpg")
+                .placeholder(new ColorDrawable(Color.RED))
+                .into(imageView);
     }
 }

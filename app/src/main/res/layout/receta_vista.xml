@@ -4,40 +4,126 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.recetas.RecetasFragmento">
+    android:background="#F6CE48"
+    tools:context=".ui.recetas.RecetaActivity">
 
     <ImageView
         android:id="@+id/imgPlatilloPrueba"
-        android:layout_width="410dp"
-        android:layout_height="200dp"
+        android:layout_width="241dp"
+        android:layout_height="185dp"
+        android:background="#F6CE48"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/textView4"
-        android:layout_width="412dp"
-        android:layout_height="34dp"
-
-        android:text="Pizza"
+        android:layout_width="169dp"
+        android:layout_height="66dp"
+        android:background="#FF9E01"
+        android:fontFamily="sans-serif"
+        android:text=" Pizza"
         android:textAlignment="center"
+        android:textColor="#4D1B13"
         android:textSize="24sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imgPlatilloPrueba"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#FF9E01"
+        android:text="Final:\n30 min"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.301"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.179" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#FF9E01"
+        android:text="05/05/2021"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.011"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.199" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#FF9E01"
+        android:text="5 Estrellas"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.011"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.16" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#FF9E01"
+        android:text="Cocción:\n15 min"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.269"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#FF9E01"
+        android:text="266 Cal"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.008"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="412dp"
-        android:layout_height="26dp"
-        android:text="Chef"
+        android:layout_width="169dp"
+        android:layout_height="20dp"
+        android:background="#FFFCDB"
+        android:text="Carlos Anguiano"
         android:textAlignment="center"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textAllCaps="true"
+        android:textColor="#000000"
+        app:layout_constraintBottom_toBottomOf="@+id/imgPlatilloPrueba"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView4"
         app:layout_constraintVertical_bias="0.0" />
@@ -45,19 +131,62 @@
     <TextView
         android:id="@+id/textView3"
         android:layout_width="371dp"
-        android:layout_height="23dp"
+        android:layout_height="19dp"
+        android:layout_marginTop="5dp"
+        android:background="#FF9E01"
         android:text="Ingredientes:"
+        android:textColor="#000000"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:layout_constraintTop_toBottomOf="@+id/txtDescripcion"
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
-        android:id="@+id/textView9"
+        android:id="@+id/textView11"
         android:layout_width="371dp"
-        android:layout_height="130dp"
-        android:text="Masa: 1kg Harina, 6cu (60 gr) Azúcar, 2cu (20 gr) Levadura, 1cu (19 gr) Sal, 6cu (48 ml)Aceite, 2.25 tazas (2250 ml) Agua tibia “Tolerable al tacto”."
+        android:layout_height="19dp"
+        android:layout_marginTop="5dp"
+        android:background="#FF9E01"
+        android:text="Preparación:"
+        android:textColor="#000000"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtIngredientes"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/txtIngredientes"
+        android:layout_width="371dp"
+        android:layout_height="101dp"
+        android:background="#FFFCDB"
+        android:text="=Salsa de Tomate:
+        \n-8 Jitomates.
+        \n-½ Cebolla.
+        \n-Pimienta.
+        \n-Orégano.
+        \n-Aceite de Olivo.
+        \n\n=Masa:
+        \n-1kg Harina.
+        \n-6cu(60 gr) Azúcar.
+        \n-2cu(20 gr) Levadura.
+        \n-1cu(19 gr) Sal.
+        \n-6cu(48 ml)Aceite de Olivo.
+        \n-2.25 tazas(2250 ml).
+        \n-Agua tibia “Tolerable al tacto”.
+        \n\n=Pizza:
+        \n-Masa.
+        \n-Salsa de Tomate.
+        \n-Queso (Chedar/Manchego).
+        \n-Ingredientes al gusto(Jamon, Salchicha, Salami, Champiñones, Piña).
+        \n\n=Extas:
+        \n-Harina extra para trabajar.
+        \n-5 moldes para pizza. "
+        android:textAlignment="viewStart"
+        android:textColor="#000000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -65,28 +194,49 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
-        android:id="@+id/textView11"
-        android:layout_width="371dp"
-        android:layout_height="17dp"
-        android:text="Preparación:"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.488"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView9"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <TextView
-        android:id="@+id/textView12"
+        android:id="@+id/txtPreparacion"
         android:layout_width="371dp"
         android:layout_height="247dp"
-        android:text="TextView"
+        android:background="#FFFCDB"
+        android:text="Empiezas por la salsa de Tomate, primero licuas todo en crudo, y lo pones en una sartén con un chorrito de aceite de olivo y lo sazonas con sal, déjalo ahí hasta que hierva.
+        \n\nContinuas por la masa, primero debes de mezclar en un traste grande todos ingredientes secos (Harina, Azucar, Sal), posteriormente añade la levadura.
+        \n\nYa que se integre, añade el agua y amasa... cuando tengas una masa pegajosa añade el aceite y amasa hasta integrar todo y que tengas una masa lisa y que no se pege.
+        \n\nDivide la masa en 5 bolas iguales.  Deja reposar 15 min la masa.  Toma las bolas de masa individualmente y extiendelas en una mesa (ayudate con la harina extra)... la idea es tener bases en los moldes, bases delgadas y enharinadas (lo suficiente para que se deslicen libres por el molde), cuida de no sobrepasar el uso de harina.
+        \n\nArma las pizzas tomando una base en un molde y comienza untando salsa de tomate formando una capa delgada y uniforme de salsa. Añade el queso y los demas ingredientes a tu gusto (trata de cubrir todo a exepcion de las orillas).
+        \n\nMetelas al horno a 250°C por unos 15 minutos y revisalas, la orilla debe tener una cortesa crujiente. "
+        android:textColor="#000000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.476"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView11"
         app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="371dp"
+        android:layout_height="19dp"
+        android:background="#FF9E01"
+        android:text="Descripción:"
+        android:textColor="#000000"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgPlatilloPrueba"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/txtDescripcion"
+        android:layout_width="371dp"
+        android:layout_height="80dp"
+        android:background="#FFFCDB"
+        android:text="Pizza, receta rica y facil para hacer la pizza en casa. La masa queda ligerita, y delgada."
+        android:textColor="#000000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgPlatilloPrueba"
+        app:layout_constraintVertical_bias="0.04" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -11,8 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.EatGood">
-        <activity android:name=".Receta"></activity>
-        <activity android:name=".ui.recetas.RecetasFragmento" />
+        <activity android:name=".ui.recetas.RecetaActivity" android:label="Receta" />
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name">

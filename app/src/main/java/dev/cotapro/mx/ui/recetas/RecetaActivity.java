@@ -1,14 +1,16 @@
-package dev.cotapro.mx;
+package dev.cotapro.mx.ui.recetas;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class Receta extends AppCompatActivity {
+import dev.cotapro.mx.R;
+
+public class RecetaActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_receta);
+        setContentView(R.layout.receta_vista);
     }
 }

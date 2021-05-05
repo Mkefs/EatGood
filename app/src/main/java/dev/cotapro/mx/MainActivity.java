@@ -21,13 +21,12 @@ public class MainActivity extends AppCompatActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		/*feed = new FeedFragment();
+		feed = new FeedFragment();
 		home = new HomeFragment();
 		search = new SearchFragment();
 
 		setContentView(R.layout.activity_main);
-		setNavController();*/
-		setContentView(R.layout.receta_vista);
+		setNavController();
 	}
 
 	private void setNavController() {

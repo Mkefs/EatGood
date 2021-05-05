@@ -1,4 +1,4 @@
-package mx.mcardenas.eatgood.api;
+package dev.cotapro.mx.api;
 
 public class Receta {
     public int calories,favorites, key;

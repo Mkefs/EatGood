@@ -1,6 +1,329 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/receta_fondo"
+    android:backgroundTint="#80FFFFFF"
+    android:backgroundTintMode="src_over">
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="413dp"
+        android:layout_height="69dp"
+        android:background="#FF9E00"
+        android:fontFamily="sans-serif-black"
+        android:gravity="center"
+        android:text="EatGood"
+        android:textAlignment="center"
+        android:textColor="#FFFCDB"
+        android:textSize="35dp"
+        app:layout_constraintBottom_toTopOf="@+id/btnRecetas"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnFavoritos"
+        android:layout_width="137dp"
+        android:layout_height="59dp"
+        android:layout_marginStart="137dp"
+        android:layout_marginTop="65dp"
+        android:backgroundTint="#FFD751"
+        android:fontFamily="sans-serif-medium"
+        android:text="Favoritos"
+        android:textAllCaps="false"
+        android:textColor="#4D1B13"
+        android:textSize="20sp"
+        app:cornerRadius="0.1dp"
+        app:layout_constraintBottom_toTopOf="@+id/btnCereales"
+        app:layout_constraintRight_toRightOf="parent"/>
+
+    <Button
+        android:id="@+id/btnRecetas"
+        android:layout_width="137dp"
+        android:layout_height="59dp"
+        android:layout_marginStart="137dp"
+        android:backgroundTint="#FFD751"
+        android:fontFamily="sans-serif-medium"
+        android:text="Recetas"
+        android:textAllCaps="false"
+        android:textColor="#4D1B13"
+        android:textSize="20sp"
+        app:cornerRadius="0.1dp"
+        app:layout_constraintBottom_toTopOf="@+id/btnCereales"
+        app:layout_constraintStart_toStartOf="@+id/btnRegistro" />
+
+    <Button
+        android:id="@+id/btnRegistro"
+        android:layout_width="137dp"
+        android:layout_height="59dp"
+        android:backgroundTint="#FFD751"
+        android:fontFamily="sans-serif-medium"
+        android:text="Registro"
+        android:textAllCaps="false"
+        android:textColor="#FFFCBD"
+        android:textSize="20sp"
+        app:cornerRadius="0.1dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/btnRecetas" />
+
+    <Button
+        android:id="@+id/btnVegetales"
+        android:layout_width="137dp"
+        android:layout_height="39dp"
+        android:layout_marginTop="59dp"
+        android:background="@drawable/custom_button"
+        android:padding="0.1dp"
+        android:text="Frutas | Verduras"
+        android:textAllCaps="false"
+        android:textColor="#FFFCDB"
+        android:textSize="15dp"
+        app:backgroundTint="@null"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/btnRegistro" />
+
+    <Button
+        android:id="@+id/btnAnimal"
+        android:layout_width="137dp"
+        android:layout_height="39dp"
+        android:layout_marginStart="137dp"
+        android:layout_marginTop="59dp"
+        android:background="@drawable/custom_button2"
+        android:padding="0.1dp"
+        android:text="Origen Animal"
+        android:textAllCaps="false"
+        android:textColor="#4D1B13"
+        android:textSize="15dp"
+        app:backgroundTint="@null"
+        app:layout_constraintStart_toStartOf="@+id/btnVegetales"
+        app:layout_constraintTop_toTopOf="@+id/btnRecetas" />
+
+    <Button
+        android:id="@+id/btnCereales"
+        android:layout_width="137dp"
+        android:layout_height="39dp"
+        android:layout_marginBottom="3dp"
+        android:background="@drawable/custom_button2"
+        android:padding="0.1dp"
+        android:text="Cereales"
+        android:textAllCaps="false"
+        android:textColor="#4D1B13"
+        android:textSize="15dp"
+        app:backgroundTint="@null"
+        app:layout_constraintBottom_toTopOf="@+id/ScrollViewSearch"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <ScrollView
+        android:id="@+id/ScrollViewSearch"
+        android:layout_width="411dp"
+        android:layout_height="575dp"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="156dp"
+        app:layout_constraintRight_toRightOf="@id/btnCereales"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <TableLayout
+            android:layout_width="412dp"
+            android:layout_height="355dp"
+            tools:layout_editor_absoluteY="376dp">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageButton
+                    android:id="@+id/imageButton"
+                    android:layout_width="137dp"
+                    android:layout_height="110dp"
+                    android:backgroundTint="#00FFFFFF"
+                    android:cropToPadding="false"
+                    android:scaleType="centerCrop"
+                    app:srcCompat="@drawable/icoima" />
+
+                <ImageButton
+                    android:id="@+id/imageButton0"
+                    android:layout_width="137dp"
+                    android:layout_height="110dp"
+                    android:backgroundTint="#00FFFFFF"
+                    android:cropToPadding="false"
+                    android:scaleType="centerCrop"
+                    app:srcCompat="@drawable/icoima" />
+
+                <ImageButton
+                    android:id="@+id/imageButton1"
+                    android:layout_width="137dp"
+                    android:layout_height="110dp"
+                    android:backgroundTint="#00FFFFFF"
+                    android:cropToPadding="false"
+                    android:scaleType="centerCrop"
+                    app:srcCompat="@drawable/icoima" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageButton
+                    android:id="@+id/imageButton2"
+                    android:layout_width="137dp"
+                    android:layout_height="110dp"
+                    android:backgroundTint="#00FFFFFF"
+                    android:cropToPadding="false"
+                    android:scaleType="centerCrop"
+                    app:srcCompat="@drawable/icoima" />
+
+                <ImageButton
+                    android:id="@+id/imageButton3"
+                    android:layout_width="137dp"
+                    android:layout_height="110dp"
+                    android:backgroundTint="#00FFFFFF"
+                    android:cropToPadding="false"
+                    android:scaleType="centerCrop"
+                    app:srcCompat="@drawable/icoima" />
+
+                <ImageButton
+                    android:id="@+id/imageButton4"
+                    android:layout_width="137dp"
+                    android:layout_height="110dp"
+                    android:backgroundTint="#00FFFFFF"
+                    android:cropToPadding="false"
+                    android:scaleType="centerCrop"
+                    app:srcCompat="@drawable/icoima" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageButton
+                    android:id="@+id/imageButton5"
+                    android:layout_width="137dp"
+                    android:layout_height="110dp"
+                    android:backgroundTint="#00FFFFFF"
+                    android:cropToPadding="false"
+                    android:scaleType="centerCrop"
+                    app:srcCompat="@drawable/icoima" />
+
+                <ImageButton
+                    android:id="@+id/imageButton6"
+                    android:layout_width="137dp"
+                    android:layout_height="110dp"
+                    android:backgroundTint="#00FFFFFF"
+                    android:cropToPadding="false"
+                    android:scaleType="centerCrop"
+                    app:srcCompat="@drawable/icoima" />
+
+                <ImageButton
+                    android:id="@+id/imageButton7"
+                    android:layout_width="137dp"
+                    android:layout_height="110dp"
+                    android:backgroundTint="#00FFFFFF"
+                    android:cropToPadding="false"
+                    android:scaleType="centerCrop"
+                    app:srcCompat="@drawable/icoima" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageButton
+                    android:id="@+id/imageButton8"
+                    android:layout_width="137dp"
+                    android:layout_height="110dp"
+                    android:backgroundTint="#00FFFFFF"
+                    android:cropToPadding="false"
+                    android:scaleType="centerCrop"
+                    app:srcCompat="@drawable/icoima" />
+
+                <ImageButton
+                    android:id="@+id/imageButton9"
+                    android:layout_width="137dp"
+                    android:layout_height="110dp"
+                    android:backgroundTint="#00FFFFFF"
+                    android:cropToPadding="false"
+                    android:scaleType="centerCrop"
+                    app:srcCompat="@drawable/icoima" />
+
+                <ImageButton
+                    android:id="@+id/imageButton10"
+                    android:layout_width="137dp"
+                    android:layout_height="110dp"
+                    android:backgroundTint="#00FFFFFF"
+                    android:cropToPadding="false"
+                    android:scaleType="centerCrop"
+                    app:srcCompat="@drawable/icoima" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageButton
+                    android:id="@+id/imageButton11"
+                    android:layout_width="137dp"
+                    android:layout_height="110dp"
+                    android:backgroundTint="#00FFFFFF"
+                    android:cropToPadding="false"
+                    android:scaleType="centerCrop"
+                    app:srcCompat="@drawable/icoima" />
+
+                <ImageButton
+                    android:id="@+id/imageButton12"
+                    android:layout_width="137dp"
+                    android:layout_height="110dp"
+                    android:backgroundTint="#00FFFFFF"
+                    android:cropToPadding="false"
+                    android:scaleType="centerCrop"
+                    app:srcCompat="@drawable/icoima" />
+
+                <ImageButton
+                    android:id="@+id/imageButton13"
+                    android:layout_width="137dp"
+                    android:layout_height="110dp"
+                    android:backgroundTint="#00FFFFFF"
+                    android:cropToPadding="false"
+                    android:scaleType="centerCrop"
+                    app:srcCompat="@drawable/icoima" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageButton
+                    android:id="@+id/imageButton14"
+                    android:layout_width="137dp"
+                    android:layout_height="110dp"
+                    android:backgroundTint="#00FFFFFF"
+                    android:cropToPadding="false"
+                    android:scaleType="centerCrop"
+                    app:srcCompat="@drawable/icoima" />
+
+                <ImageButton
+                    android:id="@+id/imageButton15"
+                    android:layout_width="137dp"
+                    android:layout_height="110dp"
+                    android:backgroundTint="#00FFFFFF"
+                    android:cropToPadding="false"
+                    android:scaleType="centerCrop"
+                    app:srcCompat="@drawable/icoima" />
+
+                <ImageButton
+                    android:id="@+id/imageButton16"
+                    android:layout_width="137dp"
+                    android:layout_height="110dp"
+                    android:backgroundTint="#00FFFFFF"
+                    android:cropToPadding="false"
+                    android:scaleType="centerCrop"
+                    app:srcCompat="@drawable/icoima" />
+            </TableRow>
+
+        </TableLayout>
+    </ScrollView>
+
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

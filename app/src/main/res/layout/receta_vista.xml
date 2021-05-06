@@ -4,14 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F6CE48"
+    android:background="@drawable/receta_fondo"
+    android:backgroundTint="#80FFFFFF"
+    android:backgroundTintMode="src_over"
     tools:context=".ui.recetas.RecetaActivity">
 
     <ImageView
         android:id="@+id/imgPlatilloPrueba"
         android:layout_width="241dp"
         android:layout_height="185dp"
-        android:background="#F6CE48"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -21,10 +22,11 @@
 
     <TextView
         android:id="@+id/textView4"
-        android:layout_width="169dp"
+        android:layout_width="170dp"
         android:layout_height="66dp"
         android:background="#FF9E01"
         android:fontFamily="sans-serif"
+        android:gravity="center"
         android:text="Pizza"
         android:textAlignment="center"
         android:textColor="#4D1B13"
@@ -32,7 +34,7 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.004"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
@@ -42,15 +44,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="#FF9E01"
+        android:gravity="center"
         android:text="Final:\n30 min"
         android:textAlignment="center"
         android:textColor="#000000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.301"
+        app:layout_constraintHorizontal_bias="0.279"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.179" />
+        app:layout_constraintVertical_bias="0.191" />
 
     <TextView
         android:id="@+id/textView9"
@@ -58,6 +61,7 @@
         android:layout_height="wrap_content"
         android:background="#FF9E01"
         android:text="05/05/2021"
+        android:gravity="center"
         android:textAlignment="center"
         android:textColor="#000000"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -72,6 +76,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="#FF9E01"
+        android:gravity="center"
         android:text="5 Estrellas"
         android:textAlignment="center"
         android:textColor="#000000"
@@ -88,6 +93,7 @@
         android:layout_height="wrap_content"
         android:background="#FF9E01"
         android:text="Cocción:\n15 min"
+        android:gravity="center"
         android:textAlignment="center"
         android:textColor="#000000"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -104,6 +110,7 @@
         android:background="#FF9E01"
         android:text="266 Cal"
         android:textAlignment="center"
+        android:gravity="center"
         android:textColor="#000000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -114,9 +121,10 @@
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="169dp"
+        android:layout_width="170dp"
         android:layout_height="20dp"
         android:background="#FFFCDB"
+        android:gravity="center"
         android:text="Carlos Anguiano"
         android:textAlignment="center"
         android:textAllCaps="true"
@@ -162,7 +170,6 @@
         android:id="@+id/txtIngredientes"
         android:layout_width="371dp"
         android:layout_height="101dp"
-        android:background="#FFFCDB"
         android:text="=Salsa de Tomate:
         \n-8 Jitomates.
         \n-½ Cebolla.
@@ -197,7 +204,6 @@
         android:id="@+id/txtPreparacion"
         android:layout_width="371dp"
         android:layout_height="247dp"
-        android:background="#FFFCDB"
         android:text="Empiezas por la salsa de Tomate, primero licuas todo en crudo, y lo pones en una sartén con un chorrito de aceite de olivo y lo sazonas con sal, déjalo ahí hasta que hierva.
         \n\nContinuas por la masa, primero debes de mezclar en un traste grande todos ingredientes secos (Harina, Azucar, Sal), posteriormente añade la levadura.
         \n\nYa que se integre, añade el agua y amasa... cuando tengas una masa pegajosa añade el aceite y amasa hasta integrar todo y que tengas una masa lisa y que no se pege.
@@ -229,7 +235,6 @@
         android:id="@+id/txtDescripcion"
         android:layout_width="371dp"
         android:layout_height="80dp"
-        android:background="#FFFCDB"
         android:text="Pizza, receta rica y facil para hacer la pizza en casa. La masa queda ligerita, y delgada."
         android:textColor="#000000"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -237,6 +242,20 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imgPlatilloPrueba"
         app:layout_constraintVertical_bias="0.04" />
+
+    <Button
+        android:id="@+id/btnvolver_recetas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#FF9E01"
+        android:text="Volver"
+        android:textColor="#000000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.894"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.995" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

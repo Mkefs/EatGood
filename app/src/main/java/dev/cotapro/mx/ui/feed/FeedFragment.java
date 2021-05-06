@@ -38,7 +38,7 @@ public class FeedFragment extends Fragment {
 
 	public void init(){
 		elements= new ArrayList<>();
-		elements.add(new ListElement("#3BB637", "Quesadillas de panela", "Eva Maria", "5 estrellas"));
+		elements.add(new ListElement("#3BB637", "tacos de frijoles", "Eva Maria", "5 estrellas"));
 		elements.add(new ListElement("#3BB637", "Chiles en nogada", "Carlos Rivera", "3 estrellas"));
 		elements.add(new ListElement("#3BB637", "Costilla en salsa verde", "Paco Esparza", "4 estrellas"));
 		elements.add(new ListElement("#3BB637", "Tacos de sal", "Roberto Pinto", "5 estrellas"));

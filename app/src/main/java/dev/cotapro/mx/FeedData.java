@@ -1,5 +1,11 @@
 package dev.cotapro.mx;
 
-public class FeedData {
+import dev.cotapro.mx.recetas.GuardadosDB;
 
+public class FeedData {
+	static GuardadosDB db;
+
+	static void init() {
+
+	}
 }

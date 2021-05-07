@@ -3,8 +3,10 @@ package dev.cotapro.mx.ui.feed;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toolbar;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -21,6 +23,8 @@ import kotlin.collections.ArrayDeque;
 public class FeedFragment extends Fragment {
 	View vista;
 	List<ListElement> elements;
+	Toolbar toolbar;
+
 	Context context;
 	@Nullable
 	@Override
@@ -33,6 +37,7 @@ public class FeedFragment extends Fragment {
 		vista = inflater.inflate(R.layout.feed_layout, container, false);
 		context= vista.getContext();
 		init();
+
 		return vista;
 	}
 
@@ -51,4 +56,5 @@ public class FeedFragment extends Fragment {
 		recyclerView.setAdapter(listAdapter);
 
 	}
+
 }

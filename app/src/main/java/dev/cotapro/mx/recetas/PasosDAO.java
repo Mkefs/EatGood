@@ -5,7 +5,7 @@ import androidx.room.Insert;
 import androidx.room.Query;
 
 @Dao
-public interface PasosDAO {
+public abstract interface PasosDAO {
 	@Insert
 	public void inertSteps(Pasos... pasos);
 

@@ -24,12 +24,10 @@ public class FeedData {
 		ingredientes = new Retrofit.Builder()
 				.addConverterFactory(ScalarsConverterFactory.create())
 				.addConverterFactory(GsonConverterFactory.create())
-				.baseUrl("")
+				.baseUrl("https://ingredients-eatgood.000webhostapp.com/")
 				.build();
-			.baseUrl("")
-			.build();
     db = Room.databaseBuilder(ctx,
-			GuardadosDB.class, "Rectas_Guardadas")
+			GuardadosDB.class, "Recetas_Guardadas")
 			.build();
 	}
 }

@@ -8,10 +8,5 @@ public class ApiManagement {
     public interface API_INTERACION{
         @GET("ingredientes")
         Call<Nombres> nombres_json();
-
-        @GET("imagen?nombre")
-        Call<Imagen> imagen_json(
-                @Query("n") String nombre
-        );
     }
 }

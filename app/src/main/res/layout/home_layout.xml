@@ -21,47 +21,18 @@
         android:background="@drawable/fondo">
 
         <TextView
-            android:id="@+id/textView3"
+            android:id="@+id/titleTextView"
+            android:layout_width="333dp"
+            android:layout_height="wrap_content"
+            android:text="Recetas Favoritas"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:textColor="@color/black"
+            android:textSize="36sp" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/listRecyclerView"
             android:layout_width="match_parent"
-            android:layout_height="80dp"
-            android:background="#F6CE48" />
-
-        <TextView
-            android:id="@+id/tv1"
-            android:layout_width="444dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="17dp"
-            android:background="#F6CE48"
-            android:fontFamily="monospace"
-            android:lineSpacingExtra="6sp"
-            android:text=" ESTAS SON LAS RECETAS QUE MÁS TE GUSTARON:"
-            android:textAlignment="viewStart"
-            android:textAllCaps="true"
-            android:textColor="#4D1B13"
-            android:textColorHint="#8BC34A"
-            android:textColorLink="#4D1B13"
-            android:textSize="17sp"
-            android:textStyle="bold"
-            android:typeface="monospace" />
-
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="180dp"
-            android:layout_marginTop="48dp"
-            android:fontFamily="monospace"
-            android:lineSpacingExtra="6sp"
-            android:text="(o´∀｀o)"
-            android:textAlignment="viewStart"
-            android:textAllCaps="true"
-            android:textColor="#FFFFFF"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            android:typeface="monospace" />
-
-
+            android:layout_height="610dp" />
     </FrameLayout>
 
 </LinearLayout>

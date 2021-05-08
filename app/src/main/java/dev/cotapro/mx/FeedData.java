@@ -17,8 +17,9 @@ public class FeedData {
 		kiwilimon = new Retrofit.Builder()
 			.baseUrl("")
 			.build();
-    db = Room.databaseBuilder(ctx,
-			GuardadosDB.class, "Rectas_Guardadas")
-			.build();
+		db = Room.databaseBuilder(ctx,
+				GuardadosDB.class, "Rectas_Guardadas")
+				.build();
+		started = true;
 	}
 }

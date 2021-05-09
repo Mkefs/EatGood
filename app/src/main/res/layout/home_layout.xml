@@ -21,6 +21,7 @@
         android:background="@drawable/fondo">
 
         <TextView
+<<<<<<< HEAD
             android:id="@+id/titleTextView"
             android:layout_width="333dp"
             android:layout_height="wrap_content"
@@ -28,6 +29,40 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Body1"
             android:textColor="@color/black"
             android:textSize="36sp" />
+=======
+            android:id="@+id/textView3"
+            android:layout_width="match_parent"
+            android:layout_height="59dp"
+            android:background="#F6CE48" />
+
+        <TextView
+            android:id="@+id/tv1"
+            android:layout_width="155dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="17dp"
+            android:background="#F6CE48"
+            android:fontFamily="monospace"
+            android:lineSpacingExtra="6sp"
+            android:text=" TUS GUSTOS"
+            android:textAlignment="viewStart"
+            android:textAllCaps="true"
+            android:textColor="#4D1B13"
+            android:textColorHint="#8BC34A"
+            android:textColorLink="#4D1B13"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:typeface="monospace" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#FFFFFF"
+            android:layout_marginLeft="175dp"
+            android:drawableBottom="@drawable/ic_baseline_favorite_border_24"
+            android:drawableTint="#4D1B13" />
+>>>>>>> 2c21a7dcb2f27e817d940e760cca3baeb5a1043f
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/listRecyclerView"

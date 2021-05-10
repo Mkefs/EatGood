@@ -29,5 +29,6 @@ public class FeedData {
     db = Room.databaseBuilder(ctx,
 			GuardadosDB.class, "Recetas_Guardadas")
 			.build();
+		started = true;
 	}
 }

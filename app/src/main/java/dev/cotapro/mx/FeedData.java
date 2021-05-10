@@ -4,6 +4,8 @@ import android.content.Context;
 import androidx.room.Room;
 import dev.cotapro.mx.recetas.GuardadosDB;
 import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+import retrofit2.converter.scalars.ScalarsConverterFactory;
 
 public class FeedData {
 	private static boolean started = false;
@@ -15,11 +17,18 @@ public class FeedData {
 		if(started)
 			return;
 		kiwilimon = new Retrofit.Builder()
-			.baseUrl("")
-			.build();
-		db = Room.databaseBuilder(ctx,
-				GuardadosDB.class, "Rectas_Guardadas")
+				.addConverterFactory(ScalarsConverterFactory.create())
+				.addConverterFactory(GsonConverterFactory.create())
+				.baseUrl("https://gr.kiwilimon.com/v6")
 				.build();
+		ingredientes = new Retrofit.Builder()
+				.addConverterFactory(ScalarsConverterFactory.create())
+				.addConverterFactory(GsonConverterFactory.create())
+				.baseUrl("https://ingredients-eatgood.000webhostapp.com/")
+				.build();
+    db = Room.databaseBuilder(ctx,
+			GuardadosDB.class, "Recetas_Guardadas")
+			.build();
 		started = true;
 	}
 }

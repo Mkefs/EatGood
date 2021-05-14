@@ -11,7 +11,9 @@ public class ApiManagement {
         //Consulta para el contenedor feed (recetas)
         @GET("feed?language=es&device=android&type=recetaclasificacion&v=1&key=1000")
         //La consulta se guarda en el objeto Recetas
-        Call<Recetas> feed_json();
+        Call<Recetas> feed_json(
+            @Query("page") int pagina
+        );
         //consulta para el contenedor search (busqueda)
         @GET("search?language=es&device=android&human=1&page=1&quantity=10")
         //La consulta se guarda en el objeto Busqueda

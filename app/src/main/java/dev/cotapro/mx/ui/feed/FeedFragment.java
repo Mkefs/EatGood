@@ -20,7 +20,9 @@ import java.util.List;
 import dev.cotapro.mx.R;
 import kotlin.collections.ArrayDeque;
 
-public class FeedFragment extends Fragment {
+public class
+
+FeedFragment extends Fragment {
 	View vista;
 	List<ListElement> elements;
 	Toolbar toolbar;

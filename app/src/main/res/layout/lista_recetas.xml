@@ -20,7 +20,7 @@
             android:orientation="horizontal"
             android:padding="6dp">
             <ImageView
-                android:id="@+id/iconImageView"
+                android:id="@+id/foto"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
                 android:layout_alignParentStart="true"
@@ -37,10 +37,10 @@
                 android:layout_alignParentTop="true"
                 android:layout_marginStart="4dp"
                 android:layout_marginTop="2dp"
-                android:layout_toEndOf="@+id/iconImageView"
+                android:layout_toEndOf="@+id/foto"
                 android:orientation="vertical"
                 android:layout_marginLeft="4dp"
-                android:layout_toRightOf="@+id/iconImageView">
+                android:layout_toRightOf="@+id/foto">
                 <TextView
                     android:id="@+id/PlatilloTextView"
                     android:layout_width="match_parent"

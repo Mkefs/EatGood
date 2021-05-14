@@ -49,7 +49,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder>{
 
         ViewHolder(View itemView){
             super(itemView);
-            iconImage=itemView.findViewById(R.id.iconImageView);
+            iconImage=itemView.findViewById(R.id.foto);
              platillo=itemView.findViewById(R.id.PlatilloTextView);
              autor=itemView.findViewById(R.id.AutorTextView);
             stars=itemView.findViewById(R.id.starsTextView);

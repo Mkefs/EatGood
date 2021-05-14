@@ -11,7 +11,9 @@ import androidx.fragment.app.Fragment;
 
 import dev.cotapro.mx.R;
 
-public class FeedFragment extends Fragment {
+public class
+
+FeedFragment extends Fragment {
 	View vista;
 	@Nullable
 	@Override

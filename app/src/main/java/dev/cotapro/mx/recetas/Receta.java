@@ -13,7 +13,7 @@ public class Receta {
 	public String chef_n;
 
 	@ColumnInfo(name = "chef_lastname")
-	public String	
+	public String chef_ln;
 
 	@ColumnInfo(name = "calories")
 	public int calorias;

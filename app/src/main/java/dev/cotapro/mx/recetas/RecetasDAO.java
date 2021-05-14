@@ -10,5 +10,5 @@ import dev.cotapro.mx.FeedData;
 @Dao
 public interface RecetasDAO {
 	@Insert
-	public long insertReceta(RecetasDAO receta);
+	public long insertReceta(Receta receta);
 }

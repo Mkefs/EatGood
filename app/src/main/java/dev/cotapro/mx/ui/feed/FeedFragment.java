@@ -56,7 +56,7 @@ FeedFragment extends Fragment {
 			public void run() {
 
 				Recetas recetas= Datos.getfeed(FeedData.kiwilimon);
-
+				//Datos.getfeed(8);
 
 				if(recetas == null)
 				{

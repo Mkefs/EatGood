@@ -21,6 +21,7 @@ import java.util.List;
 
 import dev.cotapro.mx.FeedData;
 import dev.cotapro.mx.R;
+import dev.cotapro.mx.api.ApiManagement;
 import dev.cotapro.mx.api.Datos;
 import dev.cotapro.mx.api.Recetas;
 import kotlin.collections.ArrayDeque;
@@ -43,38 +44,48 @@ FeedFragment extends Fragment {
 
 		vista = inflater.inflate(R.layout.feed_layout, container, false);
 		context= vista.getContext();
+
 		init();
 
 		return vista;
 	}
 
 	public void init(){
-
 		AsyncTask.execute(new Runnable() {
 			@Override
 			public void run() {
 
 				Recetas recetas= Datos.getfeed(FeedData.kiwilimon);
+
+
 				if(recetas == null)
 				{
 					System.out.println("Error");
 				}
+				System.out.println(recetas.payload[0].cn);
+				elements= new ArrayList<>();
 
+				ListAdapter listAdapter=new ListAdapter(elements, context);
+				RecyclerView recyclerView= vista.findViewById(R.id.recycleRecetas);
+				recyclerView.setHasFixedSize(true);
+				recyclerView.setLayoutManager(new LinearLayoutManager(context));
+				recyclerView.setAdapter(listAdapter);
 			}
 		});
-		elements= new ArrayList<>();
-		ListAdapter listAdapter=new ListAdapter(elements, context);
-		RecyclerView recyclerView= vista.findViewById(R.id.recycleRecetas);
-		recyclerView.setHasFixedSize(true);
-		recyclerView.setLayoutManager(new LinearLayoutManager(context));
-		recyclerView.setAdapter(listAdapter);
 
 
-		/*elements.add(new ListElement("#3BB637", "Chiles en nogada", "Carlos Rivera", "3 estrellas"));
+
+		/*elements.add(new ListElement("#3BB637", "Chiles en nogada", "a", "3 estrellas"));
 		elements.add(new ListElement("#3BB637", "Costilla en salsa verde", "Paco Esparza", "4 estrellas"));
 		elements.add(new ListElement("#3BB637", "Tacos de sal", "Roberto Pinto", "5 estrellas"));
-		elements.add(new ListElement("#3BB637", "Frijoles fritos con elote", "Humberto Lopez", "4 estrellas"));*/
+		elements.add(new ListElement("#3BB637", "Frijoles fritos con elote", "a", "4 estrellas"));*/
 
 	}
+	/*public void Datillos(){
+
+	}*/
+
+
+
 
 }

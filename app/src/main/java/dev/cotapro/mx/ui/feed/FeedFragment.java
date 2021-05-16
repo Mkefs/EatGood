@@ -32,7 +32,6 @@ FeedFragment extends Fragment {
 	View vista;
 	List<ListElement> elements;
 	Toolbar toolbar;
-
 	Context context;
 	@Nullable
 	@Override
@@ -55,12 +54,11 @@ FeedFragment extends Fragment {
 			@Override
 			public void run() {
 
-				Recetas recetas= Datos.getfeed(FeedData.kiwilimon);
-				//Datos.getfeed(8);
-
+				Recetas recetas= Datos.getfeed(FeedData.kiwilimon, 1);
 				if(recetas == null)
 				{
 					System.out.println("Error");
+					return;
 				}
 				System.out.println(recetas.payload[0].cn);
 				elements= new ArrayList<>();

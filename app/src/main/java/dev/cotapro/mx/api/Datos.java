@@ -6,8 +6,8 @@ import retrofit2.Response;
 //Dentro de esta clase ejecutaremos de manera síncrona la consulta
 public class Datos {
     //Método que devuelve las Recetas en la respuesta.body()
-    static public Recetas getfeed(ApiManagement.API_INTERACTION api) {
-        Call<Recetas> consulta = api.feed_json(8);
+    static public Recetas getfeed(ApiManagement.API_INTERACTION api, int pagina) {
+        Call<Recetas> consulta = api.feed_json(pagina);
         try {
             Response<Recetas> respuesta = consulta.execute();
             return respuesta.body();

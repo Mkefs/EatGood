@@ -7,6 +7,6 @@ import retrofit2.http.Query;
 public class ApiManagement {
     public interface API_INTERACION{
         @GET("ingredientes")
-        Call<String[][][]> nombres_json();
+        Call<String[][]> nombres_json();
     }
 }

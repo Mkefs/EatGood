@@ -1,45 +1,40 @@
 package dev.cotapro.mx.api;
 
 import java.io.IOException;
+
+import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Response;
-//Dentro de esta clase ejecutaremos de manera síncrona la consulta
 public class Datos {
-    //Método que devuelve las Recetas en la respuesta.body()
-    static public Recetas getfeed(ApiManagement.API_INTERACTION api, int page) {
-        Call<Recetas> consulta = api.feed_json(page);
+    static public String getfeed(ApiManagement.API_INTERACTION api, int page) {
+        Call<ResponseBody> consulta = api.feed_json(page);
         try {
-            Response<Recetas> respuesta = consulta.execute();
-            return respuesta.body();
+            Response<ResponseBody> respuesta = consulta.execute();
+            return respuesta.body().string();
         } catch (IOException exception) {
             return null;
         }
     }
-    //Método que devuelve las Busqueda en la respuesta.body()
-    static public Busqueda getsearch(ApiManagement.API_INTERACTION api, String[] ingrediente) {
-        //Hacemos un ciclo for que utilice el argumento String[] ingrediente (ingresado por el usuario) para definir la busqueda en el String ingredientes
+    static public String getsearch(ApiManagement.API_INTERACTION api, String[] ingrediente) {
         String ingredientes = "";
         for(int i = 0; i<=ingrediente.length; i++){
             ingredientes = ingredientes + ingrediente[i];
         }
-        //El método devuelve la Busqueda con el contenido del String ingredientes procesado en el for anterior y el page que se encuentra en ApiManagement en la respuesta.body()
-        Call<Busqueda> consulta = api.search_json(ingredientes, 1);
+        Call<ResponseBody> consulta = api.search_json(ingredientes, 1);
         try {
-            Response<Busqueda> respuesta = consulta.execute();
-            return respuesta.body();
+            Response<ResponseBody> respuesta = consulta.execute();
+            return respuesta.body().string();
         } catch (IOException exception) {
             return null;
         }
     }
-    //Método que devuelve las Receta en la respuesta.body()
-    static public Receta getrecipe(ApiManagement.API_INTERACTION api, int key){
-        Call<Receta> consulta = api.recipe_json(key);
+    static public String getrecipe(ApiManagement.API_INTERACTION api, int key){
+        Call<ResponseBody> consulta = api.recipe_json(key);
         try {
-            Response<Receta> respuesta = consulta.execute();
-            return respuesta.body();
+            Response<ResponseBody> respuesta = consulta.execute();
+            return respuesta.body().string();
         } catch (IOException exception) {
             return null;
         }
-
     }
 }

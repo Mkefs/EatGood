@@ -34,7 +34,9 @@ public class HomeFragment extends Fragment {
 			public void onClick(View vista2) {
 				Intent siguiente = new Intent(vista.getContext(), RecetaActivity.class);
 				Bundle parametros = new Bundle();
-				parametros.putInt("id", );
+				parametros.putInt("id", 37935);
+				parametros.putBoolean("saved", false);
+				siguiente.putExtras(parametros);
 				startActivity(siguiente);
 			}
 		});

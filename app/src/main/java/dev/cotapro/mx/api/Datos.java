@@ -32,8 +32,8 @@ public class Datos {
         }
     }
     //Método que devuelve las Receta en la respuesta.body()
-    static public Receta getrecipe(ApiManagement.API_INTERACTION api){
-        Call<Receta> consulta = api.recipe_json();
+    static public Receta getrecipe(ApiManagement.API_INTERACTION api, int key){
+        Call<Receta> consulta = api.recipe_json(key);
         try {
             Response<Receta> respuesta = consulta.execute();
             return respuesta.body();

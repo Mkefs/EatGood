@@ -33,6 +33,8 @@ public class HomeFragment extends Fragment {
 			@Override
 			public void onClick(View vista2) {
 				Intent siguiente = new Intent(vista.getContext(), RecetaActivity.class);
+				Bundle parametros = new Bundle();
+				parametros.putInt("id", );
 				startActivity(siguiente);
 			}
 		});

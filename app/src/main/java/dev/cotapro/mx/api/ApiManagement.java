@@ -15,7 +15,7 @@ public class ApiManagement {
             @Query("page") int pagina
         );
         //consulta para el contenedor search (busqueda)
-        @GET("search?language=es&device=android&human=1&page=1&quantity=10")
+        @GET("search?language=es&device=android&page=1&quantity=10")
         //La consulta se guarda en el objeto Busqueda
         Call<Busqueda> search_json(
                 //Hay dos objetos dentro del contenedor (busqueda y pagina)
@@ -23,7 +23,9 @@ public class ApiManagement {
                 @Query("page") int pagina
         );
         //Consulta para el contenedor recipe (receta)
-        @GET("recipe?language=es&device=android&human=1&path=/chef/7036255978&key=13")
-        Call<Receta> recipe_json();
+        @GET("recipe?language=es&device=android")
+        Call<Receta> recipe_json(
+            @Query("key") int key
+        );
     }
 }

@@ -3,6 +3,9 @@ package dev.cotapro.mx.ui.feed;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
+import android.telephony.gsm.GsmCellLocation;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
@@ -16,13 +19,18 @@ import androidx.loader.content.AsyncTaskLoader;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.gson.Gson;
+
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.Executor;
+import java.util.concurrent.Executors;
 
 import dev.cotapro.mx.FeedData;
 import dev.cotapro.mx.R;
 import dev.cotapro.mx.api.ApiManagement;
 import dev.cotapro.mx.api.Datos;
+import dev.cotapro.mx.api.Receta;
 import dev.cotapro.mx.api.Recetas;
 import kotlin.collections.ArrayDeque;
 
@@ -50,33 +58,40 @@ FeedFragment extends Fragment {
 	}
 
 	public void init(){
-		AsyncTask.execute(new Runnable() {
+		elements = new ArrayList<>();
+		Executor executor = Executors.newSingleThreadExecutor();
+		Handler handler = new Handler(Looper.getMainLooper());
+		executor.execute(new Runnable() {
 			@Override
 			public void run() {
 
-				Recetas recetas= Datos.getfeed(FeedData.kiwilimon, 1);
-				if(recetas == null)
-				{
+				String json = Datos.getfeed(FeedData.kiwilimon, 1);
+				Gson gson = new Gson();
+				Recetas recetas = gson.fromJson(json, Recetas.class);
+
+				if (recetas == null) {
 					System.out.println("Error");
 					return;
 				}
-				System.out.println(recetas.payload[0].cn);
-				elements= new ArrayList<>();
+				for (int i = 0; i < recetas.payload.length; i++) {
+					elements.add(new ListElement("#ffffff",
+						recetas.payload[i].n,
+						recetas.payload[i].cn,
+						recetas.payload[i].vr));
+				}
 
-				ListAdapter listAdapter=new ListAdapter(elements, context);
-				RecyclerView recyclerView= vista.findViewById(R.id.recycleRecetas);
-				recyclerView.setHasFixedSize(true);
-				recyclerView.setLayoutManager(new LinearLayoutManager(context));
-				recyclerView.setAdapter(listAdapter);
+				handler.post(new Runnable() {
+					@Override
+					public void run() {
+						ListAdapter listAdapter=new ListAdapter(elements, context);
+						RecyclerView recyclerView= vista.findViewById(R.id.recycleRecetas);
+						recyclerView.setHasFixedSize(true);
+						recyclerView.setLayoutManager(new LinearLayoutManager(context));
+						recyclerView.setAdapter(listAdapter);
+					}
+				});
 			}
 		});
-
-
-
-		/*elements.add(new ListElement("#3BB637", "Chiles en nogada", "a", "3 estrellas"));
-		elements.add(new ListElement("#3BB637", "Costilla en salsa verde", "Paco Esparza", "4 estrellas"));
-		elements.add(new ListElement("#3BB637", "Tacos de sal", "Roberto Pinto", "5 estrellas"));
-		elements.add(new ListElement("#3BB637", "Frijoles fritos con elote", "a", "4 estrellas"));*/
 
 	}
 	/*public void Datillos(){

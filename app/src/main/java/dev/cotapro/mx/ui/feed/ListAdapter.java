@@ -55,7 +55,9 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder>{
             stars=itemView.findViewById(R.id.starsTextView);
         }
         void bindData(final ListElement items){
-            iconImage.setColorFilter(Color.parseColor(items.getColor()), PorterDuff.Mode.SRC_IN);
+
+            //
+            //iconImage.setImageDrawable(items.getImage());
             platillo.setText(items.getPlatillo());
             autor.setText(items.getAutor());
             stars.setText(items.getStars());

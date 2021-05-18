@@ -28,7 +28,7 @@
                 android:layout_gravity="center"
                 android:paddingLeft="14dp"
                 android:paddingRight="14dp"
-                app:srcCompat="@drawable/ic_lunch_dining_black_24dp"
+
                 android:layout_alignParentLeft="true"/>
             <LinearLayout
                 android:id="@+id/linearLayout"

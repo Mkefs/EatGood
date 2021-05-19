@@ -55,30 +55,27 @@ public class SearchFragment extends Fragment {
 				String[][] ingredientes = Datos.getnombres(FeedData.ingredientes);
 
 
-				for(String[] ingrediente : ingredientes){
-					handler.post(new Runnable() {
-						@Override
-						public void run() {
+				handler.post(new Runnable() {
+					@Override
+					public void run() {
+						LinearLayout linearLayout = vista.findViewById(R.id.linear);
 
-							LinearLayout linearLayout = vista.findViewById(R.id.linear);
+						for(String[] ingrediente : ingredientes) {
 							TextView textView = new TextView(context);
 							ImageView nombre = new ImageView(context);
 
 
 							textView.setText(ingrediente[1]);
 							linearLayout.addView(textView);
-							String context= "https://ingredients-eatgood.000webhostapp.com/imagen?n=" + ingrediente[2];
+							String context = "https://ingredients-eatgood.000webhostapp.com/imagen?n=" + ingrediente[2];
 							Glide.with(nombre)
-									.load(context).placeholder(R.drawable.ic_launcher_background)
-									.error(R.drawable.ic_launcher_background).into(nombre);
+								.load(context).placeholder(R.drawable.ic_launcher_background)
+								.error(R.drawable.ic_launcher_background).into(nombre);
 							linearLayout.addView(nombre);
-
 						}
-					});
-				}
-
+					}
+				});
 				System.out.println("Loco esto esta mas dificil de lo que pensaba :D");
-
 			}
 		});
 

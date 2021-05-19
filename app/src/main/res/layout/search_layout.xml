@@ -8,24 +8,22 @@
 
     <LinearLayout
         android:id="@+id/linear1"
-        android:layout_width="789dp"
-        android:layout_height="1254dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:orientation="vertical"
-        android:scrollY="@dimen/activity_vertical_margin"
-        tools:layout_editor_absoluteX="-15dp"
-        tools:layout_editor_absoluteY="168dp">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-
-
-            >
+            android:layout_height="match_parent">
 
             <LinearLayout
                 android:id="@+id/linear"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:orientation="vertical">
 
 

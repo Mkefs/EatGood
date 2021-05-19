@@ -53,8 +53,6 @@ public class SearchFragment extends Fragment {
 			@Override
 			public void run() {
 				String[][] ingredientes = Datos.getnombres(FeedData.ingredientes);
-
-
 				handler.post(new Runnable() {
 					@Override
 					public void run() {

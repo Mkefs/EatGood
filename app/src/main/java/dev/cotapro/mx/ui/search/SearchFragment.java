@@ -1,5 +1,6 @@
 package dev.cotapro.mx.ui.search;
 
+import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
@@ -10,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ListAdapter;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -32,6 +34,7 @@ import dev.cotapro.mx.api_ingredientes.Datos;
 public class SearchFragment extends Fragment {
 	View vista;
 	TextView textView;
+	Context context;
 	String[][] seleccionadas;
 	@Nullable
 	@Override
@@ -40,6 +43,10 @@ public class SearchFragment extends Fragment {
 							 @Nullable Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		vista = inflater.inflate(R.layout.search_layout, container, false);
+        context = vista.getContext();
+
+
+
 		Executor executor = Executors.newSingleThreadExecutor();
 		Handler handler = new Handler(Looper.getMainLooper());
 		executor.execute(new Runnable() {
@@ -53,14 +60,18 @@ public class SearchFragment extends Fragment {
 						@Override
 						public void run() {
 
-							ImageView imageView = vista.findViewById(R.id.prueba);
+							LinearLayout linearLayout = vista.findViewById(R.id.linear);
+							TextView textView = new TextView(context);
+							ImageView nombre = new ImageView(context);
 
+
+							textView.setText(ingrediente[1]);
+							linearLayout.addView(textView);
 							String context= "https://ingredients-eatgood.000webhostapp.com/imagen?n=" + ingrediente[2];
-							Glide.with(imageView)
+							Glide.with(nombre)
 									.load(context).placeholder(R.drawable.ic_launcher_background)
-									.error(R.drawable.ic_launcher_background).into(imageView);
-
-
+									.error(R.drawable.ic_launcher_background).into(nombre);
+							linearLayout.addView(nombre);
 
 						}
 					});

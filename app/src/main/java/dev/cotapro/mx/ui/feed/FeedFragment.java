@@ -78,7 +78,7 @@ FeedFragment extends Fragment {
 				}
 
 				for (int i = 0; i < recetas.payload.length; i++) {
-					String dominio="https://cdn.kiwilimon.com/recetaimagen/["+recetas.payload[i].k+"]/["+recetas.payload[i].i+"]";
+					String dominio="https://cdn.kiwilimon.com/recetaimagen/"+recetas.payload[i].k+"/"+recetas.payload[i].i;
 					elements.add(new ListElement(dominio,
 						recetas.payload[i].n,
 						recetas.payload[i].cn,

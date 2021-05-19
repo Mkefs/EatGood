@@ -1,5 +1,6 @@
 package dev.cotapro.mx.ui.feed;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
@@ -32,9 +33,9 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder>{
     private LayoutInflater mInflater;
     private Context context;
 
-    public ListAdapter(List<ListElement> itemList, Context context)
+    public ListAdapter(Context context, List<ListElement> itemList)
     {
-        this.mInflater=LayoutInflater.from(context);
+
         this.context=context;
         this.mData=itemList;
     }
@@ -45,9 +46,11 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder>{
     @Override
     public ListAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType)
     {
-        View view=mInflater.inflate(R.layout.lista_recetas, null);
-        return new ListAdapter.ViewHolder(view);
+        View item= LayoutInflater.from(parent.getContext()).inflate(R.layout.lista_recetas, parent, false);
+
+        return new ViewHolder(item);
     }
+
     @Override
     public void onBindViewHolder(final ListAdapter.ViewHolder holder, final int position){
         holder.bindData(mData.get(position));
@@ -56,7 +59,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder>{
         //Cargamos la imagen
         RequestOptions requestOptions=  new RequestOptions();
         requestOptions.placeholder(R.drawable.ic_lunch_dining_black_24dp);
-        requestOptions.error(R.drawable.ic_lunch_dining_black_24dp);
+        requestOptions.error(R.drawable.ic_launcher_background);
 
         Glide.with(context)
                 .load(listElement.getImage())

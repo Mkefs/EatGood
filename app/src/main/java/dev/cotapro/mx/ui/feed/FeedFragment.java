@@ -75,8 +75,6 @@ FeedFragment extends Fragment {
 					return;
 				}
 
-
-
 				for (int i = 0; i < recetas.payload.length; i++) {
 
 					elements.add(new ListElement(recetas.payload[i].i,
@@ -88,7 +86,7 @@ FeedFragment extends Fragment {
 				handler.post(new Runnable() {
 					@Override
 					public void run() {
-						ListAdapter listAdapter=new ListAdapter(elements, context);
+						ListAdapter listAdapter=new ListAdapter(context, elements);
 						RecyclerView recyclerView= vista.findViewById(R.id.recycleRecetas);
 						recyclerView.setHasFixedSize(true);
 						recyclerView.setLayoutManager(new LinearLayoutManager(context));

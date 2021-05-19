@@ -16,6 +16,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.bumptech.glide.Glide;
 import com.google.gson.Gson;
 
 import java.nio.channels.AsynchronousByteChannel;
@@ -45,18 +46,31 @@ public class SearchFragment extends Fragment {
 			@Override
 			public void run() {
 				String[][] ingredientes = Datos.getnombres(FeedData.ingredientes);
-				LinearLayout search_layout = (LinearLayout) vista.findViewById(R.id.kk);
+
 
 				for(String[] ingrediente : ingredientes){
-					System.out.println(ingrediente[0]);
-					System.out.println(ingrediente[1]);
-					System.out.println(ingrediente[2]);
+					handler.post(new Runnable() {
+						@Override
+						public void run() {
+
+							ImageView imageView = vista.findViewById(R.id.prueba);
+
+							String context= "https://ingredients-eatgood.000webhostapp.com/imagen?n=" + ingrediente[2];
+							Glide.with(imageView)
+									.load(context).placeholder(R.drawable.ic_launcher_background)
+									.error(R.drawable.ic_launcher_background).into(imageView);
+
+
+
+						}
+					});
 				}
 
 				System.out.println("Loco esto esta mas dificil de lo que pensaba :D");
 
 			}
 		});
+
 
 		return vista;
 	}

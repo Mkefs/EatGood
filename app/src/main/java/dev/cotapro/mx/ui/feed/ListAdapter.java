@@ -20,6 +20,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.google.gson.Gson;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -32,6 +33,9 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder>{
     private List<ListElement> mData;
     private LayoutInflater mInflater;
     private Context context;
+
+
+
 
     public ListAdapter(Context context, List<ListElement> itemList)
     {
@@ -57,14 +61,6 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder>{
         ListElement listElement= mData.get(position);
         ViewHolder viewHolder= (ViewHolder)holder;
         //Cargamos la imagen
-        RequestOptions requestOptions=  new RequestOptions();
-        requestOptions.placeholder(R.drawable.ic_lunch_dining_black_24dp);
-        requestOptions.error(R.drawable.ic_launcher_background);
-
-        Glide.with(context)
-                .load(listElement.getImage())
-                .apply(requestOptions)
-                .into(viewHolder.iconImage);
 
     }
 
@@ -82,10 +78,15 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder>{
              platillo=itemView.findViewById(R.id.PlatilloTextView);
              autor=itemView.findViewById(R.id.AutorTextView);
              stars=itemView.findViewById(R.id.starsTextView);
+
         }
         void bindData(final ListElement items){
 
 
+            //Se carga la imagen con la libreria piccaso
+
+            Picasso.get().load(items.getImage()).into(iconImage);
+            //Picasso.get().load(dominio+recetas.key+"/"+items.getImage()).into(iconImage);
             platillo.setText(items.getPlatillo());
             autor.setText(items.getAutor());
             stars.setText(items.getStars());

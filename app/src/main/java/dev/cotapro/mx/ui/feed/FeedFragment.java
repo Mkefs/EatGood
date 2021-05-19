@@ -69,6 +69,8 @@ FeedFragment extends Fragment {
 				String json = Datos.getfeed(FeedData.kiwilimon, 1);
 				Gson gson = new Gson();
 				Recetas recetas = gson.fromJson(json, Recetas.class);
+				//Link para la imagen
+
 
 				if (recetas == null) {
 					System.out.println("Error");
@@ -76,8 +78,8 @@ FeedFragment extends Fragment {
 				}
 
 				for (int i = 0; i < recetas.payload.length; i++) {
-
-					elements.add(new ListElement(recetas.payload[i].i,
+					String dominio="https://cdn.kiwilimon.com/recetaimagen/["+recetas.payload[i].k+"]/["+recetas.payload[i].i+"]";
+					elements.add(new ListElement(dominio,
 						recetas.payload[i].n,
 						recetas.payload[i].cn,
 						recetas.payload[i].vr));

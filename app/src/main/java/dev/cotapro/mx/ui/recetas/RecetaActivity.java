@@ -25,7 +25,8 @@ import dev.cotapro.mx.api.Receta;
 
 public class RecetaActivity extends AppCompatActivity {
     String json;
-    TextView tituloReceta, caloriasReceta, preparacionReceta, tcoccionReceta, descripcionReceta, favoritosReceta, ratingReceta, dateReceta, ingredientesReceta, pasosReceta, nombreChef;
+    TextView tituloReceta, caloriasReceta, preparacionReceta, tcoccionReceta, descripcionReceta,
+            favoritosReceta, ratingReceta, dateReceta, ingredientesReceta, pasosReceta, nombreChef;
     ImageView imageView;
     int id = 0;
     boolean saved = true;
@@ -37,17 +38,17 @@ public class RecetaActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.receta_vista);
         Bundle b = getIntent().getExtras();
-        tituloReceta=findViewById(R.id.txtTitulo2);
-        caloriasReceta=findViewById(R.id.txtCalorias2);
-        preparacionReceta=findViewById(R.id.txtTPreparacion2);
-        tcoccionReceta=findViewById(R.id.txtTCoccion2);
-        descripcionReceta=findViewById(R.id.txtDescripcion2);
-        favoritosReceta=findViewById(R.id.txtFavoritos2);
-        ratingReceta=findViewById(R.id.txtRating2);
-        dateReceta=findViewById(R.id.txtDate2);
-        ingredientesReceta=findViewById(R.id.txtIngredientes2);
-        pasosReceta=findViewById(R.id.txtPasos2);
-        nombreChef=findViewById(R.id.txtNombre2);
+        tituloReceta=findViewById(R.id.txtTitulo);
+        caloriasReceta=findViewById(R.id.txtCalorias);
+        preparacionReceta=findViewById(R.id.txtTPreparacion);
+        tcoccionReceta=findViewById(R.id.txtTCoccion);
+        descripcionReceta=findViewById(R.id.txtDescripcion);
+        favoritosReceta=findViewById(R.id.txtFavoritos);
+        ratingReceta=findViewById(R.id.txtRating);
+        dateReceta=findViewById(R.id.txtDate);
+        ingredientesReceta=findViewById(R.id.txtIngredientes);
+        pasosReceta=findViewById(R.id.txtPasos);
+        nombreChef=findViewById(R.id.txtNombre);
         if(b != null) {
             id = b.getInt("id");
             saved = b.getBoolean("saved");
@@ -99,6 +100,7 @@ public class RecetaActivity extends AppCompatActivity {
                                 String texto = (String) pasosReceta.getText();
                                 pasosReceta.setText(texto + " - " +receta.steps[i].text+"\n\n");
                             }
+
                             //En las siguientes 5 lineas, se hace lo de la imagen desde internet (cabe resaltar que en si, son 3 lineas pero por estetica le di saltos de linea)
                             imageView = findViewById(R.id.imgReceta);
                             String context= "https://cdn.kiwilimon.com/recetaimagen/"+receta.key+"/"+receta.image;

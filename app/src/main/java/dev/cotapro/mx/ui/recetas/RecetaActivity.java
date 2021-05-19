@@ -100,6 +100,8 @@ public class RecetaActivity extends AppCompatActivity {
                                 String texto = (String) pasosReceta.getText();
                                 pasosReceta.setText(texto + " - " +receta.steps[i].text+"\n\n");
                             }
+
+                            nombreChef.setText(receta.images[0].clientdata.firstname+" "+receta.images[0].clientdata.lastname);
                             //En las siguientes 5 lineas, se hace lo de la imagen desde internet (cabe resaltar que en si, son 3 lineas pero por estetica le di saltos de linea)
                             imageView = findViewById(R.id.imgReceta);
                             String context= "https://cdn.kiwilimon.com/recetaimagen/"+receta.key+"/"+receta.image;

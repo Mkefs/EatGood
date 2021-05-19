@@ -1,25 +1,23 @@
 package dev.cotapro.mx.ui.feed;
 
-import android.widget.ImageView;
-
 public class ListElement {
-    public ImageView image;
+    public String image;
     public String platillo;
     public String autor;
     public String stars;
 
-    public ListElement(ImageView image, String platillo, String autor, String stars) {
+    public ListElement(String image, String platillo, String autor, String stars) {
         this.image = image;
         this.platillo = platillo;
         this.autor = autor;
         this.stars = stars;
     }
 
-    public ImageView getImage() {
+    public String getImage() {
         return image;
     }
 
-    public void setImage(ImageView image) {
+    public void setImage(String image) {
         this.image = image;
     }
 

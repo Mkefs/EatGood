@@ -41,6 +41,7 @@ FeedFragment extends Fragment {
 	List<ListElement> elements;
 	Toolbar toolbar;
 	Context context;
+
 	@Nullable
 	@Override
 	public View onCreateView(@NonNull LayoutInflater inflater,
@@ -73,8 +74,12 @@ FeedFragment extends Fragment {
 					System.out.println("Error");
 					return;
 				}
+
+
+
 				for (int i = 0; i < recetas.payload.length; i++) {
-					elements.add(new ListElement("#ffffff",
+
+					elements.add(new ListElement(recetas.payload[i].i,
 						recetas.payload[i].n,
 						recetas.payload[i].cn,
 						recetas.payload[i].vr));
@@ -88,15 +93,14 @@ FeedFragment extends Fragment {
 						recyclerView.setHasFixedSize(true);
 						recyclerView.setLayoutManager(new LinearLayoutManager(context));
 						recyclerView.setAdapter(listAdapter);
+
 					}
 				});
 			}
 		});
 
 	}
-	/*public void Datillos(){
 
-	}*/
 
 
 

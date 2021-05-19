@@ -43,6 +43,7 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.10.0'
     // Dependencias Mauricio (Room)
     def room_version = "2.2.6"
     implementation "androidx.room:room-runtime:$room_version"

@@ -11,4 +11,7 @@ import dev.cotapro.mx.FeedData;
 public interface RecetasDAO {
 	@Insert
 	public long insertReceta(Receta receta);
+
+	@Query("SELECT json_receta FROM recipes WHERE id = :id")
+	public String getReceta(int id);
 }

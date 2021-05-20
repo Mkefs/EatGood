@@ -75,17 +75,15 @@ FeedFragment extends Fragment {
 					System.out.println("Error");
 					return;
 				}
-
 				for (int i = 0; i < recetas.payload.length; i++) {
-
-
+					if(recetas.payload[i].k!=""){
 					String dominio="https://cdn.kiwilimon.com/recetaimagen/"+recetas.payload[i].k+"/"+recetas.payload[i].i;
 					elements.add(new ListElement(dominio,
 						recetas.payload[i].n,
 						recetas.payload[i].cn,
 						recetas.payload[i].vr));
+					}
 				}
-
 				handler.post(new Runnable() {
 					@Override
 					public void run() {

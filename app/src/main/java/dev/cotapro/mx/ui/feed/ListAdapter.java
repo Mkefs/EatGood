@@ -60,7 +60,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder>{
         holder.bindData(mData.get(position));
         ListElement listElement= mData.get(position);
         ViewHolder viewHolder= (ViewHolder)holder;
-        //Cargamos la imagen
+
 
     }
 

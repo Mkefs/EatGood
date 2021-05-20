@@ -81,12 +81,11 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder>{
 
         }
         void bindData(final ListElement items){
-
-
-            //Se carga la imagen con la libreria piccaso
-
-            Picasso.get().load(items.getImage()).into(iconImage);
-            //Picasso.get().load(dominio+recetas.key+"/"+items.getImage()).into(iconImage);
+            //Se carga la imagen con glide
+            Glide.with(itemView)
+                    .load(items.getImage())
+                    .placeholder(R.drawable.ic_lunch_dining_black_24dp)
+                    .into(iconImage);
             platillo.setText(items.getPlatillo());
             autor.setText(items.getAutor());
             stars.setText(items.getStars());

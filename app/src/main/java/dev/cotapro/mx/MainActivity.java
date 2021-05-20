@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
 		feed = new FeedFragment();
 		home = new HomeFragment();
 		search = new SearchFragment();
+		FeedData.init(this);
 
 		setContentView(R.layout.activity_main);
 		setNavController();

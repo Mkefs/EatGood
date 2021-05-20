@@ -63,7 +63,7 @@ public class SearchFragment extends Fragment {
 							ImageView nombre = new ImageView(context);
 
 
-							textView.setText(ingrediente[1]);
+								textView.setText(ingrediente[1]);
 							linearLayout.addView(textView);
 							String context = "https://ingredients-eatgood.000webhostapp.com/imagen?n=" + ingrediente[2];
 							Glide.with(nombre)

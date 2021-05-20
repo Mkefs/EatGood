@@ -88,7 +88,7 @@ public class RecetaActivity extends AppCompatActivity {
                                 preparacionReceta.setText("No");
                             }
                             tcoccionReceta.setText(tcoccionRecetaString);
-                            descripcionReceta.setText(receta.description);
+                            descripcionReceta.setText(receta.description+"\n");
                             favoritosReceta.setText(favoritosRecetaString);
                             ratingReceta.setText(ratingreceta);
                             dateReceta.setText(receta.published);
@@ -98,7 +98,7 @@ public class RecetaActivity extends AppCompatActivity {
                             }
                             for(int i = 0; i < receta.steps.length; i++) {
                                 String texto = (String) pasosReceta.getText();
-                                pasosReceta.setText(texto + " - " +receta.steps[i].text+"\n\n");
+                                pasosReceta.setText(texto + " - " +receta.steps[i].text+"\n");
                             }
 
                             nombreChef.setText(receta.images[0].clientdata.firstname+" "+receta.images[0].clientdata.lastname);
@@ -109,9 +109,9 @@ public class RecetaActivity extends AppCompatActivity {
                                     .load(context).placeholder(R.drawable.ic_launcher_background)
                                     .error(R.drawable.ic_launcher_background).into(imageView);
 
-                            descripcionReceta.setMovementMethod(new ScrollingMovementMethod());
+                            /*descripcionReceta.setMovementMethod(new ScrollingMovementMethod());
                             ingredientesReceta.setMovementMethod(new ScrollingMovementMethod());
-                            pasosReceta.setMovementMethod(new ScrollingMovementMethod());
+                            pasosReceta.setMovementMethod(new ScrollingMovementMethod());*/
 
 
                         }

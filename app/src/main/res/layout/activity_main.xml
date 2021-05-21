@@ -24,4 +24,5 @@
         android:layout_weight="0"
         app:menu="@menu/bottom_nav_menu" />
 
+
 </LinearLayout>

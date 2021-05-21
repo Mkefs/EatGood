@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/fondo"
+    android:textAlignment="center"
+    android:textDirection="firstStrongRtl"
+
+    app:title="Pantalla de recetas"
+    app:titleTextAppearance="@style/ActionBarTitleTextStyle"
+
+    tools:ignore="MissingClass"
+    tools:menu="@menu/bottom_nav_menu">
+
+</androidx.appcompat.widget.Toolbar>

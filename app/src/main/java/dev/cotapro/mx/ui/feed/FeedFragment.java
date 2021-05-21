@@ -99,9 +99,4 @@ FeedFragment extends Fragment {
 		});
 
 	}
-
-
-
-
-
 }

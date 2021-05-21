@@ -61,7 +61,6 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder>{
         ListElement listElement= mData.get(position);
         ViewHolder viewHolder= (ViewHolder)holder;
 
-
     }
 
     public void setItems(List<ListElement>items){mData=items;}

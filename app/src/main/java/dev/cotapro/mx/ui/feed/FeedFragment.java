@@ -33,16 +33,8 @@ import dev.cotapro.mx.api.Datos;
 import dev.cotapro.mx.api.Receta;
 import dev.cotapro.mx.api.Recetas;
 import kotlin.collections.ArrayDeque;
-<<<<<<< HEAD
 
-public class
-
-=======
-
-public class
-
->>>>>>> dev
-FeedFragment extends Fragment {
+public class FeedFragment extends Fragment {
 	View vista;
 	List<ListElement> elements;
 	Toolbar toolbar;
@@ -75,35 +67,21 @@ FeedFragment extends Fragment {
 				String json = Datos.getfeed(FeedData.kiwilimon, 1);
 				Gson gson = new Gson();
 				Recetas recetas = gson.fromJson(json, Recetas.class);
-<<<<<<< HEAD
-				//Link para la imagen
-
-=======
->>>>>>> dev
 
 				if (recetas == null) {
 					System.out.println("Error");
 					return;
 				}
 
-<<<<<<< HEAD
-				for (int i = 0; i < recetas.payload.length; i++) {
-=======
 				for(int i = 0; i < recetas.payload.length; i++) {
 					if(recetas.payload[i].k!=""){
->>>>>>> dev
 					String dominio="https://cdn.kiwilimon.com/recetaimagen/"+recetas.payload[i].k+"/"+recetas.payload[i].i;
 					elements.add(new ListElement(dominio,
 						recetas.payload[i].n,
 						recetas.payload[i].cn,
 						recetas.payload[i].vr));
-<<<<<<< HEAD
-				}
-
-=======
 					}
 				}
->>>>>>> dev
 				handler.post(new Runnable() {
 					@Override
 					public void run() {
@@ -119,12 +97,4 @@ FeedFragment extends Fragment {
 		});
 
 	}
-<<<<<<< HEAD
-
-
-
-
-
-=======
->>>>>>> dev
 }

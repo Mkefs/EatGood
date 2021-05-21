@@ -37,6 +37,7 @@ proguard/
 captures/
 
 # IntelliJ
+.idea/*
 .idea/misc.xml
 *.iml
 .idea/workspace.xml

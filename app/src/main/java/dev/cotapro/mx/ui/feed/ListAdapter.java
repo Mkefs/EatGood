@@ -1,33 +1,15 @@
 package dev.cotapro.mx.ui.feed;
 
-import android.content.ContentValues;
 import android.content.Context;
-import android.graphics.Color;
-import android.graphics.PorterDuff;
-import android.graphics.drawable.Drawable;
-import android.graphics.drawable.DrawableContainer;
-import android.graphics.drawable.Icon;
-import android.media.Image;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-
-import androidx.core.widget.ImageViewCompat;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.request.RequestOptions;
-import com.google.gson.Gson;
-import com.squareup.picasso.Picasso;
-
 import java.util.List;
-
-import dev.cotapro.mx.FeedData;
 import dev.cotapro.mx.R;
-import dev.cotapro.mx.api.Datos;
-import dev.cotapro.mx.api.Recetas;
 
 public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder>{
     private List<ListElement> mData;

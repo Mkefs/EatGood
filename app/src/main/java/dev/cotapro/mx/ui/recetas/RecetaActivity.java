@@ -113,7 +113,6 @@ public class RecetaActivity extends AppCompatActivity {
                             ingredientesReceta.setMovementMethod(new ScrollingMovementMethod());
                             pasosReceta.setMovementMethod(new ScrollingMovementMethod());*/
 
-
                         }
                     });
                 }

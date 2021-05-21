@@ -39,13 +39,10 @@ dependencies {
     implementation 'androidx.navigation:navigation-ui:2.3.5'
     implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.3.1'
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1'
-    implementation files('Piccaso')
-    implementation 'com.squareup.picasso:picasso:2.71828'
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 
-    annotationProcessor 'com.github.bumptech.glide:compiler:4.10.0'
     // Dependencias Mauricio (Room)
     def room_version = "2.2.6"
     implementation "androidx.room:room-runtime:$room_version"

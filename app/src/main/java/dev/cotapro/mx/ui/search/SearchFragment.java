@@ -17,12 +17,15 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.google.gson.Gson;
 
 import java.nio.channels.AsynchronousByteChannel;
 import java.util.Iterator;
+import java.util.List;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
@@ -34,6 +37,7 @@ import dev.cotapro.mx.api_ingredientes.Datos;
 public class SearchFragment extends Fragment {
 	View vista;
 	TextView textView;
+	List<String[][]> pepe;
 	Context context;
 	String[][] seleccionadas;
 	@Nullable
@@ -58,9 +62,22 @@ public class SearchFragment extends Fragment {
 					public void run() {
 						LinearLayout linearLayout = vista.findViewById(R.id.linear);
 
-						for(String[] ingrediente : ingredientes) {
+						handler.post(new Runnable() {
+							@Override
+							public void run() {
+								Listadap listadap = new Listadap(context,ingredientes);
+								RecyclerView recyclerView = vista.findViewById(R.id.ingredientespepe);
+								recyclerView.setHasFixedSize(true);
+								recyclerView.setLayoutManager(new LinearLayoutManager(context));
+
+								recyclerView.setAdapter(listadap);
+							}
+						});
+
+
+						/*for(String[] ingrediente : ingredientes) {
 							TextView textView = new TextView(context);
-							ImageView nombre = new ImageView(context);
+						ImageView nombre = new ImageView(context);
 
 
 								textView.setText(ingrediente[1]);
@@ -70,11 +87,13 @@ public class SearchFragment extends Fragment {
 								.load(context).placeholder(R.drawable.ic_launcher_background)
 								.error(R.drawable.ic_launcher_background).into(nombre);
 							linearLayout.addView(nombre);
-						}
+						}*/
 					}
+
 				});
 				System.out.println("Loco esto esta mas dificil de lo que pensaba :D");
 			}
+
 		});
 
 

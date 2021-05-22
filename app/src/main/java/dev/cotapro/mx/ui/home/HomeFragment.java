@@ -1,5 +1,6 @@
 package dev.cotapro.mx.ui.home;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -18,8 +19,8 @@ import dev.cotapro.mx.ui.recetas.RecetaActivity;
 
 public class HomeFragment extends Fragment {
 	View vista;
+	Context contexto;
 
-	Button btnSwitch;
 	@Nullable
 	@Override
 	public View onCreateView(@NonNull LayoutInflater inflater,
@@ -27,19 +28,7 @@ public class HomeFragment extends Fragment {
 							 @Nullable Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		vista = inflater.inflate(R.layout.home_layout, container, false);
-
-		btnSwitch = vista.findViewById(R.id.btnSwitch);
-		btnSwitch.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View vista2) {
-				Intent siguiente = new Intent(vista.getContext(), RecetaActivity.class);
-				Bundle parametros = new Bundle();
-				parametros.putInt("id", 37935);
-				parametros.putBoolean("saved", false);
-				siguiente.putExtras(parametros);
-				startActivity(siguiente);
-			}
-		});
+		contexto = vista.getContext();
 
 		return vista;
 	}

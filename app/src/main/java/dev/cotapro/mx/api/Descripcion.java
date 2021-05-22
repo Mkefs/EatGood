@@ -3,8 +3,14 @@ package dev.cotapro.mx.api;
 import com.google.gson.annotations.SerializedName;
 
 public class Descripcion {
-	//Declaramos el parámetro Descripcion
-	//Al ser un array, contiene muchos subparámetros
-	public String k, cn, i, mt, n, pa, pr, t, v, vh, vp, vr, x;
-	public int m;
+	@SerializedName("k")
+	public String key;
+	@SerializedName("cn")
+	public String chef;
+	@SerializedName("i")
+	public String image;
+	@SerializedName("n")
+	public String name;
+	@SerializedName("vr")
+	public String rating;
 }

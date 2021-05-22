@@ -24,7 +24,8 @@ public class Listadap extends RecyclerView.Adapter<Listadap.ViewHolder> {
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View item = LayoutInflater.from(parent.getContext() ).inflate(R.layout.helper,parent,false) ;
+        View item = LayoutInflater.from(parent.getContext())
+            .inflate(R.layout.helper,parent,false) ;
         return new ViewHolder(item);
     }
 

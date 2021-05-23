@@ -3,8 +3,13 @@ package dev.cotapro.mx;
 import android.content.Context;
 import androidx.room.Room;
 
-import dev.cotapro.mx.api_ingredientes.ApiManagement;
+import java.io.IOException;
+
+import dev.cotapro.mx.api.ApiManagement;
 import dev.cotapro.mx.recetas.GuardadosDB;
+import okhttp3.ResponseBody;
+import retrofit2.Call;
+import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.converter.scalars.ScalarsConverterFactory;
@@ -12,8 +17,39 @@ import retrofit2.converter.scalars.ScalarsConverterFactory;
 public class FeedData {
 	private static boolean started = false;
 	public static GuardadosDB db;
-	public static dev.cotapro.mx.api.ApiManagement.API_INTERACTION kiwilimon;
-	public static ApiManagement.API_INTERACION ingredientes;
+	public static ApiManagement.API_INTERACTION kiwilimon;
+
+	static public String get_feed(int page) {
+		Call<ResponseBody> consulta = kiwilimon.feed_json(page);
+		try {
+			Response<ResponseBody> respuesta = consulta.execute();
+			return respuesta.body().string();
+		} catch (IOException exception) {
+			return null;
+		}
+	}
+	static public String get_search(String[] ingrediente) {
+		String ingredientes = "";
+		for(int i = 0; i<=ingrediente.length; i++){
+			ingredientes = ingredientes + ingrediente[i];
+		}
+		Call<ResponseBody> consulta = kiwilimon.search_json(ingredientes, 1);
+		try {
+			Response<ResponseBody> respuesta = consulta.execute();
+			return respuesta.body().string();
+		} catch (IOException exception) {
+			return null;
+		}
+	}
+	static public String get_recipe(int key){
+		Call<ResponseBody> consulta = kiwilimon.recipe_json(key);
+		try {
+			Response<ResponseBody> respuesta = consulta.execute();
+			return respuesta.body().string();
+		} catch (IOException exception) {
+			return null;
+		}
+	}
 
 	public static void init(Context ctx) {
 		if(started)
@@ -24,12 +60,6 @@ public class FeedData {
 				.baseUrl("https://gr.kiwilimon.com/v6/")
 				.build()
 				.create(dev.cotapro.mx.api.ApiManagement.API_INTERACTION.class);
-		ingredientes = new Retrofit.Builder()
-				.addConverterFactory(ScalarsConverterFactory.create())
-				.addConverterFactory(GsonConverterFactory.create())
-				.baseUrl("https://ingredients-eatgood.000webhostapp.com/")
-				.build()
-				.create(ApiManagement.API_INTERACION.class);
 		db = Room.databaseBuilder(ctx,
 			GuardadosDB.class, "Recetas_Guardadas")
 			.build();

@@ -8,13 +8,33 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/ingredientespepe"
-        android:layout_width="346dp"
-        android:layout_height="469dp"
+        android:layout_width="341dp"
+        android:layout_height="531dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.988" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="284dp"
+        android:layout_height="80dp"
+        android:background="@drawable/redondo2"
+        android:fontFamily="@font/cabin_bold"
+        android:paddingStart="4sp"
+        android:paddingTop="10sp"
+        android:paddingEnd="10sp"
+        android:text="Personaliza las recetas seleccionando algunos de los ingredientes que tengas en casa."
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:textSize="13sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.039" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

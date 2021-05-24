@@ -18,7 +18,7 @@ import java.util.ArrayList;
 import dev.cotapro.mx.R;
 
 public class Listadap extends RecyclerView.Adapter<Listadap.ViewHolder> {
-    private String[][] data;
+    private final String[][] data;
     public ArrayList<ViewHolder> seleccionados;
 
     public Listadap (String[][] data) {

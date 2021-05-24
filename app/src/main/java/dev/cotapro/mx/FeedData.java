@@ -28,10 +28,10 @@ public class FeedData {
 			return null;
 		}
 	}
-	static public String get_search(String[] ingrediente) {
+	static public String get_search(ArrayList<ViewHolder> ingrediente) {
 		String ingredientes = "";
-		for(int i = 0; i<=ingrediente.length; i++){
-			ingredientes = ingredientes + ingrediente[i];
+		for(int i = 0; i<=ingrediente.length; i++).texto.getText(){
+			ingredientes = ingredientes + ingrediente.get(i).texto.getText();
 		}
 		Call<ResponseBody> consulta = kiwilimon.search_json(ingredientes, 1);
 		try {

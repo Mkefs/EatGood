@@ -6,9 +6,8 @@ import androidx.room.PrimaryKey;
 
 @Entity(tableName = "recipes")
 public class Receta {
-	@PrimaryKey
+	@PrimaryKey(autoGenerate = true)
 	public int id;
-
-	@ColumnInfo(name = "json_receta")
-	public String receta;
+	public String name;
+	public String json;
 }

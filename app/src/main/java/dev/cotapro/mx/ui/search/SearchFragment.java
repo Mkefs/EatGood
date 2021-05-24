@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -60,7 +61,7 @@ public class SearchFragment extends Fragment {
 				Listadap listadap = new Listadap(ingredientes);
 				RecyclerView recyclerView = vista.findViewById(R.id.ingredientespepe);
 				recyclerView.setHasFixedSize(true);
-				recyclerView.setLayoutManager(new LinearLayoutManager(context));
+				recyclerView.setLayoutManager(new GridLayoutManager(context, 2));
 				recyclerView.setAdapter(listadap);
 			});
 			System.out.println("Loco esto esta mas dificil de lo que pensaba :D");

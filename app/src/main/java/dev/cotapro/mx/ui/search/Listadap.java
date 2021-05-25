@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -12,12 +13,16 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 
+import java.util.ArrayList;
+
 import dev.cotapro.mx.R;
 
 public class Listadap extends RecyclerView.Adapter<Listadap.ViewHolder> {
-    private String[][] data;
+    private final String[][] data;
+    public ArrayList<ViewHolder> seleccionados;
 
     public Listadap (String[][] data) {
+        seleccionados = new ArrayList<>();
         this.data = data;
     }
 
@@ -25,7 +30,7 @@ public class Listadap extends RecyclerView.Adapter<Listadap.ViewHolder> {
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View item = LayoutInflater.from(parent.getContext())
-            .inflate(R.layout.helper,parent,false) ;
+            .inflate(R.layout.helper,parent,false);
         return new ViewHolder(item);
     }
 
@@ -40,7 +45,7 @@ public class Listadap extends RecyclerView.Adapter<Listadap.ViewHolder> {
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
-        private final TextView texto;
+        public final TextView texto;
         private final ImageView image;
 
         public void data(final String[] datos)  {
@@ -55,6 +60,14 @@ public class Listadap extends RecyclerView.Adapter<Listadap.ViewHolder> {
             super(vista);
             texto = vista.findViewById(R.id.texto);
             image = vista.findViewById(R.id.ingrediente12);
+
+            LinearLayout layout = vista.findViewById(R.id.item_search_layout);
+            layout.setOnClickListener(v -> {
+                if(seleccionados.contains(this))
+                    seleccionados.remove(this);
+                else
+                    seleccionados.add(this);
+            });
         }
     }
 }

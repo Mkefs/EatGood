@@ -8,11 +8,51 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/ingredientespepe"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="348dp"
+        android:layout_height="473dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.542" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="307dp"
+        android:layout_height="66dp"
+        android:background="@drawable/redondo2"
+        android:fontFamily="@font/cabin_condensed_semibold"
+        android:paddingStart="6sp"
+        android:paddingTop="10sp"
+        android:paddingEnd="10sp"
+        android:text="Personaliza las recetas seleccionando algunos de los ingredientes que tengas en casa."
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.024" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/redondo3"
+        app:backgroundTint="@null"
+        android:fontFamily="@font/cabin_bold"
+        android:text="Buscar"
+        android:textAlignment="center"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.866"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ingredientespepe"
+        app:layout_constraintVertical_bias="0.458" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

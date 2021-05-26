@@ -23,9 +23,7 @@ import dev.cotapro.mx.FeedData;
 import dev.cotapro.mx.R;
 import dev.cotapro.mx.api.Recetas;
 
-public class
-
-FeedFragment extends Fragment {
+public class FeedFragment extends Fragment {
 	View vista;
 	Context context;
 

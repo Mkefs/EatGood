@@ -39,7 +39,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder>{
     @Override
     public ListAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View item= LayoutInflater.from(parent.getContext())
-            .inflate(R.layout.lista_recetas, parent, false);
+            .inflate(R.layout.receta_item, parent, false);
         return new ViewHolder(item);
     }
 
@@ -55,9 +55,9 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder>{
         ViewHolder(View itemView){
             super(itemView);
             iconImage = itemView.findViewById(R.id.foto);
-            platillo = itemView.findViewById(R.id.PlatilloTextView);
-            autor = itemView.findViewById(R.id.AutorTextView);
-            stars = itemView.findViewById(R.id.starsTextView);
+            platillo = itemView.findViewById(R.id.platillo);
+            autor = itemView.findViewById(R.id.chef);
+            stars = itemView.findViewById(R.id.estrellas);
 
         }
         void bindData(final Descripcion item){
@@ -69,10 +69,10 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder>{
             stars.setText(item.rating);
             Glide.with(itemView)
                 .load(image_url)
-                .placeholder(R.drawable.ic_lunch_dining_black_24dp)
+                .placeholder(R.drawable.ic_launcher_foreground)
                 .into(iconImage);
 
-            LinearLayout container = itemView.findViewById(R.id.feedContainer);
+            LinearLayout container = itemView.findViewById(R.id.receta_container);
             container.setOnClickListener(v -> {
                 Bundle extras = new Bundle();
                 extras.putInt("id", Integer.parseInt(item.key));

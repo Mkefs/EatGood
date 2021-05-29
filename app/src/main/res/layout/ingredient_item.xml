@@ -9,7 +9,7 @@
     android:layout_marginTop="9dp"
     android:layout_marginLeft="9dp"
     android:layout_marginRight="9dp"
-    android:background="@drawable/redondo">
+    android:background="@drawable/standar_bg">
 
 
     <androidx.constraintlayout.widget.ConstraintLayout

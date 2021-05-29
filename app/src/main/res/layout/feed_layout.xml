@@ -4,9 +4,10 @@
     android:layout_width="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_height="match_parent"
-    android:background="#FFFFFF">
+    xmlns:tools="http://schemas.android.com/tools">
 
         <com.google.android.material.appbar.AppBarLayout
+            style="@style/AppBarTheme"
             app:liftOnScroll="true"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -21,7 +22,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_centerHorizontal="true"
-                            android:background="@drawable/sv_feed"
+                            android:background="@drawable/standar_bg"
                             android:queryHint="Buscar"
                             android:focusable="true" />
 
@@ -34,21 +35,7 @@
             android:id="@+id/recycleRecetas"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            tools:listitem="@layout/receta_item"
             android:textAlignment="center" />
-        <!--    <TextView-->
-        <!--        android:id="@+id/textView"-->
-        <!--        android:layout_width="272dp"-->
-        <!--        android:layout_height="29dp"-->
-        <!--        android:layout_marginTop="32dp"-->
-        <!--        android:background="#6EC5B8"-->
-        <!--        android:fontFamily="@font/cabin"-->
-        <!--        android:text="¡ENCUENTRA NUEVAS RECETAS!"-->
-        <!--        android:textAlignment="center"-->
-        <!--        android:textColor="#000000"-->
-        <!--        android:textSize="18sp"-->
-        <!--        app:layout_constraintEnd_toEndOf="parent"-->
-        <!--        app:layout_constraintHorizontal_bias="0.496"-->
-        <!--        app:layout_constraintStart_toStartOf="parent"-->
-        <!--        app:layout_constraintTop_toTopOf="parent" />-->
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

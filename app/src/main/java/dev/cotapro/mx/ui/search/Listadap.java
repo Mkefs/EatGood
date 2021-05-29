@@ -1,6 +1,5 @@
 package dev.cotapro.mx.ui.search;
 
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,7 +29,7 @@ public class Listadap extends RecyclerView.Adapter<Listadap.ViewHolder> {
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View item = LayoutInflater.from(parent.getContext())
-            .inflate(R.layout.helper,parent,false);
+            .inflate(R.layout.ingredient_item,parent,false);
         return new ViewHolder(item);
     }
 

@@ -8,6 +8,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
@@ -60,7 +61,7 @@ public class Listadap extends RecyclerView.Adapter<Listadap.ViewHolder> {
             texto = vista.findViewById(R.id.texto);
             image = vista.findViewById(R.id.ingrediente12);
 
-            LinearLayout layout = vista.findViewById(R.id.item_search_layout);
+            CardView layout = vista.findViewById(R.id.item_search_layout);
             layout.setOnClickListener(v -> {
                 if(seleccionados.contains(this))
                     seleccionados.remove(this);

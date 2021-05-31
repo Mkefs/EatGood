@@ -16,6 +16,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
             <androidx.appcompat.widget.SearchView
+                android:layout_marginHorizontal="20dp"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:focusable="true"
@@ -45,6 +46,7 @@
                 android:textColor="@color/black"
                 android:textSize="14sp" />
             <androidx.recyclerview.widget.RecyclerView
+                android:overScrollMode="never"
                 android:id="@+id/ingredientespepe"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

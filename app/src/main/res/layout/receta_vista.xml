@@ -2,84 +2,123 @@
 <androidx.coordinatorlayout.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <com.google.android.material.appbar.AppBarLayout
+        style="@style/AppBarTheme"
         android:layout_width="match_parent"
+        app:liftOnScroll="true"
         android:layout_height="wrap_content">
 
-        <com.google.android.material.appbar.CollapsingToolbarLayout
-            android:layout_width="match_parent"
-            android:paddingVertical="20dp"
-            android:paddingHorizontal="10dp"
-            android:layout_height="match_parent">
-                <com.google.android.material.appbar.MaterialToolbar
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
-        </com.google.android.material.appbar.CollapsingToolbarLayout>
+            <LinearLayout
+                app:layout_scrollFlags="scroll|enterAlways"
+                android:paddingVertical="15dp"
+                android:paddingHorizontal="10dp"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageButton
+                    android:id="@+id/recipe_back"
+                    android:background="@null"
+                    android:src="@drawable/ic_baseline_arrow_back_24"
+                    android:layout_width="40dp"
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="40dp"
+                    android:layout_height="match_parent"
+                    android:contentDescription="@string/image_desc" />
+
+                <TextView
+                    android:id="@+id/recipe_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|center_vertical"
+                    android:layout_weight="1"
+                    android:background="@drawable/standar_bg"
+                    android:padding="10dp"
+                    android:text="Receta"
+                    android:textAlignment="center"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <ImageButton
+                    android:id="@+id/recipe_fav"
+                    android:padding="5dp"
+                    android:background="@null"
+                    android:src="@drawable/btn_heart2"
+                    android:scaleType="centerInside"
+                    android:layout_width="wrap_content"
+                    android:layout_marginStart="40dp"
+                    android:layout_height="match_parent"
+                    android:contentDescription="@string/image_desc" />
+            </LinearLayout>
     </com.google.android.material.appbar.AppBarLayout>
 
-    <com.google.android.material.appbar.AppBarLayout
+    <androidx.core.widget.NestedScrollView
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent">
 
-<!--            <TextView-->
-<!--                android:id="@+id/txtRating"-->
-<!--                android:layout_width="90dp"-->
-<!--                android:layout_height="27dp" />-->
+            <LinearLayout
+                android:padding="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
-<!--            <TextView-->
-<!--                android:id="@+id/txtFavoritos"-->
-<!--                android:layout_width="90dp"-->
-<!--                android:layout_height="27dp" />-->
+                <ImageView
+                    android:id="@+id/recipe_image"
+                    android:layout_width="200dp"
+                    android:layout_height="200dp"
+                    android:layout_gravity="center"
+                    android:layout_marginVertical="20dp"
+                    android:contentDescription="@string/image_desc"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/ic_launcher_background" />
 
-<!--            <ImageView-->
-<!--                android:id="@+id/imgReceta"-->
-<!--                android:layout_width="236dp"-->
-<!--                android:layout_height="206dp" />-->
+                <TextView
+                    android:id="@+id/recipe_rating"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="rating"
+                    android:textAlignment="center" />
 
-<!--            <TextView-->
-<!--                android:id="@+id/txtIngredientes"-->
-<!--                android:layout_width="374dp"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_marginStart="18dp"-->
-<!--                android:layout_marginEnd="19dp" />-->
-<!--            <TextView-->
-<!--                android:id="@+id/txtCalorias"-->
-<!--                android:layout_width="127dp"-->
-<!--                android:layout_height="27dp" />-->
-<!--            <TextView-->
-<!--                android:id="@+id/txtTCoccion"-->
-<!--                android:layout_width="127dp"-->
-<!--                android:layout_height="27dp" />-->
-<!--            <TextView-->
-<!--                android:id="@+id/txtTPreparacion"-->
-<!--                android:layout_width="127dp"-->
-<!--                android:layout_height="27dp"-->
-<!--                android:layout_marginBottom="4dp" />-->
-<!--            <TextView-->
-<!--                android:id="@+id/txtDescripcion"-->
-<!--                android:layout_width="374dp"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_marginTop="76dp" />-->
-<!--            <TextView-->
-<!--                android:id="@+id/txtNombre"-->
-<!--                android:layout_width="127dp"-->
-<!--                android:layout_height="54dp" />-->
-<!--            <TextView-->
-<!--                android:id="@+id/txtDate"-->
-<!--                android:layout_width="175dp"-->
-<!--                android:layout_height="27dp" />-->
-<!--            <TextView-->
-<!--                android:id="@+id/txtPasos"-->
-<!--                android:layout_width="374dp"-->
-<!--                android:layout_height="wrap_content" />-->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="5dp"
+                    android:text="INGREDIENTES: "
+                    android:textSize="20sp"
+                    android:textStyle="italic" />
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </com.google.android.material.appbar.AppBarLayout>
+                <TextView
+                    android:id="@+id/recipe_ingredients"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="- R1, \n -R2" />
 
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="5dp"
+                    android:text="PREPARACIÓN:"
+                    android:textSize="20sp"
+                    android:textStyle="italic" />
+
+                <TextView
+                    android:id="@+id/recipe_steps"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="- R1, \n -R2" />
+            </LinearLayout>
+        </ScrollView>
+    </androidx.core.widget.NestedScrollView>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

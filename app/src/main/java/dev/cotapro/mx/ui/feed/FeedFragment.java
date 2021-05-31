@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -47,7 +48,7 @@ public class FeedFragment extends Fragment {
 			Recetas recetas = gson.fromJson(json, Recetas.class);
 
 			if (recetas == null) {
-				System.out.println("Error");
+				Log.e("[E]: ", "Recetas no encontradas");
 				return;
 			}
 

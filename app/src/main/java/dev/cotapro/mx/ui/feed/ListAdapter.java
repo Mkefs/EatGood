@@ -67,7 +67,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder>{
             platillo.setText(item.name);
             autor.setText(item.chef);
             stars.setText(item.rating);
-            Glide.with(itemView)
+            Glide.with(iconImage)
                 .load(image_url)
                 .placeholder(R.drawable.ic_launcher_foreground)
                 .into(iconImage);
@@ -76,7 +76,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder>{
             container.setOnClickListener(v -> {
                 Bundle extras = new Bundle();
                 extras.putInt("id", Integer.parseInt(item.key));
-                extras.putBoolean("internet", false);
+                extras.putBoolean("internet", true);
                 RecetaActivity.open_act(itemView.getContext(), extras);
             });
         }

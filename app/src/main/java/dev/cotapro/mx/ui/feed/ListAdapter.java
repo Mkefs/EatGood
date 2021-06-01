@@ -19,7 +19,7 @@ import dev.cotapro.mx.api.Descripcion;
 import dev.cotapro.mx.ui.recetas.RecetaActivity;
 
 public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder>{
-    private final ArrayList<Descripcion> mData;
+    public ArrayList<Descripcion> mData;
 
     public ListAdapter(Descripcion[] itemList) {
         this.mData = new ArrayList<>();

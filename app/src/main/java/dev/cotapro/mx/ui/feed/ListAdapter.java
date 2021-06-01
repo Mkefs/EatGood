@@ -13,14 +13,15 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 import dev.cotapro.mx.R;
 import dev.cotapro.mx.api.Descripcion;
 import dev.cotapro.mx.ui.recetas.RecetaActivity;
 
 public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder>{
-    private final ArrayList<Descripcion> mData;
-
+    public int page = 1;
+    private ArrayList<Descripcion> mData;
     public ListAdapter(Descripcion[] itemList) {
         this.mData = new ArrayList<>();
         for (Descripcion descripcion : itemList) {
@@ -46,6 +47,10 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder>{
     @Override
     public void onBindViewHolder(final ListAdapter.ViewHolder holder, final int position){
         holder.bindData(mData.get(position));
+        if(position == mData.size() - 1){
+            page = page+1;
+            System.out.println("Sí sirve " + page);
+        }
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder{

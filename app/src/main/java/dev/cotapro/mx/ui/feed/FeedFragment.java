@@ -51,7 +51,6 @@ public class FeedFragment extends Fragment {
 				Log.e("[E]: ", "Recetas no encontradas");
 				return;
 			}
-
 			handler.post(() -> {
 				ListAdapter listAdapter = new ListAdapter(recetas.payload);
 				RecyclerView recyclerView = vista.findViewById(R.id.recycleRecetas);

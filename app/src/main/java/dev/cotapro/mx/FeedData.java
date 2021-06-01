@@ -22,7 +22,7 @@ public class FeedData {
 	public static ApiManagement.API_INTERACTION kiwilimon;
 
 	static public String get_feed(int page) {
-		Call<ResponseBody> consulta = kiwilimon.feed_json(page);
+		Call<ResponseBody> consulta = kiwilimon.feed_json(1);
 		try {
 			Response<ResponseBody> respuesta = consulta.execute();
 			return respuesta.body().string();

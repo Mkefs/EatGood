@@ -1,39 +1,50 @@
 package dev.cotapro.mx.ui.feed;
 
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
 import com.bumptech.glide.Glide;
+import com.google.gson.Gson;
+
+import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
-import java.util.Iterator;
+import java.util.Arrays;
+import java.util.concurrent.Executor;
+import java.util.concurrent.Executors;
 
+import dev.cotapro.mx.FeedData;
 import dev.cotapro.mx.R;
 import dev.cotapro.mx.api.Descripcion;
+import dev.cotapro.mx.api.Recetas;
 import dev.cotapro.mx.ui.recetas.RecetaActivity;
 
 public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder>{
     public int page = 1;
-    private ArrayList<Descripcion> mData;
+    private final ArrayList<Descripcion> mData;
     public ListAdapter(Descripcion[] itemList) {
         this.mData = new ArrayList<>();
-        for (Descripcion descripcion : itemList) {
-            if (!descripcion.key.isEmpty()) {
-                mData.add(descripcion);
-            }
-        }
+        addRecetas(itemList);
     }
 
-    @Override
-    public int getItemCount(){
-        return mData.size();
+    private void addRecetas(Descripcion[] items) {
+        ArrayList<Descripcion> append = new ArrayList<>();
+        for (Descripcion desc : items) {
+            if (!desc.key.isEmpty())
+                append.add(desc);
+        }
+        mData.addAll(append);
     }
 
     @NonNull
@@ -45,12 +56,28 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder>{
     }
 
     @Override
-    public void onBindViewHolder(final ListAdapter.ViewHolder holder, final int position){
+    public void onBindViewHolder(@NotNull final ListAdapter.ViewHolder holder,
+                                 final int position){
         holder.bindData(mData.get(position));
+        // When the las item is showed up then request the next page
         if(position == mData.size() - 1){
-            page = page+1;
-            System.out.println("Sí sirve " + page);
+            page++;
+            Executor exec = Executors.newSingleThreadExecutor();
+            Handler handler = new Handler(Looper.getMainLooper());
+            exec.execute(() -> {
+                String recipe = FeedData.get_feed(page);
+                Gson gson = new Gson();
+
+                Recetas receta = gson.fromJson(recipe, Recetas.class);
+                addRecetas(receta.payload);
+                handler.post(ListAdapter.this::notifyDataSetChanged);
+            });
         }
+    }
+
+    @Override
+    public int getItemCount(){
+        return mData.size();
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder{

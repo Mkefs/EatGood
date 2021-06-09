@@ -22,7 +22,7 @@ import java.util.concurrent.Executors;
 
 import dev.cotapro.mx.FeedData;
 import dev.cotapro.mx.R;
-import dev.cotapro.mx.KiwilimonApi.Recetas;
+import dev.cotapro.mx.KiwilimonApi.RecetasEntity;
 import dev.cotapro.mx.Adapters.FeedAdapter;
 
 public class FeedFragment extends Fragment {
@@ -46,7 +46,7 @@ public class FeedFragment extends Fragment {
 		executor.execute(() -> {
 			String json = FeedData.get_feed(1);
 			Gson gson = new Gson();
-			Recetas recetas = gson.fromJson(json, Recetas.class);
+			RecetasEntity recetas = gson.fromJson(json, RecetasEntity.class);
 
 			if (recetas == null) {
 				Log.e("[E]: ", "Recetas no encontradas");

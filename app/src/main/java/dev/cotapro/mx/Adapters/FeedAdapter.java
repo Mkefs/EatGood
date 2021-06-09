@@ -6,31 +6,26 @@ import android.os.Looper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.bumptech.glide.Glide;
 import com.google.gson.Gson;
-
 import org.jetbrains.annotations.NotNull;
-
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
-
-import dev.cotapro.mx.FeedData;
-import dev.cotapro.mx.R;
-import dev.cotapro.mx.KiwilimonApi.DescripcionEntity;
 import dev.cotapro.mx.Activities.RecetaActivity;
+import dev.cotapro.mx.FeedData;
+import dev.cotapro.mx.KiwilimonApi.DescripcionEntity;
+import dev.cotapro.mx.KiwilimonApi.RecetasEntity;
+import dev.cotapro.mx.R;
 
 public class FeedAdapter extends RecyclerView.Adapter<FeedAdapter.ViewHolder>{
     public ArrayList<DescripcionEntity> mData;
+    private int page = 1;
 
     public FeedAdapter(DescripcionEntity[] itemList) {
         this.mData = new ArrayList<>();
@@ -41,9 +36,9 @@ public class FeedAdapter extends RecyclerView.Adapter<FeedAdapter.ViewHolder>{
         }
     }
 
-    private void addRecetas(Descripcion[] items) {
-        ArrayList<Descripcion> append = new ArrayList<>();
-        for (Descripcion desc : items) {
+    private void addRecetas(DescripcionEntity[] items) {
+        ArrayList<DescripcionEntity> append = new ArrayList<>();
+        for (DescripcionEntity desc : items) {
             if (!desc.key.isEmpty())
                 append.add(desc);
         }
@@ -59,7 +54,7 @@ public class FeedAdapter extends RecyclerView.Adapter<FeedAdapter.ViewHolder>{
     }
 
     @Override
-    public void onBindViewHolder(@NotNull final ListAdapter.ViewHolder holder,
+    public void onBindViewHolder(@NotNull final FeedAdapter.ViewHolder holder,
                                  final int position){
         holder.bindData(mData.get(position));
         // When the las item is showed up then request the next page
@@ -71,9 +66,9 @@ public class FeedAdapter extends RecyclerView.Adapter<FeedAdapter.ViewHolder>{
                 String recipe = FeedData.get_feed(page);
                 Gson gson = new Gson();
 
-                Recetas receta = gson.fromJson(recipe, Recetas.class);
+                RecetasEntity receta = gson.fromJson(recipe, RecetasEntity.class);
                 addRecetas(receta.payload);
-                handler.post(ListAdapter.this::notifyDataSetChanged);
+                handler.post(FeedAdapter.this::notifyDataSetChanged);
             });
         }
     }

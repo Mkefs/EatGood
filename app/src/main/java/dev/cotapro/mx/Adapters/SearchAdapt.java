@@ -17,10 +17,10 @@ import java.util.ArrayList;
 import dev.cotapro.mx.R;
 
 public class SearchAdapt extends RecyclerView.Adapter<SearchAdapt.ViewHolder> {
-    private final ArrayList<String[]> data;
+    private final String[][] data;
     public ArrayList<ViewHolder> seleccionados;
 
-    public SearchAdapt(String<String[]>[] data) {
+    public SearchAdapt(String[][] data) {
         seleccionados = new ArrayList<>();
         this.data = data;
     }
@@ -35,12 +35,12 @@ public class SearchAdapt extends RecyclerView.Adapter<SearchAdapt.ViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.data(data.get(position));
+        holder.data(data[position]);
     }
 
     @Override
     public int getItemCount() {
-        return data.size();
+        return data.length;
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
@@ -51,8 +51,8 @@ public class SearchAdapt extends RecyclerView.Adapter<SearchAdapt.ViewHolder> {
             texto.setText(datos[1]);
             String context = "https://ingredients-eatgood.000webhostapp.com/imagen?n=" + datos[2];
             Glide.with(image)
-					.placeholder(R.drawable.ic_launcher_background)
                     .load(context)
+                    .placeholder(R.drawable.ic_launcher_background)
                     .error(R.drawable.ic_launcher_background)
 					.into(image);
         }

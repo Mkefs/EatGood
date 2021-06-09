@@ -2,40 +2,35 @@ package dev.cotapro.mx.Activities;
 
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
-import android.text.SpannableString;
-import android.text.SpannableStringBuilder;
-import android.text.style.BulletSpan;
 import android.view.View;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+
 import com.bumptech.glide.Glide;
 import com.google.gson.Gson;
 
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
+
+import dev.cotapro.mx.Database.Receta;
 import dev.cotapro.mx.FeedData;
 import dev.cotapro.mx.KiwilimonApi.RecetaEntity;
 import dev.cotapro.mx.R;
-import dev.cotapro.mx.Database.Receta;
 
 public class RecetaActivity extends AppCompatActivity {
     private long id = 0;
     private boolean internet = true;
     private String json;
     private RecetaEntity recipe;
-    private Executor exec = Executors.newSingleThreadExecutor();
-    private Handler handler = new Handler(Looper.getMainLooper());
+    private final Executor exec = Executors.newSingleThreadExecutor();
+    private final Handler handler = new Handler(Looper.getMainLooper());
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,7 +66,9 @@ public class RecetaActivity extends AppCompatActivity {
 
         txtName.setText(recipe.titleh1);
         txtRating.setText(String.valueOf(recipe.raiting));
-        String[] steps = dots(recipe);
+        String[] lists = dots(recipe);
+        txtSteps.setText(lists[0]);
+        txtIngredients.setText(lists[1]);
 
 
         String cdn_kiwilimon = "https://cdn.kiwilimon.com/recetaimagen/%s/%s";
@@ -84,9 +81,16 @@ public class RecetaActivity extends AppCompatActivity {
 
     private String[] dots(RecetaEntity receta) {
         String[] strings = new String[2];
+        strings[0] = strings[1] = "<ul>";
+
         for(RecetaEntity.Pasos paso : receta.steps)
-        {}
-        return builder;
+            strings[0] += "<li>" + paso.text + "</li>";
+        for(RecetaEntity.Ingredientes ingrediente : receta.ingredients)
+            strings[1] += "<li>" + ingrediente.text + "</li>";
+
+        strings[0] += "</ul>";
+        strings[1] += "</ul>";
+        return strings;
     }
 
     public static void open_act(Context context, Bundle extras) {
@@ -95,7 +99,8 @@ public class RecetaActivity extends AppCompatActivity {
         context.startActivity(siguiente);
     }
 
-    private void go_back(View view) {
+    public void go_back(View view) {
         finish();
     }
+
 }

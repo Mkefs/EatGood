@@ -1,4 +1,4 @@
-package dev.cotapro.mx.Fragments;
+onde onde package dev.cotapro.mx.Fragments;
 
 import android.content.Context;
 import android.os.Bundle;

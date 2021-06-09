@@ -6,6 +6,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
+import android.text.Html;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -67,9 +68,8 @@ public class RecetaActivity extends AppCompatActivity {
         txtName.setText(recipe.titleh1);
         txtRating.setText(String.valueOf(recipe.raiting));
         String[] lists = dots(recipe);
-        txtSteps.setText(lists[0]);
-        txtIngredients.setText(lists[1]);
-
+        txtSteps.setText(Html.fromHtml(lists[0]));
+        txtIngredients.setText(Html.fromHtml(lists[1]));
 
         String cdn_kiwilimon = "https://cdn.kiwilimon.com/recetaimagen/%s/%s";
         cdn_kiwilimon = String.format(cdn_kiwilimon, id, recipe.image);

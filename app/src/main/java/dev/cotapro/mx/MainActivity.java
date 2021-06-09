@@ -62,6 +62,7 @@ public class MainActivity extends AppCompatActivity {
 			transaction
 					.hide(frag)
 					.add(R.id.nav_host_fragment, frag);
+
 		}
 		transaction.commit();
 	}

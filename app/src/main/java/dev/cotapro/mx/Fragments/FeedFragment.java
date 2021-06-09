@@ -1,4 +1,4 @@
-package dev.cotapro.mx.ui.feed;
+package dev.cotapro.mx.Fragments;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -22,7 +22,8 @@ import java.util.concurrent.Executors;
 
 import dev.cotapro.mx.FeedData;
 import dev.cotapro.mx.R;
-import dev.cotapro.mx.api.Recetas;
+import dev.cotapro.mx.KiwilimonApi.Recetas;
+import dev.cotapro.mx.Adapters.FeedAdapter;
 
 public class FeedFragment extends Fragment {
 	View vista;
@@ -33,7 +34,7 @@ public class FeedFragment extends Fragment {
 							 @Nullable ViewGroup container,
 							 @Nullable Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		vista = inflater.inflate(R.layout.feed_layout, container, false);
+		vista = inflater.inflate(R.layout.fragment_freed, container, false);
 		context= vista.getContext();
 		init();
 		return vista;
@@ -53,7 +54,7 @@ public class FeedFragment extends Fragment {
 			}
 
 			handler.post(() -> {
-				ListAdapter listAdapter = new ListAdapter(recetas.payload);
+				FeedAdapter listAdapter = new FeedAdapter(recetas.payload);
 				RecyclerView recyclerView = vista.findViewById(R.id.recycleRecetas);
 				recyclerView.setHasFixedSize(true);
 				recyclerView.setLayoutManager(new LinearLayoutManager(context));

@@ -50,7 +50,7 @@
                 android:id="@+id/ingredientespepe"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                tools:listitem="@layout/ingredient_item" />
+                tools:listitem="@layout/item_ingredient" />
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
     <com.google.android.material.floatingactionbutton.FloatingActionButton

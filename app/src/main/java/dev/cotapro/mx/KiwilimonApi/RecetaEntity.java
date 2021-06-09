@@ -1,6 +1,6 @@
-package dev.cotapro.mx.api;
+package dev.cotapro.mx.KiwilimonApi;
 
-public class Receta {
+public class RecetaEntity {
     public class Ingredientes {
         public String text;
     }
@@ -12,5 +12,5 @@ public class Receta {
     public float raiting;
     public Pasos[] steps;
     public Ingredientes[] ingredients;
-    public Chef[] images;
+    public ChefEntity[] images;
 }

@@ -1,4 +1,4 @@
-package dev.cotapro.mx.ui.feed;
+package dev.cotapro.mx.Adapters;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -15,15 +15,15 @@ import com.bumptech.glide.Glide;
 import java.util.ArrayList;
 
 import dev.cotapro.mx.R;
-import dev.cotapro.mx.api.Descripcion;
-import dev.cotapro.mx.ui.recetas.RecetaActivity;
+import dev.cotapro.mx.KiwilimonApi.DescripcionEntity;
+import dev.cotapro.mx.Activities.RecetaActivity;
 
-public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder>{
-    public ArrayList<Descripcion> mData;
+public class FeedAdapter extends RecyclerView.Adapter<FeedAdapter.ViewHolder>{
+    public ArrayList<DescripcionEntity> mData;
 
-    public ListAdapter(Descripcion[] itemList) {
+    public FeedAdapter(DescripcionEntity[] itemList) {
         this.mData = new ArrayList<>();
-        for (Descripcion descripcion : itemList) {
+        for (DescripcionEntity descripcion : itemList) {
             if (!descripcion.key.isEmpty()) {
                 mData.add(descripcion);
             }
@@ -37,14 +37,14 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder>{
 
     @NonNull
     @Override
-    public ListAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public FeedAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View item= LayoutInflater.from(parent.getContext())
-            .inflate(R.layout.receta_item, parent, false);
+            .inflate(R.layout.item_receta, parent, false);
         return new ViewHolder(item);
     }
 
     @Override
-    public void onBindViewHolder(final ListAdapter.ViewHolder holder, final int position){
+    public void onBindViewHolder(final FeedAdapter.ViewHolder holder, final int position){
         holder.bindData(mData.get(position));
     }
 
@@ -60,7 +60,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder>{
             stars = itemView.findViewById(R.id.estrellas);
 
         }
-        void bindData(final Descripcion item){
+        void bindData(final DescripcionEntity item){
             String image_url = "https://cdn.kiwilimon.com/recetaimagen/%s/%s";
             image_url = String.format(image_url, item.key, item.image);
 
@@ -75,7 +75,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder>{
             LinearLayout container = itemView.findViewById(R.id.receta_container);
             container.setOnClickListener(v -> {
                 Bundle extras = new Bundle();
-                extras.putInt("id", Integer.parseInt(item.key));
+                extras.putLong("id", Integer.parseInt(item.key));
                 extras.putBoolean("internet", true);
                 RecetaActivity.open_act(itemView.getContext(), extras);
             });

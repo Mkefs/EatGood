@@ -1,4 +1,4 @@
-package dev.cotapro.mx.ui.search;
+package dev.cotapro.mx.Fragments;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -12,7 +12,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.gson.Gson;
@@ -22,6 +21,7 @@ import java.io.InputStream;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
+import dev.cotapro.mx.Adapters.SearchAdapt;
 import dev.cotapro.mx.R;
 
 public class SearchFragment extends Fragment {
@@ -34,7 +34,7 @@ public class SearchFragment extends Fragment {
 							 @Nullable ViewGroup container,
 							 @Nullable Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		vista = inflater.inflate(R.layout.search_layout, container, false);
+		vista = inflater.inflate(R.layout.fragment_search, container, false);
         context = vista.getContext();
 
 		Executor executor = Executors.newSingleThreadExecutor();
@@ -58,7 +58,7 @@ public class SearchFragment extends Fragment {
 
 			ingredientes = gson.fromJson(json_data, String[][].class);
 			handler.post(() -> {
-				Listadap listadap = new Listadap(ingredientes);
+				SearchAdapt listadap = new SearchAdapt(ingredientes);
 				RecyclerView recyclerView = vista.findViewById(R.id.ingredientespepe);
 				recyclerView.setHasFixedSize(true);
 				recyclerView.setLayoutManager(new GridLayoutManager(context, 3));

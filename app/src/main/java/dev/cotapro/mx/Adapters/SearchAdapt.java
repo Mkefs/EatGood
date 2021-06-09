@@ -1,10 +1,9 @@
-package dev.cotapro.mx.ui.search;
+package dev.cotapro.mx.Adapters;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -17,11 +16,11 @@ import java.util.ArrayList;
 
 import dev.cotapro.mx.R;
 
-public class Listadap extends RecyclerView.Adapter<Listadap.ViewHolder> {
-    private final String[][] data;
+public class SearchAdapt extends RecyclerView.Adapter<SearchAdapt.ViewHolder> {
+    private final ArrayList<String[]> data;
     public ArrayList<ViewHolder> seleccionados;
 
-    public Listadap (String[][] data) {
+    public SearchAdapt(String<String[]>[] data) {
         seleccionados = new ArrayList<>();
         this.data = data;
     }
@@ -30,18 +29,18 @@ public class Listadap extends RecyclerView.Adapter<Listadap.ViewHolder> {
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View item = LayoutInflater.from(parent.getContext())
-            .inflate(R.layout.ingredient_item,parent,false);
+            .inflate(R.layout.item_ingredient,parent,false);
         return new ViewHolder(item);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.data(data[position]);
+        holder.data(data.get(position));
     }
 
     @Override
     public int getItemCount() {
-        return data.length;
+        return data.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
@@ -52,8 +51,10 @@ public class Listadap extends RecyclerView.Adapter<Listadap.ViewHolder> {
             texto.setText(datos[1]);
             String context = "https://ingredients-eatgood.000webhostapp.com/imagen?n=" + datos[2];
             Glide.with(image)
-                    .load(context).placeholder(R.drawable.ic_launcher_background)
-                    .error(R.drawable.ic_launcher_background).into(image);
+					.placeholder(R.drawable.ic_launcher_background)
+                    .load(context)
+                    .error(R.drawable.ic_launcher_background)
+					.into(image);
         }
 
         public ViewHolder(View vista){

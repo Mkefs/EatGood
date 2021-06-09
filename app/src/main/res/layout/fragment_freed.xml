@@ -36,7 +36,7 @@
             android:id="@+id/recycleRecetas"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:listitem="@layout/receta_item"
+            tools:listitem="@layout/item_receta"
             android:textAlignment="center" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -1,4 +1,4 @@
-package dev.cotapro.mx.api;
+package dev.cotapro.mx.KiwilimonApi;
 
 import okhttp3.ResponseBody;
 import retrofit2.Call;
@@ -20,7 +20,7 @@ public class ApiManagement {
 
         @GET("recipe?language=es&device=android")
         Call<ResponseBody> recipe_json(
-            @Query("key") int key
+            @Query("key") long key
         );
     }
 }

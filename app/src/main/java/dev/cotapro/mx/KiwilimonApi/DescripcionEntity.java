@@ -1,8 +1,8 @@
-package dev.cotapro.mx.api;
+package dev.cotapro.mx.KiwilimonApi;
 
 import com.google.gson.annotations.SerializedName;
 
-public class Descripcion {
+public class DescripcionEntity {
 	@SerializedName("k")
 	public String key;
 	@SerializedName("cn")

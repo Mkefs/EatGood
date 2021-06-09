@@ -1,6 +1,6 @@
-package dev.cotapro.mx.api;
+package dev.cotapro.mx.KiwilimonApi;
 
-public class Chef {
+public class ChefEntity {
     public class Chef_nombre{
         public String firstname;
         public String lastname;

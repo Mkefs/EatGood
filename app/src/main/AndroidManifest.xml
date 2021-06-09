@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.EatGood">
 
-        <activity android:name=".ui.recetas.RecetaActivity" android:label="Receta">
+        <activity android:name=".Activities.RecetaActivity" android:label="Receta">
 
         </activity>
         <activity android:name=".MainActivity"

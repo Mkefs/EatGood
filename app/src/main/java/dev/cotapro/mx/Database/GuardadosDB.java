@@ -1,4 +1,4 @@
-package dev.cotapro.mx.recetas;
+package dev.cotapro.mx.Database;
 
 import androidx.room.Database;
 import androidx.room.RoomDatabase;

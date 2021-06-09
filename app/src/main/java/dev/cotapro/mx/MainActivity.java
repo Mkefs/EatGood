@@ -16,6 +16,7 @@ public class MainActivity extends AppCompatActivity {
 	public static Fragment home = new HomeFragment();
 	public static Fragment search = new SearchFragment();
 
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -53,7 +54,15 @@ public class MainActivity extends AppCompatActivity {
 	private void change_fragment(Fragment frag) {
 		FragmentManager manager = getSupportFragmentManager();
 		FragmentTransaction transaction = manager.beginTransaction();
-		transaction.replace(R.id.nav_host_fragment, frag);
+		if(frag.isAdded()){
+			transaction
+					.hide(frag)
+					.show(frag);
+		} else{
+			transaction
+					.hide(frag)
+					.add(R.id.nav_host_fragment, frag);
+		}
 		transaction.commit();
 	}
 }

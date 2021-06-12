@@ -10,16 +10,12 @@ import android.text.Html;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.bumptech.glide.Glide;
 import com.google.gson.Gson;
-
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
-
 import dev.cotapro.mx.Database.Receta;
 import dev.cotapro.mx.FeedData;
 import dev.cotapro.mx.KiwilimonApi.RecetaEntity;

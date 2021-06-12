@@ -49,12 +49,13 @@ public class SearchAdapt extends RecyclerView.Adapter<SearchAdapt.ViewHolder> {
 
         public void data(final String[] datos)  {
             texto.setText(datos[1]);
-            String context = "https://ingredients-eatgood.000webhostapp.com/imagen?n=" + datos[2];
-            Glide.with(image)
-                    .load(context)
-                    .placeholder(R.drawable.ic_launcher_background)
-                    .error(R.drawable.ic_launcher_background)
-					.into(image);
+            String context = "https://ingredients-eatgood.000webhostapp.com/imagen?n=";
+            context += datos[2];
+            Glide.with(itemView)
+                .load(context)
+                .placeholder(R.drawable.ic_launcher_background)
+                .error(R.drawable.ic_launcher_background)
+                .into(image);
         }
 
         public ViewHolder(View vista){

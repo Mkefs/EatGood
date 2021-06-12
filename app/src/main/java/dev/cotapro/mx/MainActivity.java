@@ -1,69 +1,64 @@
 package dev.cotapro.mx;
 
-import android.annotation.SuppressLint;
 import android.os.Bundle;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import dev.cotapro.mx.Fragments.FeedFragment;
 import dev.cotapro.mx.Fragments.HomeFragment;
 import dev.cotapro.mx.Fragments.SearchFragment;
 
 public class MainActivity extends AppCompatActivity {
-	public static Fragment feed = new FeedFragment();
-	public static Fragment home = new HomeFragment();
-	public static Fragment search = new SearchFragment();
-
+	private Map<Integer, Fragment> fragmentMap;
+	private FragmentManager manager;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		manager = getSupportFragmentManager();
 		setTheme(R.style.Theme_EatGood);
-		FeedData.init(this);
-
 		setContentView(R.layout.activity_main);
+
+		FeedData.init(this);
 		setNavController();
 	}
 
-	@SuppressLint("NonConstantResourceId")
 	private void setNavController() {
 		BottomNavigationView navView = findViewById(R.id.nav_view);
+		fragmentMap = new HashMap<>();
+		fragmentMap.put(R.id.navigation_feed, new FeedFragment());
+		fragmentMap.put(R.id.navigation_home, new HomeFragment());
+		fragmentMap.put(R.id.navigation_search, new SearchFragment());
+
 		navView.setOnNavigationItemSelectedListener(item -> {
-			boolean ret = true;
-			switch (item.getItemId()) {
-				case R.id.navigation_home:
-					change_fragment(home);
-					break;
-				case R.id.navigation_feed:
-					change_fragment(feed);
-					break;
-				case R.id.navigation_search:
-					change_fragment(search);
-					break;
-				default:
-					ret = false;
-					break;
-			}
-			return ret;
+			Fragment change = fragmentMap.get(item.getItemId());
+			if(change == null)
+				return false;
+			change_fragment(change);
+			return true;
 		});
-		change_fragment(home);
 	}
 
 	private void change_fragment(Fragment frag) {
-		FragmentManager manager = getSupportFragmentManager();
 		FragmentTransaction transaction = manager.beginTransaction();
-		if(frag.isAdded()){
-			transaction
-					.hide(frag)
-					.show(frag);
-		} else{
-			transaction
-					.hide(frag)
-					.add(R.id.nav_host_fragment, frag);
-
-		}
+		// Hide all fragments
+		List<Fragment> fragmentList = manager.getFragments();
+		for(Fragment fragment : fragmentList)
+			transaction.hide(fragment);
+		// Then show current fragment
+		if(frag.isAdded())
+			transaction.show(frag);
+		else
+			transaction.add(R.id.nav_host_fragment, frag);
 		transaction.commit();
 	}
 }

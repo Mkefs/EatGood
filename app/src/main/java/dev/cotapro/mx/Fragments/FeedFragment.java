@@ -91,10 +91,11 @@ public class FeedFragment extends Fragment {
 					page++;
 				} else
 					return;
-			} else
+			} else {
 				Toast.makeText(getContext(),
 					"No se han podido cargar las recetas!",
 					Toast.LENGTH_LONG).show();
+			}
 			loading = false;
 		});
 	}

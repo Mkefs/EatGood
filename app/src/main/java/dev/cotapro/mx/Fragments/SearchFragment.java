@@ -56,10 +56,11 @@ public class SearchFragment extends Fragment {
 					page++;
 				} else
 					return;
-			} else
+			} else {
 				Toast.makeText(getContext(),
 					"No se ha podido hacer la busqueda!",
 					Toast.LENGTH_LONG).show();
+			}
 			loading = false;
 			recyclerView.setVisibility(View.VISIBLE);
 		});

@@ -3,7 +3,6 @@ package dev.cotapro.mx.Fragments;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -40,7 +39,7 @@ public class SearchFragment extends Fragment {
 		loading = false;
 		executor = Executors.newSingleThreadExecutor();
 		handler = new Handler(Looper.getMainLooper());
-		adapter = new FeedAdapter(3);
+		adapter = new FeedAdapter(2);
 	}
 
 	public void getSearch() {

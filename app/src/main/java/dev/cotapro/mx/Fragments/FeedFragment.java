@@ -46,7 +46,7 @@ public class FeedFragment extends Fragment {
 	public FeedFragment() {
 		executor = Executors.newSingleThreadExecutor();
 		handler = new Handler(Looper.getMainLooper());
-		adapter = new FeedAdapter(3);
+		adapter = new FeedAdapter(2);
 		searchFragment = new SearchFragment();
 	}
 
@@ -82,14 +82,15 @@ public class FeedFragment extends Fragment {
 		RecetasEntity recetasEntity = RequestData.Kiwilimon.get_feed(page);
 		handler.post(() -> {
 			if(recetasEntity != null) {
-				if(recetasEntity.payload.length < 1)
-					return;
 				refreshLayout.setRefreshing(false);
-				for(DescripcionEntity desc : recetasEntity.payload)
-					if(!desc.key.isEmpty())
-						adapter.recetas.add(desc);
-				adapter.notifyDataSetChanged();
-				page++;
+				if (recetasEntity.quantity > 0) {
+					for (DescripcionEntity desc : recetasEntity.payload)
+						if (!desc.key.isEmpty())
+							adapter.recetas.add(desc);
+					adapter.notifyDataSetChanged();
+					page++;
+				} else
+					return;
 			} else
 				Toast.makeText(getContext(),
 					"No se han podido cargar las recetas!",

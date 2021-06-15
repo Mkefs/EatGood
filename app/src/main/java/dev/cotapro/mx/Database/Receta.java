@@ -9,5 +9,6 @@ public class Receta {
 	public long key;
 	public String name;
 	public String chef;
+	public float rating;
 	public String thumbPath;
 }

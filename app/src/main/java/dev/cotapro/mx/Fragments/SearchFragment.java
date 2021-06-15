@@ -19,14 +19,14 @@ import org.jetbrains.annotations.NotNull;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
-import dev.cotapro.mx.Adapters.FeedAdapter;
+import dev.cotapro.mx.Adapters.RecipeAdapter;
 import dev.cotapro.mx.KiwilimonApi.DescripcionEntity;
 import dev.cotapro.mx.KiwilimonApi.RecetasEntity;
 import dev.cotapro.mx.R;
 import dev.cotapro.mx.Utils.RequestData;
 
 public class SearchFragment extends Fragment {
-	private final FeedAdapter adapter;
+	private final RecipeAdapter adapter;
 	private final Executor executor;
 	private final Handler handler;
 	private RecyclerView recyclerView;
@@ -39,15 +39,15 @@ public class SearchFragment extends Fragment {
 		loading = false;
 		executor = Executors.newSingleThreadExecutor();
 		handler = new Handler(Looper.getMainLooper());
-		adapter = new FeedAdapter(2);
+		adapter = new RecipeAdapter(2);
 	}
 
 	public void getSearch() {
 		RecetasEntity recetasEntity = RequestData.Kiwilimon.get_search(
 			new String[]{searchQuery}, page);
 		handler.post(() -> {
+			refreshLayout.setRefreshing(false);
 			if (recetasEntity != null) {
-				refreshLayout.setRefreshing(false);
 				if (recetasEntity.quantity > 0) {
 					for (DescripcionEntity desc : recetasEntity.payload)
 						if (desc.type.equals("receta"))

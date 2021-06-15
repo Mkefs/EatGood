@@ -2,7 +2,8 @@ package dev.cotapro.mx.Activities;
 
 import android.content.Context;
 import android.content.Intent;
-import android.icu.number.LocalizedNumberFormatter;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -15,10 +16,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-//import com.bumptech.glide.Glide;
+
 import com.google.gson.Gson;
 import com.squareup.picasso.Picasso;
 
+import java.io.File;
+import java.io.FileOutputStream;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
@@ -39,6 +42,7 @@ public class RecetaActivity extends AppCompatActivity {
     private final Handler handler = new Handler(Looper.getMainLooper());
     private long key;
     private boolean saved;
+    private String thumbName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +61,7 @@ public class RecetaActivity extends AppCompatActivity {
         Bundle data = intent.getExtras();
         if(data != null) {
             key = data.getLong("key");
+            thumbName = data.getString("thumb");
             exec.execute(this::getReceta);
         } else {
             Toast.makeText(
@@ -93,20 +98,78 @@ public class RecetaActivity extends AppCompatActivity {
         ingredientes.setText(Html.fromHtml(list[1]));
 
         // Set image
-        String url = RequestData.Kiwilimon.getImageUrl(
-            String.valueOf(recetaEntity.key), recetaEntity.image);
-        Picasso.get()
-            .load(url)
-            .into(imageView);
+        if (!saved) {
+            String url = RequestData.Kiwilimon.getImageUrl(
+                String.valueOf(recetaEntity.key), recetaEntity.image);
+            Picasso.get()
+                .load(url)
+                .into(imageView);
+        } else {
+            File url = new File(getApplicationContext().getFilesDir(), recetaEntity.image);
+            Picasso.get()
+                .load(url)
+                .into(imageView);
+        }
     }
 
     private void saveRecipe(View v) {
-        Receta receta = new Receta();
-        RecetaData data = new RecetaData();
+        if (!saved) {
+            Receta receta = new Receta();
+            RecetaData data = new RecetaData();
+            Gson gson = new Gson();
 
-        receta.name = recetaEntity.titleh1;
-        receta.chef = recetaEntity.images[0].clientdata.firstname;
-        receta.key = key;
+            String thumbName = String.format("thumb-%s.jpg", System.currentTimeMillis());
+            String imageName = String.format("image-%s.png", System.currentTimeMillis());
+
+            receta.name = recetaEntity.titleh1;
+            receta.chef = recetaEntity.images[0].clientdata.firstname;
+            receta.rating = recetaEntity.rating;
+            receta.key = key;
+
+            data.key = key;
+            recetaEntity.image = imageName;
+            data.json = gson.toJson(recetaEntity);
+
+            // Save images
+            try {
+                receta.thumbPath = saveImage(imageView, thumbName, 80);
+                data.imagePath = saveImage(imageView, imageName, 100);
+
+                recetaEntity.image = imageName;
+                this.thumbName = thumbName;
+
+                exec.execute(() -> {
+                    RequestData.db.recetasDAO().insert_receta(receta);
+                    RequestData.db.recetaDataDAO().insert_data(data);
+                });
+                saved = true;
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        } else {
+            getApplicationContext().deleteFile(recetaEntity.image);
+            getApplicationContext().deleteFile(thumbName);
+            exec.execute(() -> {
+                RequestData.db.recetasDAO().delete_receta(key);
+                RequestData.db.recetaDataDAO().delete_data(key);
+            });
+            saved = false;
+        }
+        setSaveButton();
+    }
+
+    private String saveImage(ImageView imageView,
+                           String filename,
+                           int quality) throws Exception {
+        FileOutputStream fos = getApplicationContext().openFileOutput(
+            filename, Context.MODE_PRIVATE);
+
+        BitmapDrawable bitmapDrawable = (BitmapDrawable) imageView.getDrawable();
+        Bitmap bitmap = bitmapDrawable.getBitmap();
+        bitmap.compress(Bitmap.CompressFormat.JPEG, quality, fos);
+        fos.flush();
+        fos.close();
+        return filename;
     }
 
     private void setSaveButton() {

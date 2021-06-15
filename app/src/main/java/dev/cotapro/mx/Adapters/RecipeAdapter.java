@@ -17,21 +17,20 @@ import com.squareup.picasso.Picasso;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
-import java.util.concurrent.Callable;
 
 import dev.cotapro.mx.Activities.RecetaActivity;
 import dev.cotapro.mx.KiwilimonApi.DescripcionEntity;
 import dev.cotapro.mx.R;
 import dev.cotapro.mx.Utils.RequestData;
 
-public class FeedAdapter extends RecyclerView.Adapter<FeedAdapter.ViewHolder>{
+public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.ViewHolder>{
     public interface onBottomReached { void bottomReached(); }
 
     public ArrayList<DescripcionEntity> recetas;
-    private int itemMargin;
+    private final int itemMargin;
     public onBottomReached bottomReached;
 
-    public FeedAdapter(int margin) {
+    public RecipeAdapter(int margin) {
         recetas = new ArrayList<>();
         itemMargin = margin;
     }

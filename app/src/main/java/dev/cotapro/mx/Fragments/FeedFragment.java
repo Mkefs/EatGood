@@ -23,7 +23,7 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
-import dev.cotapro.mx.Adapters.FeedAdapter;
+import dev.cotapro.mx.Adapters.RecipeAdapter;
 import dev.cotapro.mx.KiwilimonApi.DescripcionEntity;
 import dev.cotapro.mx.KiwilimonApi.RecetasEntity;
 import dev.cotapro.mx.R;
@@ -38,7 +38,7 @@ public class FeedFragment extends Fragment {
 	private SearchView searchView;
 	private final Executor executor;
 	private final Handler handler;
-	private final FeedAdapter adapter;
+	private final RecipeAdapter adapter;
 	boolean loading = false;
 	int page = 1;
 	Button btnRefresh;
@@ -46,7 +46,7 @@ public class FeedFragment extends Fragment {
 	public FeedFragment() {
 		executor = Executors.newSingleThreadExecutor();
 		handler = new Handler(Looper.getMainLooper());
-		adapter = new FeedAdapter(2);
+		adapter = new RecipeAdapter(2);
 		searchFragment = new SearchFragment();
 	}
 
@@ -83,8 +83,8 @@ public class FeedFragment extends Fragment {
 		loading = true;
 		RecetasEntity recetasEntity = RequestData.Kiwilimon.get_feed(page);
 		handler.post(() -> {
+			refreshLayout.setRefreshing(false);
 			if(recetasEntity != null) {
-				refreshLayout.setRefreshing(false);
 				if (recetasEntity.quantity > 0) {
 					for (DescripcionEntity desc : recetasEntity.payload)
 						if (!desc.key.isEmpty())

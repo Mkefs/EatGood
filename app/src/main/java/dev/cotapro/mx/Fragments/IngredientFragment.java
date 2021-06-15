@@ -12,7 +12,6 @@ import androidx.fragment.app.Fragment;
 import dev.cotapro.mx.R;
 
 public class IngredientFragment extends Fragment {
-	private View vista;
 
 	@Nullable
 	@Override
@@ -20,7 +19,7 @@ public class IngredientFragment extends Fragment {
 							 @Nullable ViewGroup container,
 							 @Nullable Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		vista = inflater.inflate(R.layout.fragment_ingredients, container, false);
+		View vista = inflater.inflate(R.layout.fragment_ingredients, container, false);
 		return vista;
 	}
 }

@@ -15,7 +15,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
@@ -28,8 +27,8 @@ import dev.cotapro.mx.Utils.RequestData;
 public class HomeFragment extends Fragment {
 	private HomeRecipeAdapter adapter;
 	private RecyclerView recyclerView;
-	private Executor executor;
-	private Handler handler;
+	private final Executor executor;
+	private final Handler handler;
 	private SwipeRefreshLayout refreshLayout;
 	private int page;
 	private boolean loading;
@@ -60,7 +59,6 @@ public class HomeFragment extends Fragment {
 		refreshLayout.setRefreshing(true);
 		refreshLayout.setOnRefreshListener(this::refreshRecipes);
 
-		executor.execute(this::getRecipes);
 		return vista;
 	}
 

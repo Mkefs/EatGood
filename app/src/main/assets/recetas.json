@@ -1,15 +1,15 @@
 [
   	{
-		"name": "Aceite de soja",
-		"image":"soy_oil.jfif"
+		"name": "Acedera",
+		"image":"acedera.jpg"
 	},
   	{
-		"name": "Aceite de ma\u00edz",
-		"image":"corn_oil.jfif"
+		"name": "Acelga",
+		"image":"acelga.jpg"
 	},
   	{
-		"name": "Aceite de oliva",
-		"image":"olive_oil.jfif"
+		"name": "Alcachofa",
+		"image":"alcachofa.jpg"
 	},
   	{
 		"name": "Aceite de trufa",

@@ -45,6 +45,13 @@
                     android:layout_height="match_parent"
                     tools:listitem="@layout/item_receta"
                     android:textAlignment="center" />
+
+                <Button
+                    android:id="@+id/btnRefresh"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Cargar de nuevo" />
+
         </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
         <FrameLayout

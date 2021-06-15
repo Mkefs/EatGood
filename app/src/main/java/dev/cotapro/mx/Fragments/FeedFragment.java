@@ -6,6 +6,7 @@ import android.os.Looper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.Toast;
 
@@ -18,8 +19,6 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
-
-import org.jetbrains.annotations.NotNull;
 
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
@@ -42,6 +41,7 @@ public class FeedFragment extends Fragment {
 	private final FeedAdapter adapter;
 	boolean loading = false;
 	int page = 1;
+	Button btnRefresh;
 
 	public FeedFragment() {
 		executor = Executors.newSingleThreadExecutor();
@@ -55,7 +55,7 @@ public class FeedFragment extends Fragment {
 							 @Nullable ViewGroup container,
 							 @Nullable Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		View vista = inflater.inflate(R.layout.fragment_freed, container, false);
+		View vista = inflater.inflate(R.layout.fragment_feed, container, false);
 		manager = getChildFragmentManager();
 		adapter.bottomReached = this::bottomReached;
 
@@ -73,6 +73,8 @@ public class FeedFragment extends Fragment {
 		rview.setHasFixedSize(true);
 		rview.setAdapter(adapter);
 
+		btnRefresh = vista.findViewById(R.id.btnRefresh);
+
 		executor.execute(this::getRecipes);
 		return vista;
 	}
@@ -83,6 +85,7 @@ public class FeedFragment extends Fragment {
 		handler.post(() -> {
 			if(recetasEntity != null) {
 				refreshLayout.setRefreshing(false);
+				btnRefresh.setVisibility(View.GONE);
 				if (recetasEntity.quantity > 0) {
 					for (DescripcionEntity desc : recetasEntity.payload)
 						if (!desc.key.isEmpty())
@@ -91,10 +94,12 @@ public class FeedFragment extends Fragment {
 					page++;
 				} else
 					return;
-			} else
+			} else {
 				Toast.makeText(getContext(),
-					"No se han podido cargar las recetas!",
-					Toast.LENGTH_LONG).show();
+						"No se han podido cargar las recetas!",
+						Toast.LENGTH_LONG).show();
+				btnRefresh.setVisibility(View.VISIBLE);
+			}
 			loading = false;
 		});
 	}

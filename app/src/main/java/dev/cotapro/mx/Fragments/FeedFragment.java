@@ -85,7 +85,6 @@ public class FeedFragment extends Fragment {
 		handler.post(() -> {
 			if(recetasEntity != null) {
 				refreshLayout.setRefreshing(false);
-				btnRefresh.setVisibility(View.GONE);
 				if (recetasEntity.quantity > 0) {
 					for (DescripcionEntity desc : recetasEntity.payload)
 						if (!desc.key.isEmpty())
@@ -95,14 +94,17 @@ public class FeedFragment extends Fragment {
 				} else
 					return;
 			} else {
+				btnRefresh.setVisibility(View.VISIBLE);
 				Toast.makeText(getContext(),
 						"No se han podido cargar las recetas!",
 						Toast.LENGTH_LONG).show();
-				btnRefresh.setVisibility(View.VISIBLE);
+
 			}
 			loading = false;
 		});
 	}
+
+
 	public void refreshData() {
 		loading = true;
 		adapter.recetas.clear();

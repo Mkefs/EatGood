@@ -12,746 +12,149 @@
 		"image":"alcachofa.jpg"
 	},
   	{
-		"name": "Aceite de trufa",
-		"image":"truffle_oil.jfif"
+		"name": "Algas",
+		"image":"acelga.jpg"
 	},
   	{
-		"name": "Nata",
-		"image":"nata.jfif"
-	},
-  	{
-		"name": "Yogur",
-		"image":"yogur.jfif"
-	},
-  	{
-		"name": "Leche",
-		"image":"milk.jfif"
-	},
-  	{
-		"name": "Helado",
-		"image":"ice_cream.jfif"
-	},
-  	{
-		"name": "Queso",
-		"image":"chesee.jfif"
-	},
-  	{
-		"name": "Cuajada",
-		"image":"cuajada.jfif"
-	},
-  	{
-		"name": "Mantequilla",
-		"image":"butter.jfif"
-	},
-  	{
-		"name": "Frijoles",
-		"image":"beans.jfif"
-	},
-  	{
-		"name": "Garbanzos",
-		"image":"chickpea.jfif"
-	},
-  	{
-		"name": "Guisante",
-		"image":"peas.jfif"
-	},
-  	{
-		"name": "Habas",
-		"image":"habas.jfif"
-	},
-  	{
-		"name": "Lentejas",
-		"image":"Lentils.jfif"
-	},
-  	{
-		"name": "Soja",
-		"image":"soy.jfif"
-	},
-  	{
-		"name": "Setas",
-		"image":"Setas.jfif"
-	},
-  	{
-		"name": "Hongos",
-		"image":"hongos.jfif"
-	},
-  	{
-		"name": "Boleto",
-		"image":"boleto.jfif"
-	},
-  	{
-
-		"name": "Champi\u00f1\u00f3n",
-		"image":"cham.jfif"
-	},
-  	{
-
-		"name": "Huitlacoche",
-		"image":"uitlacoche.jfif"
-	},
-  	{
-
-		"name": "Niscalo",
-		"image":"niscalo.jfif"
-	},
-  	{
-		"name": "Seta shiitake",
-		"image":"eta shiitak.jfif"
-	},
-  	{
-		"name": "Seta de cardo",
-		"image":"cardo.jfif"
-	},
-  	{
-		"name": "Seta de chopo",
-		"image":"chopo.jfif"
-	},
-  	{
-		"name": "Trufa",
-		"image":"trufa.jfif"
-	},
-  	{
-		"name": "Patata",
-		"image":"papa.jfif"
-	},
-  	{
-		"name": "Lechuga",
-		"image":"lettuce.jfif"
-	},
-  	{
-		"name": "Acelga",
-		"image":"acelga.jfif"
-	},
-  	{
-		"name": "Alcachofa",
-		"image":"alcachofa.jfif"
-	},
-  	{
-		"name": "Batata",
-		"image":"batata.jfif"
+		"name": "Apio",
+		"image":"apio.jpg"
 	},
   	{
 		"name": "Berenjena",
-		"image":"eggplant.jfif"
+		"image":"berenjena.jpg"
 	},
   	{
 		"name": "Berro",
-		"image":"berro.jfif"
+		"image":"berro.jpg"
 	},
   	{
-		"name": "Br\u00f3coli",
-		"image":"brocoli.jfif"
+		"name": "Brocoli",
+		"image":"brocoli.jpg"
 	},
   	{
-		"name": "Calabac\u00edn",
-		"image":"zucchini.jfif"
+		"name": "Calabacin",
+		"image":"calabacin.jpg"
 	},
   	{
-		"name": "Calabaza",
-		"image":"pumpkin.jfif"
-	},
-  	{
-		"name": "Cardo",
-		"image":"thistle.jpg"
+		"name": "Cardillo",
+		"image":"cardillo.jpg"
 	},
   	{
 		"name": "Cebolla",
-		"image":"onion.jfif"
+		"image":"cebolla.jpg"
 	},
   	{
-		"name": "Cebolla caramelizada",
-		"image":"onion_cara.jfif"
+		"name": "Cebollin",
+		"image":"cebollin.jpg"
 	},
   	{
-		"name": "Cebolleta",
-		"image":"cebolleta.jfif"
+		"name": "Champiñon",
+		"image":"champiñon.jpg"
 	},
   	{
-		"name": "Coles",
-		"image":"coles.jfif"
+		"name": "Chile de arbol",
+		"image":"chile_de_arbol.jpg"
 	},
   	{
-		"name": "Coles de Bruselas",
-		"image":"coles_brusle.jfif"
+		"name": "Chile habanero",
+		"image":"chile_habanero.jpg"
 	},
   	{
+		"name": "Chile jalapeños",
+		"image":"chile_jalapeño.jpg"
+	},
+  	{
+		"name": "Chile piquin",
+		"image":"chile_piquin.jpg"
+	},
+  	{
+		"name": "Chile poblano",
+		"image":"chile_poblano.jpg"
+	},
+  	{
+		"name": "Chile serrano",
+		"image":"chile_serrano.jpg"
+	},
+  	{
+		"name": "Col",
+		"image":"col_repollo.jpg"
+	},
+  	{
+
+		"name": "Col morada",
+		"image":"col morada.jpg"
+	},
+  	{
+
+		"name": "Coles de bruselas",
+		"image":"coles_de_bruselas.jpg"
+	},
+  	{
+
 		"name": "Coliflor",
-		"image":"coliflor.jfif"
+		"image":"coliflor.jpg"
 	},
   	{
-		"name": "Endivia",
-		"image":"envi.jfif"
+		"name": "Endibia",
+		"image":"endibia.jpg"
 	},
   	{
-		"name": "Tomate",
-		"image":"Tomate.jfif"
+		"name": "Esparrago",
+		"image":"esparrago.jpg"
 	},
   	{
-		"name": "Zanahoria",
-		"image":"Zanahoria.jfif"
+		"name": "Espinacas",
+		"image":"espinacas.jpg"
 	},
   	{
-		"name": "Escarola",
-		"image":"Escarola.jfif"
+		"name": "Lechuga",
+		"image":"lechuga.jpg"
 	},
   	{
-		"name": "Esp\u00e1rrago",
-		"image":"Esparrago.jfif"
+		"name": "Maiz",
+		"image":"maiz.jpg"
 	},
   	{
-		"name": "Espinaca",
-		"image":"espinaca.jfif"
+		"name": "Nabo",
+		"image":"nabo.jpg"
 	},
   	{
-		"name": "Hinojo",
-		"image":"hinojo.jfif"
+		"name": "Ortiga",
+		"image":"ortiga.jpg"
 	},
   	{
-		"name": "Jud\u00edas",
-		"image":"judias.jfif"
-	},
-  	{
-		"name": "Ma\u00edz",
-		"image":"corn.jfif"
-	},
-  	{
-		"name": "Palmito",
-		"image":"palmito.jfif"
+		"name": "Papas",
+		"image":"papas.jpg"
 	},
   	{
 		"name": "Pepino",
-		"image":"pepino.jfif"
+		"image":"pepino.jpg"
 	},
   	{
-		"name": "Pimiento",
-		"image":"pimiento.jfif"
+		"name": "Pimientos",
+		"image":"pimientos.jpg"
 	},
   	{
 		"name": "Puerro",
-		"image":"puerro.jfif"
+		"image":"puerro.jpg"
 	},
   	{
-		"name": "Remolacha",
-		"image":"remolacha.jfif"
+		"name": "Rábano",
+		"image":"rabano.jpg"
 	},
   	{
-		"name": "Albaricoque",
-		"image":"albaricoque.jfif"
+		"name": "Remolachas",
+		"image":"remolachas.jpg"
 	},
   	{
-		"name": "Caquis",
-		"image":"caquis.jfif"
+		"name": "Salsifi",
+		"image":"salsifi.jpg"
 	},
   	{
-		"name": "Aguacate",
-		"image":"aguacate.jfif"
+		"name": "Topinambur",
+		"image":"topinambur.jpg"
 	},
   	{
-		"name": "Cereza",
-		"image":"cereza.jfif"
-	},
-  	{
-		"name": "Mango",
-		"image":"mango.jfif"
-	},
-  	{
-		"name": "Melocotones",
-		"image":"melocotones.jfif"
-	},
-  	{
-		"name": "Nectarina",
-		"image":"nectarina.jfif"
-	},
-  	{
-		"name": "Ciruela",
-		"image":"ciruela.jfif"
-	},
-  	{
-		"name": "Fruta del bosque",
-		"image":"fruta del bosque.jfif"
-	},
-  	{
-		"name": "Frutos secos",
-		"image":"frutos secos.jfif"
-	},
-  	{
-		"name": "Membrillo",
-		"image":"membrillo.jfif"
-	},
-  	{
-		"name": "Peras",
-		"image":"peras.jfif"
-	},
-  	{
-		"name": "Manzanas",
-		"image":"apple.jfif"
-	},
-  	{
-		"name": "Uvas",
-		"image":"uvas.jfif"
-	},
-  	{
-		"name": "Fruta seca",
-		"image":"fruta_s.jfif"
-	},
-  	{
-		"name": "Frambuesa",
-		"image":"frambuesa.jfif"
-	},
-  	{
-		"name": "Fresa",
-		"image":"fresa.jfif"
-	},
-  	{
-		"name": "Granada",
-		"image":"granada.jfif"
-	},
-  	{
-		"name": "Higos",
-		"image":"higos.jfif"
-	},
-  	{
-		"name": "Kiwi",
-		"image":"kiwi.jfif"
-	},
-  	{
-		"name": "Lim\u00f3n",
-		"image":"limon.jfif"
-	},
-  	{
-		"name": "Mandarina",
-		"image":"mandarina.jfif"
-	},
-  	{
-		"name": "Mel\u00f3n",
-		"image":"melon.jfif"
-	},
-  	{
-		"name": "Naranja",
-		"image":"naranja.jfif"
-	},
-  	{
-		"name": "Pi\u00f1a",
-		"image":"pineapple.jfif"
-	},
-  	{
-		"name": "Pl\u00e1tano",
-		"image":"platano.jfif"
-	},
-  	{
-		"name": "Pomelo",
-		"image":"pomelo.jfif"
-	},
-  	{
-		"name": "Sand\u00eda",
-		"image":"water_m.jfif"
-	},
-  	{
-		"name": "Cereal",
-		"image":"cereal.jfif"
-	},
-  	{
-		"name": "Harina",
-		"image":"harina.jfif"
-	},
-  	{
-		"name": "Pan",
-		"image":"pan.jfif"
-	},
-  	{
-
-		"name": "Arroz",
-		"image":"rice.jfif"
-	},
-  	{
-
-		"name": "Pasta",
-		"image":"pasta.jfif"
-	},
-  	{
-		"name": "At\u00fan",
-		"image":"atun.jfif"
-	},
-  	{
-		"name": "Anchoa",
-		"image":"anchoa.jfif"
-	},
-  	{
-		"name": "Bacalao",
-		"image":"bacaloa.jfif"
-	},
-  	{
-		"name": "Besugo",
-		"image":"besugo.jfif"
-	},
-  	{
-		"name": "Bonito",
-		"image":"bonito.jfif"
-	},
-  	{
-		"name": "Boquer\u00f3n",
-		"image":"boqueron.jfif"
-	},
-  	{
-		"name": "Caballa",
-		"image":"caballa.jfif"
-	},
-  	{
-		"name": "Chicharro",
-		"image":"chicharro.jfif"
-	},
-  	{
-		"name": "Corvina",
-		"image":"corvina.jfif"
-	},
-  	{
-		"name": "Dorada",
-		"image":"dorada.jfif"
-	},
-  	{
-		"name": "Lenguado",
-		"image":"lenguado.jfif"
-	},
-  	{
-		"name": "Lubina",
-		"image":"lubina.jfif"
-	},
-  	{
-		"name": "Merluza",
-		"image":"merluza.jfif"
-	},
-  	{
-		"name": "Mero",
-		"image":"mero.jfif"
-	},
-  	{
-		"name": "Palometa",
-		"image":"palometa.jfif"
-	},
-  	{
-		"name": "Pejerrey",
-		"image":"pejerrey.jfif"
-	},
-  	{
-		"name": "Rape",
-		"image":"rape.jfif"
-	},
-  	{
-		"name": "Rodaballo",
-		"image":"rodaballo.jfif"
-	},
-  	{
-		"name": "Salm\u00f3n",
-		"image":"salmon.jfif"
-	},
-  	{
-		"name": "Sardina",
-		"image":"sardina.jfif"
-	},
-  	{
-		"name": "Trucha",
-		"image":"trucha.jfif"
-	},
-  	{
-		"name": "Camar\u00f3n",
-		"image":"camaron.jfif"
-	},
-  	{
-		"name": "Cigala",
-		"image":"cigala.jfif"
-	},
-  	{
-		"name": "Gamba",
-		"image":"gamba.jfif"
-	},
-  	{
-		"name": "Langostino",
-		"image":"langostino.jfif"
-	},
-  	{
-		"name": "Percebe",
-		"image":"percebe.jfif"
-	},
-  	{
-		"name": "Almeja",
-		"image":"almejas.jfif"
-	},
-  	{
-		"name": "Calamar",
-		"image":"calamar.jfif"
-	},
-  	{
-		"name": "Mejill\u00f3n",
-		"image":"mejillon.jfif"
-	},
-  	{
-		"name": "Ostra",
-		"image":"ostra.jfif"
-	},
-  	{
-		"name": "Pulpo",
-		"image":"pulpo.jfif"
-	},
-  	{
-		"name": "Sepia",
-		"image":"sepia.jfif"
-	},
-  	{
-		"name": "Vieira",
-		"image":"vieira.jfif"
-	},
-  	{
-		"name": "Cerveza",
-		"image":"cerveza.jfif"
-	},
-  	{
-		"name": "Sidra",
-		"image":"sidra.jfif"
-	},
-  	{
-		"name": "Licor",
-		"image":"licor.jfif"
-	},
-  	{
-		"name": "Vino blanco",
-		"image":"vino_b.jfif"
-	},
-  	{
-		"name": "Vino caliente",
-		"image":"vino_c.jfif"
-	},
-  	{
-		"name": "Vino tinto",
-		"image":"vino_t.jfif"
-	},
-  	{
-		"name": "Vino rosado",
-		"image":"vino_r.jfif"
-	},
-  	{
-		"name": "Vino dulce",
-		"image":"vino_d.jfif"
-	},
-  	{
-		"name": "Whisky",
-		"image":"whisky.jfif"
-	},
-  	{
-		"name": "Caf\u00e9",
-		"image":"cafe.jfif"
-	},
-  	{
-		"name": "Soda",
-		"image":"soda.jfif"
-	},
-  	{
-		"name": "Agua",
-		"image":"agua.jfif"
-	},
-  	{
-		"name": "Agua mineral",
-		"image":"agua_m.jfif"
-	},
-  	{
-		"name": "Gaseosa",
-		"image":"gaseosas.jfif"
-	},
-  	{
-		"name": "Zumo",
-		"image":"zumo.jfif"
-	},
-  	{
-		"name": "T\u00e9",
-		"image":"te.jfif"
-	},
-  	{
-		"name": "Horchata",
-		"image":"horcharta.jfif"
-	},
-  	{
-		"name": "Jamaica",
-		"image":"jaimaica.jfif"
-	},
-  	{
-		"name": "Res",
-		"image":"res.jfif"
-	},
-  	{
-		"name": "Pescuezo",
-		"image":"pescuezo.jfif"
-	},
-  	{
-		"name": "Cogote",
-		"image":"cogote.jfif"
-	},
-  	{
-		"name": "Aguja",
-		"image":"aguja.jfif"
-	},
-  	{
-		"name": "Pecho",
-		"image":"pecho.jfif"
-	},
-  	{
-		"name": "Brazuelo",
-		"image":"brazuelo.jfif"
-	},
-  	{
-		"name": "Osobuco",
-		"image":"osobuco.jfif"
-	},
-  	{
-		"name": "Cuadril",
-		"image":"cuadril.jfif"
-	},
-  	{
-		"name": "Solomillo",
-		"image":"solo.jfif"
-	},
-  	{
-		"name": "Filete",
-		"image":"filete.jfif"
-	},
-  	{
-		"name": "Lomo",
-		"image":"lomo.jfif"
-	},
-  	{
-		"name": "Lomo alto",
-		"image":"lomo_a.jfif"
-	},
-  	{
-		"name": "Lomo bajo",
-		"image":"lomo_b.jfif"
-	},
-  	{
-		"name": "Cadera",
-		"image":"cadera.jfif"
-	},
-  	{
-		"name": "Culata de contra",
-		"image":"culata.jfif"
-	},
-  	{
-		"name": "Tapilla",
-		"image":"tapilla.jfif"
-	},
-  	{
-		"name": "Tapa",
-		"image":"tapa.jfif"
-	},
-  	{
-		"name": "Contra",
-		"image":"contra.jfif"
-	},
-  	{
-		"name": "Espaldilla",
-		"image":"espaldilla.jfif"
-	},
-  	{
-		"name": "Falda",
-		"image":"falda.jfif"
-	},
-  	{
-		"name": "Entra\u00f1a",
-		"image":"entra\u00f1a.jfif"
-	},
-  	{
-		"name": "Costilla",
-		"image":"costilla.jfif"
-	},
-  	{
-		"name": "Rabo",
-		"image":"rabo.jfif"
-	},
-  	{
-		"name": "Pollo",
-		"image":"pollo.jfif"
-	},
-  	{
-		"name": "Pechuga de pollo",
-		"image":"pechuga.jfif"
-	},
-  	{
-		"name": "Espoleta de pollo",
-		"image":"espoleta.jfif"
-	},
-  	{
-		"name": "Muslo de pollo",
-		"image":"muslo.jfif"
-	},
-  	{
-		"name": "Piernas de pollo",
-		"image":"pierna.jfif"
-	},
-  	{
-		"name": "Alas de pollo",
-		"image":"alas.jfif"
-	},
-  	{
-		"name": "Carcaza",
-		"image":"carcaza.jfif"
-	},
-  	{
-		"name": "V\u00edsceras de pollo",
-		"image":"visceras.jfif"
-	},
-  	{
-
-		"name": "Menudillos",
-		"image":"menudillos.jfif"
-	},
-  	{
-
-		"name": "Cerdo",
-		"image":"cerdo.jfif"
-	},
-  	{
-		"name": "Chamorro de cerdo",
-		"image":"chamorro.jfif"
-	},
-  	{
-		"name": "Lomo de cerdo",
-		"image":"lomo_c.jfif"
-	},
-  	{
-		"name": "Costilla de cerdo",
-		"image":"costilla_c.jfif"
-	},
-  	{
-		"name": "Falda de cerdo",
-		"image":"falda_c.jfif"
-	},
-  	{
-		"name": "Manitas de cerdo",
-		"image":"manitas.jfif"
-	},
-  	{
-		"name": "Paletilla de cerdo",
-		"image":"paletilla.jfif"
-	},
-  	{
-		"name": "Espaldilla de cerdo",
-		"image":"espaldilla_c.jfif"
-	},
-  	{
-		"name": "Pulpa de cerdo",
-		"image":"pulpa.jfif"
-	},
-  	{
-		"name": "Espinazo",
-		"image":"espinazo.jfif"
-	},
-  	{
-		"name": "Cabeza de lomo",
-		"image":"cabeza.jfif"
-	},
-  	{
-		"name": "Chuleta de cerdo",
-		"image":"chuleta_c.jfif"
-	},
-  	{
-		"name": "Cordero",
-		"image":"cordero.jfif"
+		"name": "Zanahoria",
+		"image":"zanahoria.jpg"
 	}
-]

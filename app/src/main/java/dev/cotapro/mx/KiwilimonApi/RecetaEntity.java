@@ -9,7 +9,7 @@ public class RecetaEntity {
     }
     public int calories,favorites, key, cooked, cooktime;
     public String titleh1, description, image, published;
-    public float raiting;
+    public float rating;
     public Pasos[] steps;
     public Ingredientes[] ingredients;
     public ChefEntity[] images;

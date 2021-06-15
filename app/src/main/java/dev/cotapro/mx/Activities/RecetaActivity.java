@@ -6,6 +6,7 @@ import android.icu.number.LocalizedNumberFormatter;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
+import android.text.Html;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -16,10 +17,12 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 //import com.bumptech.glide.Glide;
 import com.google.gson.Gson;
+import com.squareup.picasso.Picasso;
 
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
+import dev.cotapro.mx.Database.Receta;
 import dev.cotapro.mx.Database.RecetaData;
 import dev.cotapro.mx.KiwilimonApi.RecetaEntity;
 import dev.cotapro.mx.R;
@@ -48,6 +51,7 @@ public class RecetaActivity extends AppCompatActivity {
         imageView = findViewById(R.id.recipe_image);
         ratingBar = findViewById(R.id.recipe_rating);
         saveButton = findViewById(R.id.recipe_fav);
+        saveButton.setOnClickListener(this::saveRecipe);
 
         Intent intent = getIntent();
         Bundle data = intent.getExtras();
@@ -80,13 +84,29 @@ public class RecetaActivity extends AppCompatActivity {
 
     private void bindData() {
         title.setText(recetaEntity.titleh1);
-        ratingBar.setRating(recetaEntity.raiting);
+        ratingBar.setRating(recetaEntity.rating);
         setSaveButton();
 
         // Ingredients and steps list
         String[] list = list(recetaEntity);
-        steps.setText(list[0]);
-        ingredientes.setText(list[1]);
+        steps.setText(Html.fromHtml(list[0]));
+        ingredientes.setText(Html.fromHtml(list[1]));
+
+        // Set image
+        String url = RequestData.Kiwilimon.getImageUrl(
+            String.valueOf(recetaEntity.key), recetaEntity.image);
+        Picasso.get()
+            .load(url)
+            .into(imageView);
+    }
+
+    private void saveRecipe(View v) {
+        Receta receta = new Receta();
+        RecetaData data = new RecetaData();
+
+        receta.name = recetaEntity.titleh1;
+        receta.chef = recetaEntity.images[0].clientdata.firstname;
+        receta.key = key;
     }
 
     private void setSaveButton() {

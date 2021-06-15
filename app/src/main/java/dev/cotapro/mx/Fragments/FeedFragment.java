@@ -73,10 +73,6 @@ public class FeedFragment extends Fragment {
 		rview.setHasFixedSize(true);
 		rview.setAdapter(adapter);
 
-		btnRefresh = vista.findViewById(R.id.btnRefresh);
-		btnRefresh.setOnClickListener( v ->
-				executor.execute(this::getRecipes));
-
 		executor.execute(this::getRecipes);
 		return vista;
 	}
@@ -87,7 +83,6 @@ public class FeedFragment extends Fragment {
 		handler.post(() -> {
 			refreshLayout.setRefreshing(false);
 			if(recetasEntity != null) {
-				btnRefresh.setVisibility(View.INVISIBLE);
 				rview.setVisibility(View.VISIBLE);
 				if (recetasEntity.quantity > 0) {
 					for (DescripcionEntity desc : recetasEntity.payload)
@@ -98,8 +93,6 @@ public class FeedFragment extends Fragment {
 				} else
 					return;
 			} else {
-				btnRefresh.setVisibility(View.VISIBLE);
-				rview.setVisibility(View.INVISIBLE);
 				Toast.makeText(getContext(),
 						"No se han podido cargar las recetas!",
 						Toast.LENGTH_LONG).show();
@@ -115,6 +108,7 @@ public class FeedFragment extends Fragment {
 		page = 1;
 		executor.execute(this::getRecipes);
 	}
+
 	public void bottomReached() {
 		if(!loading) {
 			loading = true;

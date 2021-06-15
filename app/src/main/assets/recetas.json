@@ -157,4 +157,304 @@
   	{
 		"name": "Zanahoria",
 		"image":"zanahoria.jpg"
-	}
+	},/*Leguminosas-------------------------------------------------*/
+	{
+		"name": "Alfalfa",
+		"image":"alfalfa.jpg"
+	},
+	{
+		"name": "Alubias",
+		"image":"alubias.jpg"
+	},
+	{
+		"name": "Alverjón",
+		"image":"alverjon.jpg"
+	},
+	{
+		"name": "Arvejas",
+		"image":"arvejas.jpg"
+	},
+	{
+		"name": "Cacahuate",
+		"image":"cacahuate.jpg"
+	},
+	{
+		"name": "Chícharo",
+		"image":"chicharo.jpg"
+	},
+	{
+		"name": "Ejotes",
+		"image":"ejotes.jpg"
+	},
+	{
+		"name": "Frijol Azufrado",
+		"image":"frijol_azufrado.jpg"
+	},
+	{
+		"name": "Frijol Bayo",
+		"image":"frijol_bayo.jpg"
+	},
+	{
+		"name": "Frijol Flor de Mayo",
+		"image":"frijol_flor_de_mayo.jpg"
+	},
+	{
+		"name": "Frijol Negro",
+		"image":"frijol_negro.jpg"
+	},
+	{
+		"name": "Frijol Peruano",
+		"image":"frijol_peruano.jpg"
+	},
+	{
+		"name": "Frijol Texano",
+		"image":"frijol_texano.jpg"
+	},
+	{
+		"name": "Garbanzo",
+		"image":"garbanzo.jpg"
+	},
+	{
+		"name": "Guisantes",
+		"image":"guisantes.jpg"
+	},
+	{
+		"name": "Habas",
+		"image":"habas.jpg"
+	},
+	{
+		"name": "Habichuelas",
+		"image":"habichuelas.jpg"
+	},
+	{
+		"name": "Judías",
+		"image":"judias.jpeg"
+	},
+	{
+		"name": "Lenteja",
+		"image":"lenteja.jpg"
+	},
+	{
+		"name": "Piñon",
+		"image":"piñon.jpeg"
+	},
+	{
+		"name": "Soya",
+		"image":"soya.jpg"
+	},
+	{
+		"name": "Soya Texturizada",
+		"image":"soya_texturizada.jpg"
+	},/*Aves-----------------------------------------------------*/
+	{
+		"name": "Pavo",
+		"image":"pavo.jpg"
+	},
+	{
+		"name": "Pato",
+		"image":"pato.jpg"
+	},
+	{
+		"name": "Codorniz",
+		"image":"codorniz.jpg"
+	},
+	{
+		"name": "Gallinitas de Guinea",
+		"image":"gallinita_de_guinea.jpg"
+	},
+	{
+		"name": "Pichón",
+		"image":"pichon.jpg"
+	},
+	{
+		"name": "Pollo",
+		"image":"pollo.jpg"
+	},
+	{
+		"name": "Huevo",
+		"image":"huevo.jpg"
+	},
+	{
+		"name": "Pechuga de Pollo",
+		"image":"pechuga_de_pollo.jpg"
+	},
+	{
+		"name": "Alitas de Pollo",
+		"image":"alitas_de_pollo.jpg"
+	},
+	{
+		"name": "Muslos de Pollo",
+		"image":"muslos_de_pollo.jpg"
+	},
+	{
+		"name": "Piernas de Pollo",
+		"image":"piernas_de_pollo.jpg"
+	},/*Especias-------------------------------------------------*/
+	{
+		"name": "Achiote",
+		"image":"achiote.jpg"
+	},
+	{
+		"name": "Ajo",
+		"image":"ajo.jpg"
+	},
+	{
+		"name": "Albahaca",
+		"image":"albahaca.jpg"
+	},
+	{
+		"name": "Anís",
+		"image":"anis.jpg"
+	},
+	{
+		"name": "Azafrán",
+		"image":"azafran.jpg"
+	},
+	{
+		"name": "Azahar",
+		"image":"azahar.jpg"
+	},
+	{
+		"name": "Canela",
+		"image":"canela.jpg"
+	},
+	{
+		"name": "Cardamomo",
+		"image":"cardamomo.jpg"
+	},
+	{
+		"name": "Chía",
+		"image":"chia.jpg"
+	},
+	{
+		"name": "Chile",
+		"image":"chile.jpg"
+	},
+	{
+		"name": "Cilantro",
+		"image":"cilantro.jpg"
+	},
+	{
+		"name": "Clavo de olor",
+		"image":"clavo_de_olor.jpg"
+	},
+	{
+		"name": "Comino",
+		"image":"comino.jpg"
+	},
+	{
+		"name": "Cúrcuma",
+		"image":"curcuma.jpg"
+	},
+	{
+		"name": "Epazote",
+		"image":"epazote.jpg"
+	},
+	{
+		"name": "Hierbabuena",
+		"image":"hierbabuena.jpg"
+	},
+	{
+		"name": "Hinojo",
+		"image":"hinojo.jpg"
+	},
+	{
+		"name": "Jengibre",
+		"image":"jengibre.jpg"
+	},
+	{
+		"name": "Laurel",
+		"image":"laurel.jpg"
+	},
+	{
+		"name": "Linaza",
+		"image":"linaza.jpg"
+	},
+	{
+		"name": "Maca",
+		"image":"maca.jpg"
+	},
+	{
+		"name": "Menta",
+		"image":"menta.jpg"
+	},
+	{
+		"name": "Mostaza",
+		"image":"mostaza.jpg"
+	},
+	{
+		"name": "Nuez Moscada",
+		"image":"nuez_moscada.jpg"
+	},
+	{
+		"name": "Orégano",
+		"image":"oregano.jpg"
+	},
+	{
+		"name": "Paprika",
+		"image":"paprika.jpg"
+	},
+	{
+		"name": "Perejil",
+		"image":"perejil.jpg"
+	},
+	{
+		"name": "Pimienta",
+		"image":"pimienta.jpg"
+	},
+	{
+		"name": "Romero",
+		"image":"romero.jpg"
+	},
+	{
+		"name": "Sal",
+		"image":"sal.jpg"
+	},
+	{
+		"name": "Semilla de Amapola",
+		"image":"semilla_de_amapola.jpg"
+	},/*Cereales-------------------------------------------------------*/
+	{
+		"name": "Avena",
+		"image":"avena.jpg"
+	},
+	{
+		"name": "Arroz",
+		"image":"arroz.jpg"
+	},
+	{
+		"name": "Alpiste",
+		"image":"alpiste.jpg"
+	},
+	{
+		"name": "Amaranto",
+		"image":"amaranto.jpg"
+	},
+	{
+		"name": "Trigo",
+		"image":"trigo.jpg"
+	},
+	{
+		"name": "Centeno",
+		"image":"centeno.jpg"
+	},
+	{
+		"name": "Cebada",
+		"image":"cebada.jpg"
+	},
+	{
+		"name": "Sorgo",
+		"image":"sorgo.jpg"
+	},
+	{
+		"name": "Mijo",
+		"image":"mijo.jpg"
+	},
+	{
+		"name": "Quinoa",
+		"image":"quinoa.jpg"
+	},
+	{
+		"name": "Arroz inflado",
+		"image":"arroz_inflado.jpg"
+	}]

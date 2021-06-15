@@ -2,80 +2,101 @@ package dev.cotapro.mx.Activities;
 
 import android.content.Context;
 import android.content.Intent;
-import android.os.Build;
+import android.icu.number.LocalizedNumberFormatter;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
-import android.text.Html;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.RatingBar;
 import android.widget.TextView;
-import androidx.annotation.RequiresApi;
+import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
-import com.bumptech.glide.Glide;
+//import com.bumptech.glide.Glide;
 import com.google.gson.Gson;
+
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
-import dev.cotapro.mx.Database.Receta;
-import dev.cotapro.mx.FeedData;
+
+import dev.cotapro.mx.Database.RecetaData;
 import dev.cotapro.mx.KiwilimonApi.RecetaEntity;
 import dev.cotapro.mx.R;
+import dev.cotapro.mx.Utils.RequestData;
 
 public class RecetaActivity extends AppCompatActivity {
-    private long id = 0;
-    private boolean internet = true;
-    private String json;
-    private RecetaEntity recipe;
+    RecetaEntity recetaEntity;
+    TextView title, ingredientes, steps;
+    ImageView imageView;
+    RatingBar ratingBar;
+    ImageButton saveButton;
+
     private final Executor exec = Executors.newSingleThreadExecutor();
     private final Handler handler = new Handler(Looper.getMainLooper());
+    private long key;
+    private boolean saved;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_receta);
-        exec.execute(this::get_recipe);
-    }
 
-    private void get_recipe() {
-        Gson gson = new Gson();
-        Bundle b = getIntent().getExtras();
-        id = b.getLong("id");
-        internet = b.getBoolean("internet");
+        title = findViewById(R.id.recipe_name);
+        ingredientes = findViewById(R.id.recipe_ingredients);
+        steps = findViewById(R.id.recipe_steps);
+        imageView = findViewById(R.id.recipe_image);
+        ratingBar = findViewById(R.id.recipe_rating);
+        saveButton = findViewById(R.id.recipe_fav);
 
-        if (internet) {
-            json = FeedData.get_recipe(RecetaActivity.this.id);
+        Intent intent = getIntent();
+        Bundle data = intent.getExtras();
+        if(data != null) {
+            key = data.getLong("key");
+            exec.execute(this::getReceta);
         } else {
-            Receta recipe = FeedData.db.recetas().get_receta(RecetaActivity.this.id);
-            json = recipe.json;
+            Toast.makeText(
+                getParent(),
+                "Ha habido un error abriendo la receta",
+                Toast.LENGTH_LONG).show();
+            finish();
         }
-
-        recipe = gson.fromJson(json, RecetaEntity.class);
-        handler.post(this::bind_data);
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.P)
-    private void bind_data() {
-        ImageView recipeImg = findViewById(R.id.recipe_image);
-        TextView txtName = findViewById(R.id.recipe_name);
-        TextView txtRating = findViewById(R.id.recipe_rating);
-        TextView txtSteps = findViewById(R.id.recipe_steps);
-        TextView txtIngredients = findViewById(R.id.recipe_ingredients);
-
-        txtName.setText(recipe.titleh1);
-        txtRating.setText(String.valueOf(recipe.raiting));
-        String[] lists = dots(recipe);
-        txtSteps.setText(Html.fromHtml(lists[0]));
-        txtIngredients.setText(Html.fromHtml(lists[1]));
-
-        String cdn_kiwilimon = "https://cdn.kiwilimon.com/recetaimagen/%s/%s";
-        cdn_kiwilimon = String.format(cdn_kiwilimon, id, recipe.image);
-        Glide.with(this)
-            .load(cdn_kiwilimon)
-            .placeholder(R.drawable.ic_launcher_background)
-            .into(recipeImg);
+    public void getReceta() {
+        RecetaData recetaDB = RequestData.db.recetaDataDAO().get_recipe(key);
+        if (recetaDB != null) {
+            saved = true;
+            Gson gson = new Gson();
+            recetaEntity = gson.fromJson(recetaDB.json, RecetaEntity.class);
+        } else {
+            saved = false;
+            recetaEntity = RequestData.Kiwilimon.get_recipe(key);
+        }
+        if(recetaEntity == null)
+            finish();
+        handler.post(this::bindData);
     }
 
-    private String[] dots(RecetaEntity receta) {
+    private void bindData() {
+        title.setText(recetaEntity.titleh1);
+        ratingBar.setRating(recetaEntity.raiting);
+        setSaveButton();
+
+        // Ingredients and steps list
+        String[] list = list(recetaEntity);
+        steps.setText(list[0]);
+        ingredientes.setText(list[1]);
+    }
+
+    private void setSaveButton() {
+        if(saved)
+            saveButton.setImageResource(R.drawable.btn_heart2);
+        else
+            saveButton.setImageResource(R.drawable.btn_heart);
+    }
+
+    private String[] list(RecetaEntity receta) {
         String[] strings = new String[2];
         strings[0] = strings[1] = "<ul>";
 
@@ -98,5 +119,4 @@ public class RecetaActivity extends AppCompatActivity {
     public void go_back(View view) {
         finish();
     }
-
 }

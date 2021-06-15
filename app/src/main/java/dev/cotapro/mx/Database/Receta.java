@@ -5,8 +5,9 @@ import androidx.room.PrimaryKey;
 
 @Entity(tableName = "recipes")
 public class Receta {
-	@PrimaryKey(autoGenerate = true)
-	public long id;
+	@PrimaryKey
+	public long key;
 	public String name;
-	public String json;
+	public String chef;
+	public String thumbPath;
 }

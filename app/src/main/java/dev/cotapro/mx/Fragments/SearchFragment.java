@@ -1,60 +1,110 @@
-onde onde package dev.cotapro.mx.Fragments;
+package dev.cotapro.mx.Fragments;
 
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
-import com.google.gson.Gson;
+import org.jetbrains.annotations.NotNull;
 
-import java.io.IOException;
-import java.io.InputStream;
+import java.util.concurrent.Executor;
+import java.util.concurrent.Executors;
 
-import dev.cotapro.mx.Adapters.SearchAdapt;
+import dev.cotapro.mx.Adapters.FeedAdapter;
+import dev.cotapro.mx.KiwilimonApi.DescripcionEntity;
+import dev.cotapro.mx.KiwilimonApi.RecetasEntity;
 import dev.cotapro.mx.R;
+import dev.cotapro.mx.Utils.RequestData;
 
 public class SearchFragment extends Fragment {
-	private View vista;
-	private String[][] ingredientes;
+	private final FeedAdapter adapter;
+	private final Executor executor;
+	private final Handler handler;
+	private RecyclerView recyclerView;
+	private SwipeRefreshLayout refreshLayout;
+	public String searchQuery;
+	private int page;
+	boolean loading;
 
-	@Nullable
-	@Override
-	public View onCreateView(@NonNull LayoutInflater inflater,
-							 @Nullable ViewGroup container,
-							 @Nullable Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		vista = inflater.inflate(R.layout.fragment_search, container, false);
-		read_ingredients_json();
-
-		SearchAdapt listadap = new SearchAdapt(ingredientes);
-		RecyclerView recyclerView = vista.findViewById(R.id.ingredientespepe);
-		recyclerView.setLayoutManager(new GridLayoutManager(
-			vista.getContext(), 3));
-		recyclerView.setAdapter(listadap);
-		return vista;
+	public SearchFragment() {
+		loading = false;
+		executor = Executors.newSingleThreadExecutor();
+		handler = new Handler(Looper.getMainLooper());
+		adapter = new FeedAdapter(3);
 	}
 
+	public void getSearch() {
+		RecetasEntity recetasEntity = RequestData.Kiwilimon.get_search(
+			new String[]{searchQuery}, page);
+		handler.post(() -> {
+			if (recetasEntity != null) {
+				refreshLayout.setRefreshing(false);
+				if (recetasEntity.quantity > 0) {
+					for (DescripcionEntity desc : recetasEntity.payload)
+						if (desc.type.equals("receta"))
+							adapter.recetas.add(desc);
+					adapter.notifyDataSetChanged();
+					page++;
+				} else
+					return;
+			} else
+				Toast.makeText(getContext(),
+					"No se ha podido hacer la busqueda!",
+					Toast.LENGTH_LONG).show();
+			loading = false;
+			recyclerView.setVisibility(View.VISIBLE);
+		});
 
-	private void read_ingredients_json() {
-		String json_data;
-		Gson gson = new Gson();
+	}
 
-		try {
-			InputStream is = vista.getContext().getAssets().open("recetas.json");
-			int size = is.available();
-			byte[] buffer = new byte[size];
-			is.read(buffer);
-			is.close();
-			json_data = new String(buffer);
-			ingredientes = gson.fromJson(json_data, String[][].class);
-		} catch (IOException e) {
-			e.printStackTrace();
+	@Override
+	public View onCreateView(@NotNull LayoutInflater inflater,
+							 @Nullable ViewGroup container,
+							 @Nullable Bundle savedInstanceState) {
+		super.onCreateView(inflater, container, savedInstanceState);
+		View view = inflater.inflate(R.layout.fragment_search, container, false);
+
+		page = 1;
+		loading = true;
+		adapter.recetas.clear();
+		adapter.bottomReached = this::bottomReached;
+
+		refreshLayout = view.findViewById(R.id.swipe);
+		refreshLayout.setRefreshing(true);
+		refreshLayout.setOnRefreshListener(this::refreshSearch);
+
+		recyclerView = view.findViewById(R.id.recetas);
+		recyclerView.setHasFixedSize(true);
+		recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
+		recyclerView.setAdapter(adapter);
+
+		executor.execute(this::getSearch);
+		return view;
+	}
+
+	public void refreshSearch() {
+		loading = true;
+		adapter.recetas.clear();
+		page = 1;
+		executor.execute(this::getSearch);
+	}
+
+	public void bottomReached() {
+		if(!loading) {
+			loading = true;
+			refreshLayout.setRefreshing(true);
+			executor.execute(this::getSearch);
 		}
 	}
 }
+

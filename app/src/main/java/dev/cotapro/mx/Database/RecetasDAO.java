@@ -10,14 +10,10 @@ public interface RecetasDAO {
 	@Insert
 	long insert_receta(Receta receta);
 
-	@Delete
-	void delete_receta(Receta receta);
+	@Query("DELETE FROM recipes WHERE `key`= :key")
+	void delete_receta(long key);
 
 	// Get recetas
-	@Query("SELECT id, name FROM recipes")
+	@Query("SELECT `key`, `name`, `chef`, `thumbPath` FROM recipes")
 	Receta[] get_recetas();
-
-	// Get receta info
-	@Query("SELECT id, json FROM recipes WHERE id = :id")
-	Receta get_receta(long id);
 }

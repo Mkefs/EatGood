@@ -1,115 +1,96 @@
 package dev.cotapro.mx.Adapters;
 
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Looper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RatingBar;
 import android.widget.TextView;
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-import com.bumptech.glide.Glide;
-import com.google.gson.Gson;
+
+import com.squareup.picasso.Picasso;
+
 import org.jetbrains.annotations.NotNull;
+
 import java.util.ArrayList;
-import java.util.concurrent.Executor;
-import java.util.concurrent.Executors;
+import java.util.concurrent.Callable;
+
 import dev.cotapro.mx.Activities.RecetaActivity;
-import dev.cotapro.mx.FeedData;
 import dev.cotapro.mx.KiwilimonApi.DescripcionEntity;
-import dev.cotapro.mx.KiwilimonApi.RecetasEntity;
 import dev.cotapro.mx.R;
+import dev.cotapro.mx.Utils.RequestData;
 
 public class FeedAdapter extends RecyclerView.Adapter<FeedAdapter.ViewHolder>{
-    public ArrayList<DescripcionEntity> mData;
-    private int page = 1;
+    public interface onBottomReached { void bottomReached(); }
 
-    public FeedAdapter(DescripcionEntity[] itemList) {
-        this.mData = new ArrayList<>();
-        for (DescripcionEntity descripcion : itemList) {
-            if (!descripcion.key.isEmpty()) {
-                mData.add(descripcion);
-            }
-        }
+    public ArrayList<DescripcionEntity> recetas;
+    private int itemMargin;
+    public onBottomReached bottomReached;
+
+    public FeedAdapter(int margin) {
+        recetas = new ArrayList<>();
+        itemMargin = margin;
     }
 
-    private void addRecetas(DescripcionEntity[] items) {
-        ArrayList<DescripcionEntity> append = new ArrayList<>();
-        for (DescripcionEntity desc : items) {
-            if (!desc.key.isEmpty())
-                append.add(desc);
-        }
-        mData.addAll(append);
-    }
-
-    @NonNull
+    @NotNull
     @Override
-    public FeedAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View item= LayoutInflater.from(parent.getContext())
+    public ViewHolder onCreateViewHolder(@NotNull ViewGroup parent, int viewType) {
+        View item = LayoutInflater.from(parent.getContext())
             .inflate(R.layout.item_receta, parent, false);
         return new ViewHolder(item);
     }
 
     @Override
-    public void onBindViewHolder(@NotNull final FeedAdapter.ViewHolder holder,
-                                 final int position){
-        holder.bindData(mData.get(position));
-        // When the las item is showed up then request the next page
-        if(position == mData.size() - 1){
-            page++;
-            Executor exec = Executors.newSingleThreadExecutor();
-            Handler handler = new Handler(Looper.getMainLooper());
-            exec.execute(() -> {
-                String recipe = FeedData.get_feed(page);
-                Gson gson = new Gson();
-
-                RecetasEntity receta = gson.fromJson(recipe, RecetasEntity.class);
-                addRecetas(receta.payload);
-                handler.post(FeedAdapter.this::notifyDataSetChanged);
-            });
-        }
+    public void onBindViewHolder(@NotNull ViewHolder holder, int position) {
+        if(getItemCount() - itemMargin < position && bottomReached != null)
+            bottomReached.bottomReached();
+        holder.bindData(recetas.get(position));
     }
 
     @Override
-    public int getItemCount(){
-        return mData.size();
+    public int getItemCount() {
+        return recetas.size();
     }
 
-    public static class ViewHolder extends RecyclerView.ViewHolder{
-        private final ImageView iconImage;
-        private final TextView platillo, autor, stars;
+    public static class ViewHolder extends RecyclerView.ViewHolder {
+        DescripcionEntity descripcionEntity;
+        ImageView image;
+        TextView platillo, chef;
+        RatingBar estrellas;
+        LinearLayout container;
 
-        ViewHolder(View itemView){
+        public ViewHolder(@NonNull @NotNull View itemView) {
             super(itemView);
-            iconImage = itemView.findViewById(R.id.foto);
+            image = itemView.findViewById(R.id.foto);
             platillo = itemView.findViewById(R.id.platillo);
-            autor = itemView.findViewById(R.id.chef);
-            stars = itemView.findViewById(R.id.estrellas);
-
-        }
-        void bindData(final DescripcionEntity item){
-            String image_url = "https://cdn.kiwilimon.com/recetaimagen/%s/%s";
-            image_url = String.format(image_url, item.key, item.image);
-
-            platillo.setText(item.name);
-            autor.setText(item.chef);
-            stars.setText(item.rating);
-            Glide.with(iconImage)
-                .load(image_url)
-                .placeholder(R.drawable.ic_launcher_foreground)
-                .into(iconImage);
-
-            LinearLayout container = itemView.findViewById(R.id.receta_container);
-            container.setOnClickListener(v -> {
-                Bundle extras = new Bundle();
-                extras.putLong("id", Integer.parseInt(item.key));
-                extras.putBoolean("internet", true);
-                RecetaActivity.open_act(itemView.getContext(), extras);
-            });
+            chef = itemView.findViewById(R.id.chef);
+            estrellas = itemView.findViewById(R.id.estrellas);
+            container = itemView.findViewById(R.id.receta_container);
+            container.setOnClickListener(this::clickRecipe);
         }
 
+        public void bindData(DescripcionEntity descripcionEntity) {
+            this.descripcionEntity = descripcionEntity;
+            platillo.setText(descripcionEntity.name);
+            chef.setText(descripcionEntity.chef);
+            estrellas.setRating(Float.parseFloat(descripcionEntity.rating));
+            // Load image
+            String url = RequestData.Kiwilimon.getThumbUrl("100x100",
+                descripcionEntity.key,
+                descripcionEntity.image);
+            Picasso.get()
+                .load(url)
+                .into(image);
+        }
+
+        private void clickRecipe(View v) {
+            Bundle data = new Bundle();
+            data.putLong("key", Long.parseLong(descripcionEntity.key));
+            RecetaActivity.open_act(itemView.getContext(), data);
+        }
     }
 }

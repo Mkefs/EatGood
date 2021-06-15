@@ -1,10 +1,10 @@
 package dev.cotapro.mx.KiwilimonApi;
 
 public class RecetaEntity {
-    public class Ingredientes {
+    public static class Ingredientes {
         public String text;
     }
-    public class Pasos {
+    public static class Pasos {
         public String text;
     }
     public int calories,favorites, key, cooked, cooktime;

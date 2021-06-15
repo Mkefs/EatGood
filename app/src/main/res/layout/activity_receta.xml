@@ -48,7 +48,7 @@
                     android:id="@+id/recipe_fav"
                     android:padding="5dp"
                     android:background="@null"
-                    android:src="@drawable/btn_heart2"
+                    android:src="@drawable/btn_heart"
                     android:scaleType="centerInside"
                     android:layout_width="wrap_content"
                     android:layout_marginStart="40dp"
@@ -57,75 +57,71 @@
             </LinearLayout>
     </com.google.android.material.appbar.AppBarLayout>
 
-    <androidx.core.widget.NestedScrollView
+    <ScrollView
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <ScrollView
+        <LinearLayout
+            android:padding="20dp"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <androidx.cardview.widget.CardView
+                                          app:cardElevation="0dp"
+                                          app:cardCornerRadius="10dp"
+                                          android:layout_marginVertical="20dp"
+                                          android:layout_gravity="center"
+                                          android:layout_width="wrap_content"
+                                          android:layout_height="wrap_content">
 
-            <LinearLayout
-                android:padding="20dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-                <androidx.cardview.widget.CardView
-                    app:cardElevation="0dp"
-                    app:cardCornerRadius="10dp"
-                    android:layout_marginVertical="20dp"
-                    android:layout_gravity="center"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
+                                          <ImageView
+                                          android:id="@+id/recipe_image"
+                                          android:layout_width="200dp"
+                                          android:layout_height="200dp"
+                                          android:contentDescription="@string/image_desc"
+                                          android:scaleType="centerCrop"
+                                          android:src="@drawable/ic_launcher_background" />
+                                          </androidx.cardview.widget.CardView>
 
-                    <ImageView
-                        android:id="@+id/recipe_image"
-                        android:layout_width="200dp"
-                        android:layout_height="200dp"
-                        android:contentDescription="@string/image_desc"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/ic_launcher_background" />
-                </androidx.cardview.widget.CardView>
+            <RatingBar
+                  android:numStars="5"
+                  android:id="@+id/recipe_rating"
+                  style="@style/Widget.AppCompat.RatingBar.Indicator"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_gravity="center"
+                  android:textAlignment="center" />
 
-                <TextView
-                    android:id="@+id/recipe_rating"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text="rating"
-                    android:textAlignment="center" />
+            <TextView
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:layout_marginTop="20dp"
+                 android:layout_marginBottom="5dp"
+                 android:text="INGREDIENTES: "
+                 android:textSize="20sp"
+                 android:textStyle="italic" />
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginBottom="5dp"
-                    android:text="INGREDIENTES: "
-                    android:textSize="20sp"
-                    android:textStyle="italic" />
+            <TextView
+                 android:id="@+id/recipe_ingredients"
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:text="- R1, \n -R2" />
 
-                <TextView
-                    android:id="@+id/recipe_ingredients"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="- R1, \n -R2" />
+            <TextView
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:layout_marginTop="10dp"
+                 android:layout_marginBottom="5dp"
+                 android:text="PREPARACIÓN:"
+                 android:textSize="20sp"
+                 android:textStyle="italic" />
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="5dp"
-                    android:text="PREPARACIÓN:"
-                    android:textSize="20sp"
-                    android:textStyle="italic" />
-
-                <TextView
-                    android:id="@+id/recipe_steps"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="- R1, \n -R2" />
-            </LinearLayout>
-        </ScrollView>
-    </androidx.core.widget.NestedScrollView>
+            <TextView
+                 android:id="@+id/recipe_steps"
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:text="- R1, \n -R2" />
+        </LinearLayout>
+    </ScrollView>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -13,4 +13,6 @@ public class DescripcionEntity {
 	public String name;
 	@SerializedName("vr")
 	public String rating;
+	@SerializedName("t")
+	public String type;
 }

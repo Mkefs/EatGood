@@ -1,9 +1,9 @@
 package dev.cotapro.mx.KiwilimonApi;
 
 public class RecetasEntity {
-    public int key, page, quantity, time, total;
+    public  int page, quantity, time, total;
     public boolean more;
-    public String type;
+    public String type, key;
     public DescripcionEntity[] payload;
 }
 

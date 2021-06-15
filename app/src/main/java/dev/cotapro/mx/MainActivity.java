@@ -15,7 +15,8 @@ import java.util.Map;
 
 import dev.cotapro.mx.Fragments.FeedFragment;
 import dev.cotapro.mx.Fragments.HomeFragment;
-import dev.cotapro.mx.Fragments.SearchFragment;
+import dev.cotapro.mx.Fragments.IngredientFragment;
+import dev.cotapro.mx.Utils.RequestData;
 
 public class MainActivity extends AppCompatActivity {
 	private Map<Integer, Fragment> fragmentMap;
@@ -28,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
 		setTheme(R.style.Theme_EatGood);
 		setContentView(R.layout.activity_main);
 
-		FeedData.init(this);
+		RequestData.init(this);
 		setNavController();
 	}
 
@@ -37,7 +38,8 @@ public class MainActivity extends AppCompatActivity {
 		fragmentMap = new HashMap<>();
 		fragmentMap.put(R.id.navigation_feed, new FeedFragment());
 		fragmentMap.put(R.id.navigation_home, new HomeFragment());
-		fragmentMap.put(R.id.navigation_search, new SearchFragment());
+		fragmentMap.put(R.id.navigation_search, new IngredientFragment());
+		change_fragment(fragmentMap.get(R.id.navigation_home));
 
 		navView.setOnNavigationItemSelectedListener(item -> {
 			Fragment change = fragmentMap.get(item.getItemId());
@@ -50,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
 
 	private void change_fragment(Fragment frag) {
 		FragmentTransaction transaction = manager.beginTransaction();
+		transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
 		// Hide all fragments
 		List<Fragment> fragmentList = manager.getFragments();
 		for(Fragment fragment : fragmentList)

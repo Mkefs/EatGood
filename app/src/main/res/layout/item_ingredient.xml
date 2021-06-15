@@ -9,7 +9,7 @@
     android:layout_margin="5dp"
     android:orientation="vertical"
     android:background="@drawable/standar_bg"
-    app:cardCornerRadius="10dp">
+    app:cardCornerRadius="15dp">
         <androidx.coordinatorlayout.widget.CoordinatorLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">

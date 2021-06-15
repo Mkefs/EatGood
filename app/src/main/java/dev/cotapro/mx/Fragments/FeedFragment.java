@@ -3,60 +3,146 @@ package dev.cotapro.mx.Fragments;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
-import com.google.gson.Gson;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
 import dev.cotapro.mx.Adapters.FeedAdapter;
-import dev.cotapro.mx.FeedData;
+import dev.cotapro.mx.KiwilimonApi.DescripcionEntity;
 import dev.cotapro.mx.KiwilimonApi.RecetasEntity;
 import dev.cotapro.mx.R;
+import dev.cotapro.mx.Utils.RequestData;
 
 public class FeedFragment extends Fragment {
-	private View vista;
+	private FragmentManager manager;
+	private SwipeRefreshLayout refreshLayout;
+	private final SearchFragment searchFragment;
+	private RecyclerView rview;
+	private FrameLayout searchFrameLayout;
+	private SearchView searchView;
+	private final Executor executor;
+	private final Handler handler;
+	private final FeedAdapter adapter;
+	boolean loading = false;
+	int page = 1;
+
+	public FeedFragment() {
+		executor = Executors.newSingleThreadExecutor();
+		handler = new Handler(Looper.getMainLooper());
+		adapter = new FeedAdapter(3);
+		searchFragment = new SearchFragment();
+	}
 
 	@Override
 	public View onCreateView(@NonNull LayoutInflater inflater,
 							 @Nullable ViewGroup container,
 							 @Nullable Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		vista = inflater.inflate(R.layout.fragment_freed, container, false);
-		init();
+		View vista = inflater.inflate(R.layout.fragment_freed, container, false);
+		manager = getChildFragmentManager();
+		adapter.bottomReached = this::bottomReached;
+
+		searchFrameLayout = vista.findViewById(R.id.searchFragment);
+		refreshLayout = vista.findViewById(R.id.refresh);
+		refreshLayout.setOnRefreshListener(this::refreshData);
+		refreshLayout.setRefreshing(true);
+
+		searchView = vista.findViewById(R.id.search);
+		searchView.setOnQueryTextListener(queryTextListener);
+		searchView.setOnQueryTextFocusChangeListener(this::closedSearch);
+
+		rview = vista.findViewById(R.id.recycleRecetas);
+		rview.setLayoutManager(new LinearLayoutManager(getContext()));
+		rview.setHasFixedSize(true);
+		rview.setAdapter(adapter);
+
+		executor.execute(this::getRecipes);
 		return vista;
 	}
 
-	public void init(){
-		Executor executor = Executors.newSingleThreadExecutor();
-		Handler handler = new Handler(Looper.getMainLooper());
-		executor.execute(() -> {
-			String json = FeedData.get_feed(1);
-			Gson gson = new Gson();
-			RecetasEntity recetas = gson.fromJson(json, RecetasEntity.class);
-
-			if (recetas == null) {
-				Log.e("[E]: ", "Recetas no encontradas");
-				return;
-			}
-			handler.post(() -> {
-				FeedAdapter listAdapter = new FeedAdapter(recetas.payload);
-				RecyclerView recyclerView = vista.findViewById(R.id.recycleRecetas);
-				recyclerView.setHasFixedSize(true);
-				recyclerView.setLayoutManager(new LinearLayoutManager(vista.getContext()));
-				recyclerView.setAdapter(listAdapter);
-			});
+	public void getRecipes() {
+		loading = true;
+		RecetasEntity recetasEntity = RequestData.Kiwilimon.get_feed(page);
+		handler.post(() -> {
+			if(recetasEntity != null) {
+				if(recetasEntity.payload.length < 1)
+					return;
+				refreshLayout.setRefreshing(false);
+				for(DescripcionEntity desc : recetasEntity.payload)
+					if(!desc.key.isEmpty())
+						adapter.recetas.add(desc);
+				adapter.notifyDataSetChanged();
+				page++;
+			} else
+				Toast.makeText(getContext(),
+					"No se han podido cargar las recetas!",
+					Toast.LENGTH_LONG).show();
+			loading = false;
 		});
+	}
+	public void refreshData() {
+		loading = true;
+		adapter.recetas.clear();
+		page = 1;
+		executor.execute(this::getRecipes);
+	}
+	public void bottomReached() {
+		if(!loading) {
+			loading = true;
+			refreshLayout.setRefreshing(true);
+			executor.execute(this::getRecipes);
+		}
+	}
 
+	private final SearchView.OnQueryTextListener queryTextListener =
+		new SearchView.OnQueryTextListener() {
+
+			@Override
+			public boolean onQueryTextSubmit(String query) {
+				refreshLayout.setVisibility(View.GONE);
+				searchFrameLayout.setVisibility(View.VISIBLE);
+				searchFragment.searchQuery = query;
+				FragmentTransaction transaction = manager.beginTransaction();
+				transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+				if(searchFragment.isAdded())
+					searchFragment.refreshSearch();
+				else
+					transaction.add(R.id.searchFragment, searchFragment);
+				transaction.commit();
+				return true;
+			}
+
+			@Override
+			public boolean onQueryTextChange(String newText) {
+				return false;
+			}
+		};
+
+	public void closedSearch(View v, boolean b) {
+		if (!b && searchView.getQuery().length() < 1) {
+			FragmentTransaction transaction = manager.beginTransaction();
+			transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_CLOSE);
+			transaction.remove(searchFragment);
+			transaction.commit();
+			refreshLayout.setVisibility(View.VISIBLE);
+			searchFrameLayout.setVisibility(View.GONE);
+		}
 	}
 }

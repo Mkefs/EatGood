@@ -9,6 +9,7 @@
         <com.google.android.material.appbar.AppBarLayout
             style="@style/AppBarTheme"
             app:liftOnScroll="true"
+            android:elevation="5dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -19,6 +20,8 @@
                     app:layout_scrollFlags="scroll|enterAlways">
 
                         <androidx.appcompat.widget.SearchView
+                            app:iconifiedByDefault="false"
+                            android:id="@+id/search"
                             android:layout_width="match_parent"
                             android:layout_marginHorizontal="20dp"
                             android:layout_height="match_parent"
@@ -31,12 +34,23 @@
 
         </com.google.android.material.appbar.AppBarLayout>
 
-        <androidx.recyclerview.widget.RecyclerView
-            app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
-            android:id="@+id/recycleRecetas"
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            android:id="@+id/refresh"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recycleRecetas"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    tools:listitem="@layout/item_receta"
+                    android:textAlignment="center" />
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+        <FrameLayout
+            android:id="@+id/searchFragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:listitem="@layout/item_receta"
-            android:textAlignment="center" />
-
+            android:visibility="gone"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

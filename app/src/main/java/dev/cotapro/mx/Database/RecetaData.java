@@ -6,7 +6,7 @@ import androidx.room.PrimaryKey;
 @Entity(tableName = "recipeData")
 public class RecetaData {
 	@PrimaryKey
-	public int key;
+	public long key;
 	public String imagePath;
 	public String json;
 }

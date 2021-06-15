@@ -5,15 +5,16 @@ import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
 
+import java.util.ArrayList;
+
 @Dao
 public interface RecetasDAO {
 	@Insert
 	long insert_receta(Receta receta);
 
-	@Query("DELETE FROM recipes WHERE `key`= :key")
+	@Query("DELETE FROM recipes WHERE `key` = :key")
 	void delete_receta(long key);
 
-	// Get recetas
-	@Query("SELECT `key`, `name`, `chef`, `thumbPath` FROM recipes")
-	Receta[] get_recetas();
+	@Query("SELECT * FROM recipes LIMIT :offset, 10")
+	Receta[] get_recetas(int offset);
 }

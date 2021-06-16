@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">EatGood</string>
-    <string name="title_home">Guardados</string>
-    <string name="title_search">Busqueda</string>
-    <string name="title_feed">Feed</string>
+    <string name="title_home">Favoritos</string>
+    <string name="title_search">Buscar</string>
+    <string name="title_feed">Recetas</string>
+    <string name="image_desc">Image</string>
+    <string name="ingredientes_tool">Personaliza las recetas seleccionando algunos de los ingredientes que tengas en casa.</string>
 </resources>

@@ -1121,7 +1121,7 @@
 	},
 	{
 		"name": "Lomo",
-		"image": "lomo_de_res"
+		"image": "lomo_de_res.jpg"
 	},
 	{
 		"name": "Medallones de filete",
@@ -1145,7 +1145,7 @@
 	},
 	{
 		"name": "Pierna de cerdo",
-		"image": "pierna_de_cerdo"
+		"image": "pierna_de_cerdo.jpg"
 	},
 	{
 		"name": "Jamon serrano",

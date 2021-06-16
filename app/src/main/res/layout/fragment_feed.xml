@@ -56,10 +56,11 @@
                                     tools:listitem="@layout/item_receta" />
 
                                 <ImageView
+                                    android:id="@+id/image"
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
-                                    android:visibility="gone"
-                                    android:contentDescription="@string/image_desc" />
+                                    android:contentDescription="@string/image_desc"
+                                    android:visibility="gone" />
                         </LinearLayout>
                 </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 

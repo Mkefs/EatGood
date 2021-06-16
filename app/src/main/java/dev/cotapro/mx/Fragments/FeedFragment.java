@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -40,8 +41,9 @@ public class FeedFragment extends Fragment {
 	private final Handler handler;
 	private final RecipeAdapter adapter;
 	boolean loading = false;
+	boolean charge = false;
 	int page = 1;
-	Button btnRefresh;
+	ImageView image;
 
 	public FeedFragment() {
 		executor = Executors.newSingleThreadExecutor();
@@ -73,6 +75,8 @@ public class FeedFragment extends Fragment {
 		rview.setHasFixedSize(true);
 		rview.setAdapter(adapter);
 
+		image =  vista.findViewById(R.id.image);
+
 		executor.execute(this::getRecipes);
 		return vista;
 	}
@@ -96,17 +100,24 @@ public class FeedFragment extends Fragment {
 				Toast.makeText(getContext(),
 						"No se han podido cargar las recetas!",
 						Toast.LENGTH_LONG).show();
-
+				rview.setVisibility(View.INVISIBLE);
+				charge = true;
 			}
 			loading = false;
+
 		});
 	}
 
 	public void refreshData() {
-		loading = true;
-		adapter.recetas.clear();
-		page = 1;
+		if (!charge) {
+			adapter.recetas.clear();
+			page = 1;
+			executor.execute(this::getRecipes);
+		} else{
+			charge = false;
+		}
 		executor.execute(this::getRecipes);
+
 	}
 
 	public void bottomReached() {

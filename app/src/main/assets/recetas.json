@@ -157,7 +157,7 @@
   	{
 		"name": "Zanahoria",
 		"image":"zanahoria.jpg"
-	},/*Leguminosas-------------------------------------------------*/
+	},//Leguminosas-------------------------------------------------//
 	{
 		"name": "Alfalfa",
 		"image":"alfalfa.jpg"
@@ -289,7 +289,20 @@
 	{
 		"name": "Piernas de Pollo",
 		"image":"piernas_de_pollo.jpg"
-	},/*Especias-------------------------------------------------*/
+	},/*Especias y aceites-------------------------------------------------*/
+	{
+		"name": "Aceite",
+		"image": "aceite.jpg"
+	},
+	{
+		"name":"Aceite de Girasol",
+		"image":"aceite_de_girasol.jpg"
+	},
+	{
+		"name":"Aceite de Oliva",
+		"image":"aceite_de_oliva.jpg"
+	},
+
 	{
 		"name": "Achiote",
 		"image":"achiote.jpg"
@@ -375,6 +388,18 @@
 		"image":"maca.jpg"
 	},
 	{
+		"name":"Manteca de cerdo",
+		"image":"manteca_de_cerdo.jpg"
+	},
+	{
+		"name":"Mantequilla",
+		"image":"mantequilla.jpg"
+	},
+	{
+		"name":"Margarina",
+		"image":"margarina.jpg"
+	},
+	{
 		"name": "Menta",
 		"image":"menta.jpg"
 	},
@@ -411,9 +436,100 @@
 		"image":"sal.jpg"
 	},
 	{
+		"name":"Salsa de soya",
+		"image":"salsa_de_soya.jpg"
+	},
+	{
 		"name": "Semilla de Amapola",
 		"image":"semilla_de_amapola.jpg"
-	},/*Cereales-------------------------------------------------------*/
+	},
+	/*Reposteria-------------------------------------------------------*/
+	{
+		"name":"Azúcar",
+		"image":"Azucar.jpg"
+	},
+	{
+		"name":"Azúcar glass",
+		"image":"azucar_glass.jpg"
+	},
+	{
+		"name":"Azúcar morena",
+		"image":"azucar_morena.jpg"
+	},
+	{
+		"name":"Azúcar refinada",
+		"image":"azucar_refinada.jpg"
+	},
+	{
+		"name":"Bicarbonato",
+		"image":"bicarbonato.jpg"
+	},
+	{
+		"name":"Chocolate",
+		"image":"chocolate.jpg"
+	},
+	{
+		"name": "Chocolate blanco",
+		"image": "chocolate_blanco.jpg"
+	},
+	{
+		"name": "Chocolate negro",
+		"image": "chocolate_negro.jpg"
+	},
+	{
+		"name": "Cocoa",
+		"image": "cocoa.jpg"
+	},
+	{
+		"name": "Colorante vegetal",
+		"image": "colorantes.jpg"
+	},
+	{
+		"name": "Glucosa",
+		"image": "glucosa.jpg"
+	},
+	{
+		"name": "Grenetina",
+		"image": "grenetina.jpg"
+	},
+	{
+		"name": "Harina",
+		"image": "harina.jpg"
+	},
+	{
+		"name": "Harina integral",
+		"image": "harina_integral.jpg"
+	},
+	{
+		"name": "Helado",
+		"image": "helado.jpg"
+	},
+	{
+		"name": "Levadura en polvo",
+		"image": "levadura.jpg"
+	},
+	{
+		"name": "Mermelada",
+		"image": "mermelada.jpg"
+	},
+	{
+		"name": "Miel",
+		"image": "miel.jpg"
+	},
+	{
+		"name": "Piloncillo",
+		"image": "piloncillo.jpg"
+	},
+	{
+		"name": "Royal",
+		"image": "royal.jpg"
+	},
+	{
+		"name": "Vainilla",
+		"image": "vainilla.jpg"
+	},
+
+	/*Cereales-------------------------------------------------------*/
 	{
 		"name": "Avena",
 		"image":"avena.jpg"
@@ -457,4 +573,223 @@
 	{
 		"name": "Arroz inflado",
 		"image":"arroz_inflado.jpg"
-	}]
+	},
+	/*Licores y lacteos-------------------------------------------------------*/
+	{
+		"name": "Brandy",
+		"image": "brandy.jpg"
+	},
+	{
+		"name": "Cerveza",
+		"image": "cerveza.jpg"
+	},
+	{
+		"name": "Champagne",
+		"image": "champagne.jpg"
+	},
+	{
+		"name": "Coñac",
+		"image": "coñac.jpg"
+	},
+	{
+		"name": "Crema",
+		"image": "crema.jpg"
+	},
+	{
+		"name": "Crema agria",
+		"image": "crema_agria.jpg"
+	},
+	{
+		"name": "Ginebra",
+		"image": "ginebra.jpg"
+	},
+	{
+		"name": "Jerez",
+		"image": "jerez.jpg"
+	},
+	{
+		"name": "Jocoque",
+		"image": "jocoque.jpg"
+	},
+	{
+		"name": "Leche",
+		"image": "leche.jpg"
+	},
+	{
+		"name": "Leche condensada",
+		"image": "leche_condensada.jpg"
+	},
+	{
+		"name": "Leche en polvo",
+		"image": "leche_en_polvo.jpg"
+	},
+	{
+		"name": "Leche evaporada",
+		"image": "leche_evaporada.jpg"
+	},
+	{
+		"name": "Licor de café",
+		"image": "licor_de_cafe.jpg"
+	},
+	{
+		"name": "Marsala",
+		"image": "marsala.jpg"
+	},
+	{
+		"name": "Mayonesa",
+		"image": "mayonesa.jpg"
+	},
+	{
+		"name": "Media crema",
+		"image": "media_crema.jpg"
+	},
+	{
+		"name": "Mezcal",
+		"image": "mezcal.jpg"
+	},
+	{
+		"name": "Nata",
+		"image": "nata.jpg"
+	},
+	{
+		"name": "Ponche",
+		"image": "ponche.jpg"
+	},
+	{
+		"name": "Pulque",
+		"image": "pulque.jpg"
+	},
+	{
+		"name": "Queso asadero",
+		"image": "queso_asadero.jpg"
+	},
+	{
+		"name": "Queso azul",
+		"image": "queso_azul.jpg"
+	},
+	{
+		"name": "Queso camembert",
+		"image": "queso_camembert.jpg"
+	},
+	{
+		"name": "Queso cheddar",
+		"image": "queso_cheddar.jpg"
+	},
+	{
+		"name": "Queso cottage",
+		"image": "queso_cotagge.jpg"
+	},
+	{
+		"name": "Queso crema",
+		"image": "queso_crema.jpg"
+	},
+	{
+		"name": "Queso de cabra",
+		"image": "queso_de_cabra.jpg"
+	},
+	{
+		"name": "Queso feta",
+		"image": "queso_feta.jpg"
+	},
+	{
+		"name": "Queso fresco",
+		"image": "queso_fresco.jpg"
+	},
+	{
+		"name": "Queso gouda",
+		"image": "queso_gouda.jpg"
+	},
+	{
+		"name": "Queso manchego",
+		"image": "queso_manchego.jpg"
+	},
+	{
+		"name": "Queso mozzarella",
+		"image": "queso_mozzarella.jpg"
+	},
+	{
+		"name": "Queso Oaxaca",
+		"image": "queso_oaxaca.jpg"
+	},
+	{
+		"name": "Queso panela",
+		"image": "queso_panela.jpg"
+	},
+	{
+		"name": "Queso parmesano",
+		"image": "queso_parmesano.jpg"
+	},
+	{
+		"name": "Queso provolone",
+		"image": "queso_provolone.jpg"
+	},
+	{
+		"name": "Queso ricotta",
+		"image": "queso_ricotta.jpg"
+	},
+	{
+		"name": "Queso roquefort",
+		"image": "queso_roquefort.jpg"
+	},
+	{
+		"name": "Queso suizo",
+		"image": "queso_suizo.jpg"
+	},
+	{
+		"name": "Requesón",
+		"image": "requeson.jpg"
+	},
+	{
+		"name": "Rompope",
+		"image": "rompope.jpg"
+	},
+	{
+		"name": "Ron",
+		"image": "ron.jpg"
+	},
+	{
+		"name": "Sake",
+		"image": "sake.jpg"
+	},
+	{
+		"name": "Sidra",
+		"image": "sidra.jpg"
+	},
+	{
+		"name": "Tepache",
+		"image": "tepache.jpg"
+	},
+	{
+		"name": "Tequila",
+		"image": "tequila.jpg"
+	},
+	{
+		"name": "Vermut",
+		"image": "vermut.jpg"
+	},
+	{
+		"name": "Vino rosado",
+		"image": "vino_rosado.jpg"
+	},
+	{
+		"name": "Vino tinto",
+		"image": "vino_tinto.jpg"
+	},
+	{
+		"name": "Vodka",
+		"image": "vodka.jpg"
+	},
+	{
+		"name": "Whisky",
+		"image": "whisky.jpg"
+	},
+	{
+		"name": "Yoghurt",
+		"image": "yoghurt.jpg"
+	},
+	{
+		"name": "Yoghurt griego",
+		"image": "yoghurt_griego.jpg"
+	}
+]
+

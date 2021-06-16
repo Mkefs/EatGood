@@ -790,6 +790,511 @@
 	{
 		"name": "Yoghurt griego",
 		"image": "yoghurt_griego.jpg"
+	},//Frutas-------------------------------------------------//
+	{
+		"name": "Aceituna",
+		"image": "Aceituna.jpg"
+	},
+	{
+		"name": "Aguacate",
+		"image": "aguacate.jpg"
+	},
+	{
+		"name": "Albaricoque",
+		"image": "albaricoque.jpg"
+	},
+	{
+		"name": "alcaparra",
+		"image": "alcaparra.jpg"
+	},
+	{
+		"name": "Almendra",
+		"image": "almendra.jpg"
+	},
+	{
+		"name": "Anon",
+		"image": "anon.jpg"
+	},
+	{
+		"name": "Arandano",
+		"image": "arandano.jpg"
+	},
+	{
+		"name": "Arbol_de_pan",
+		"image": "arbol_de_pan.jpg"
+	},
+	{
+		"name": "Avellana",
+		"image": "avellana"
+	},
+	{
+		"name": "babaco",
+		"image": "babaco.jpg"
+	},
+	{
+		"name": "banano",
+		"image": "banano.jpg"
+	},
+	{
+		"name": "bellota",
+		"image": "bellota.jpg"
+	},
+	{
+		"name": "brevas",
+		"image": "brevas.jpg"
+	},
+	{
+		"name": "Cacao",
+		"image": "Cacao.jpg"
+	},
+	{
+		"name": "calabaza",
+		"image": "calabaza.jpg"
+	},
+	{
+		"name": "camu camu",
+		"image": "camu_camu.jpg"
+	},
+	{
+		"name": "caquis",
+		"image": "caquis.jpg"
+	},
+	{
+		"name": "carambolo",
+		"image": "carambolo"
+	},
+	{
+		"name": "castañas",
+		"image": "castañas.jpg"
+	},
+	{
+		"name": "cereza",
+		"image": "cereza.jpg"
+	},
+	{
+		"name": "chirimoya",
+		"image": "chirimoya.jpg"
+	},
+	{
+		"name": "cidra",
+		"image": "cidra.jpg"
+	},
+	{
+		"name": "coco",
+		"image": "coco.jpg"
+	},
+	{
+		"name": "datiles",
+		"image": "datiles.jpg"
+	},
+	{
+		"name": "Durazno",
+		"image": "Durazno.jpg"
+	},
+	{
+		"name": "Durian",
+		"image": "Durian.jpg"
+	},
+	{
+		"name": "feijoa",
+		"image": "feijoa.jpg"
+	},
+	{
+		"name": "Frambuesa",
+		"image": "Frambuesa.jpg"
+	},
+	{
+		"name": "Fresa",
+		"image": "Fresa.jpg"
+	},
+	{
+		"name": "Granada",
+		"image": "Granada.jpg"
+	},
+	{
+		"name": "Granadilla",
+		"image": "Granadilla.jpg"
+	},
+	{
+		"name": "Grosellas",
+		"image": "Grosellas.jpg"
+	},
+	{
+		"name": "Guama",
+		"image": "Guama.jpg"
+	},
+	{
+		"name": "Guayaba",
+		"image": "Guayaba.jpg"
+	},
+	{
+		"name": "higo",
+		"image": "higo.jpg"
+	},
+	{
+		"name": "Icaco",
+		"image": "Icaco.jpg"
+	},
+	{
+		"name": "jicama",
+		"image": "jicama.jpg"
+	},
+	{
+		"name": "jobo",
+		"image": "jobo.jpg"
+	},
+	{
+		"name": "Jitomate",
+		"image": "Jitomate.jpg"
+	},
+	{
+		"name": "kiwi",
+		"image": "kiwi.jpg"
+	},
+	{
+		"name": "lima",
+		"image": "lima.jpg"
+	},
+	{
+		"name": "lucuma",
+		"image": "lucuma.jpg"
+	},
+	{
+		"name": "lulo",
+		"image": "lulo.jpg"
+	},
+	{
+		"name": "mamey",
+		"image": "mamey.jpg"
+	},
+	{
+		"name": "mandarina",
+		"image": "mandarina.jpg"
+	},
+	{
+		"name": "mango",
+		"image": "mango.jpg"
+	},
+	{
+		"name": "manzana",
+		"image": "manzana.jpg"
+	},
+	{
+		"name": "maracuya",
+		"image": "maracuya.jpg"
+	},
+	{
+		"name": "marañon",
+		"image": "marañon.jpg"
+	},
+	{
+		"name": "melocoton",
+		"image": "melocoton.jpg"
+	},
+	{
+		"name": "melon",
+		"image": "melon.jpg"
+	},
+	{
+		"name": "membrillo",
+		"image": "membrillo.jpg"
+	},
+	{
+		"name": "mora",
+		"image": "mora.jpg"
+	},
+	{
+		"name": "naranja",
+		"image": "naranja.jpg"
+	},
+	{
+		"name": "nectarina",
+		"image": "nectarina.jpg"
+	},
+	{
+		"name": "noni",
+		"image": "noni.jpg"
+	},
+	{
+		"name": "nuez",
+		"image": "nuez.jpg"
+	},
+	{
+		"name": "papaya",
+		"image": "papaya.jpg"
+	},
+	{
+		"name": "pepino dulce",
+		"image": "pepino_dulce.jpg"
+	},
+	{
+		"name": "pera",
+		"image": "pera.jpg"
+	},
+	{
+		"name": "piña",
+		"image": "piña.jpg"
+	},
+	{
+		"name": "pistacho",
+		"image": "pistacho.jpg"
+	},
+	{
+		"name": "sandia",
+		"image": "sandia.jpg"
+	},
+	{
+		"name": "sesamo",
+		"image": "sesamo.jpg"
+	},
+	{
+		"name": "tamarindo",
+		"image": "tamarindo.jpg"
+	},
+	{
+		"name": "tomate de arbol",
+		"image": "tomate_de_arbol.jpg"
+	},
+	{
+		"name": "toronja",
+		"image": "toranja.jpg"
+	},
+	{
+		"name": "tuna",
+		"image": "tuna.jpg"
+	},
+	{
+		"name": "uchuva",
+		"image": "uchuva.jpg"
+	},
+	{
+		"name": "uva",
+		"image": "uva.jpg"
+	},
+	{
+		"name": "uva pasa",
+		"image": "uvapasa.jpg"
+	},
+	{
+		"name": "zapote",
+		"image": "zapote.jpg"
+	},
+	{
+		"name": "zarzamora",
+		"image": "zarzamora.jpg"
+	}//carnes rojas//
+	{
+		"name": "Arrachera",
+		"image": "arrachera_de_res.jfif"
+	},
+	{
+		"name": "Carne molida",
+		"image": "carne_molida_de_res.jfif"
+	},
+	{
+		"name": "Chamberete",
+		"image": "chamberete_de_res.jfif"
+	},
+	{
+		"name": "Chamorro",
+		"image": "chamorro_de_res.jfif"
+	},
+	{
+		"name": "Costilla de res",
+		"image": "costilla_de_res.jpg"
+	},
+	{
+		"name": "Costillar",
+		"image": "costillar_de_res.jpg"
+	},
+	{
+		"name": "Cuete",
+		"image": "cuete_de_res.jpg"
+	},
+	{
+		"name": "Filete de res",
+		"image": "filere_de_res.jpg"
+	},
+	{
+		"name": "Lengua",
+		"image": "lengua_de_res.jpg"
+	},
+	{
+		"name": "Lomo",
+		"image": "lomo_de_res"
+	},
+	{
+		"name": "Medallones de filete",
+		"image": "medallones_de_filete.jpg"
+	},
+	{
+		"name": "Milanesa de res",
+		"image": "milanesa_de_res.jfif"
+	},
+	{
+		"name": "Roast Beef",
+		"image": "roast_beef.jfif"
+	},
+	{
+		"name": "Sirloin",
+		"image": "sirloin_de_res.jfif"
+	},
+	{
+		"name": "Suadero",
+		"image": "suadero_de_res.jfif"
+	},
+	{
+		"name": "Pierna de cerdo",
+		"image": "pierna_de_cerdo"
+	},
+	{
+		"name": "Jamon serrano",
+		"image": "jamon_serrano.jpg"
+	},
+	{
+		"name": "Espaldilla de cerdo",
+		"image": "espaldilla_de_cerdo.jpg"
+	},
+	{
+		"name": "Lomo de cerdo",
+		"image": "lomo_de_cerdo.jpg"
+	},
+	{
+		"name": "Costilla de cerdo",
+		"image": "costilla_de_cerdo.jpg"
+	},
+	{
+		"name": "Tocino",
+		"image": "tocino_de_cerdo.jpg"
+	},
+	{
+		"name": "Filete de cerdo",
+		"image": "filete_de_cerdo.jpg"
+	},
+	{
+		"name": "espinazo",
+		"image": "espinazo_de_cerdo.jpg"
+	},
+	{
+		"name": "Patas de cerdo",
+		"image": "patas_de_cerdo.jpg"
+	}//mariscos//
+	{
+		"name": "Almejas",
+		"image": "almejas.jpg"
+	},
+	{
+		"name": "Anchoa",
+		"image": "anchoa.jpg"
+	},
+	{
+		"name": "Anguila",
+		"image": "anguila.jpg"
+	},
+	{
+		"name": "Angula",
+		"image": "angula.jpg"
+	},
+	{
+		"name": "Atun",
+		"image": "atun.jpg"
+	},
+	{
+		"name": "Bacalao",
+		"image": "bacalao.jpg"
+	},
+	{
+		"name": "Caballa",
+		"image": "caballa.jpg"
+	},
+	{
+		"name": "Calamar",
+		"image": "calamar.jpg"
+	},
+	{
+		"name": "Camarones",
+		"image": "camarones.jpg"
+	},
+	{
+		"name": "Cangrejo",
+		"image": "cangrejo.jpg"
+	},
+	{
+		"name": "Caracoles",
+		"image": "caracoles.jpg"
+	},
+	{
+		"name": "Chipi chipi",
+		"image": "chipi_chipi.jpg"
+	},
+	{
+		"name": "Jaibas",
+		"image": "jaibas.jpg"
+	},
+	{
+		"name": "Langosta",
+		"image": "langosta.jpg"
+	},
+	{
+		"name": "Lagostinos",
+		"image": "langostinos.jpg"
+	},
+	{
+		"name": "Mejillones",
+		"image": "mejillones.jpg"
+	},
+	{
+		"name": "Mojarra",
+		"image": "mojarra.jpg"
+	},
+	{
+		"name": "Ostion",
+		"image": "ostion.jpg"
+	},
+	{
+		"name": "Ostras",
+		"image": "ostras.jpg"
+	},
+	{
+		"name": "Pescado",
+		"image": "pescado.jpg"
+	},
+	{
+		"name": "Pulpo",
+		"image": "pulpo.jpg"
+	},
+	{
+		"name": "Salmon",
+		"image": "salmon.jpg"
+	},
+	{
+		"name": "Santiaguiños",
+		"image": "santiaguiños.jpg"
+	},
+	{
+		"name": "Sardinas",
+		"image": "sardinas.jpg"
+	},
+	{
+		"name": "Sepia",
+		"image": "sepia.jpg"
+	},
+	{
+		"name": "Surimi",
+		"image": "surimi.jpg"
+	},
+	{
+		"name": "Trucha",
+		"image": "trucha.jpg"
+	},
+	{
+		"name": "Vieiras",
+		"image": "vieiras.jpg"
+	},
+	{
+		"name": "Zamburiñas",
+		"image": "zamburiñas.jpg"
 	}
+
 ]
 

@@ -157,7 +157,7 @@
   	{
 		"name": "Zanahoria",
 		"image":"zanahoria.jpg"
-	},//Leguminosas-------------------------------------------------//
+	},
 	{
 		"name": "Alfalfa",
 		"image":"alfalfa.jpg"
@@ -245,7 +245,7 @@
 	{
 		"name": "Soya Texturizada",
 		"image":"soya_texturizada.jpg"
-	},/*Aves-----------------------------------------------------*/
+	},
 	{
 		"name": "Pavo",
 		"image":"pavo.jpg"
@@ -289,7 +289,7 @@
 	{
 		"name": "Piernas de Pollo",
 		"image":"piernas_de_pollo.jpg"
-	},/*Especias y aceites-------------------------------------------------*/
+	},
 	{
 		"name": "Aceite",
 		"image": "aceite.jpg"
@@ -443,7 +443,6 @@
 		"name": "Semilla de Amapola",
 		"image":"semilla_de_amapola.jpg"
 	},
-	/*Reposteria-------------------------------------------------------*/
 	{
 		"name":"Azúcar",
 		"image":"Azucar.jpg"
@@ -528,8 +527,6 @@
 		"name": "Vainilla",
 		"image": "vainilla.jpg"
 	},
-
-	/*Cereales-------------------------------------------------------*/
 	{
 		"name": "Avena",
 		"image":"avena.jpg"
@@ -574,7 +571,6 @@
 		"name": "Arroz inflado",
 		"image":"arroz_inflado.jpg"
 	},
-	/*Licores y lacteos-------------------------------------------------------*/
 	{
 		"name": "Brandy",
 		"image": "brandy.jpg"
@@ -790,7 +786,7 @@
 	{
 		"name": "Yoghurt griego",
 		"image": "yoghurt_griego.jpg"
-	},//Frutas-------------------------------------------------//
+	},
 	{
 		"name": "Aceituna",
 		"image": "Aceituna.jpg"
@@ -1082,7 +1078,7 @@
 	{
 		"name": "zarzamora",
 		"image": "zarzamora.jpg"
-	}//carnes rojas//
+	},
 	{
 		"name": "Arrachera",
 		"image": "arrachera_de_res.jfif"
@@ -1178,7 +1174,7 @@
 	{
 		"name": "Patas de cerdo",
 		"image": "patas_de_cerdo.jpg"
-	}//mariscos//
+	},
 	{
 		"name": "Almejas",
 		"image": "almejas.jpg"

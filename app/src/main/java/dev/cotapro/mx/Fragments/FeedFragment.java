@@ -47,7 +47,7 @@ public class FeedFragment extends Fragment {
 
 	public FeedFragment() {
 		executor = Executors.newSingleThreadExecutor();
-		handler = new Handler(Looper.getMainLooper());
+		handler = new Handler(Looper.myLooper());
 		adapter = new RecipeAdapter(2);
 		searchFragment = new SearchFragment();
 	}

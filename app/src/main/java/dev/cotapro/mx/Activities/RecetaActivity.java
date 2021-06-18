@@ -132,7 +132,7 @@ public class RecetaActivity extends AppCompatActivity {
 
             // Save images
             try {
-                receta.thumbPath = saveImage(imageView, thumbName, 80);
+                receta.thumbPath = saveImage(imageView, thumbName, 40);
                 data.imagePath = saveImage(imageView, imageName, 100);
 
                 recetaEntity.image = imageName;

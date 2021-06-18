@@ -36,7 +36,7 @@ public class HomeFragment extends Fragment {
 	public HomeFragment() {
 		adapter = new HomeRecipeAdapter(2);
 		executor = Executors.newSingleThreadExecutor();
-		handler = new Handler(Looper.getMainLooper());
+		handler = new Handler(Looper.myLooper());
 	}
 
 	@Nullable

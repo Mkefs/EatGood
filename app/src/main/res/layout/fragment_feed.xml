@@ -45,22 +45,25 @@
                         <LinearLayout
                             android:orientation="vertical"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
+                            android:layout_height="match_parent">
 
                                 <androidx.recyclerview.widget.RecyclerView
                                     android:id="@+id/recycleRecetas"
+                                    android:visibility="gone"
                                     android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
+                                    android:layout_height="0dp"
                                     android:layout_weight="1"
                                     android:textAlignment="center"
                                     tools:listitem="@layout/item_receta" />
 
                                 <ImageView
                                     android:id="@+id/image"
+                                    android:src="@drawable/ic_wifi"
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
                                     android:contentDescription="@string/image_desc"
-                                    android:visibility="gone" />
+                                    android:visibility="visible"
+                                    app:tint="@color/gray" />
                         </LinearLayout>
                 </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 

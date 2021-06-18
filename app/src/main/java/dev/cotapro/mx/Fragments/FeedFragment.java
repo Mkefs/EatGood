@@ -87,6 +87,7 @@ public class FeedFragment extends Fragment {
 		handler.post(() -> {
 			refreshLayout.setRefreshing(false);
 			if(recetasEntity != null) {
+				image.setVisibility(View.GONE);
 				rview.setVisibility(View.VISIBLE);
 				if (recetasEntity.quantity > 0) {
 					for (DescripcionEntity desc : recetasEntity.payload)
@@ -100,7 +101,8 @@ public class FeedFragment extends Fragment {
 				Toast.makeText(getContext(),
 						"No se han podido cargar las recetas!",
 						Toast.LENGTH_LONG).show();
-				rview.setVisibility(View.INVISIBLE);
+				rview.setVisibility(View.GONE);
+				image.setVisibility(View.VISIBLE);
 				charge = true;
 			}
 			loading = false;
@@ -135,7 +137,7 @@ public class FeedFragment extends Fragment {
 			public boolean onQueryTextSubmit(String query) {
 				refreshLayout.setVisibility(View.GONE);
 				searchFrameLayout.setVisibility(View.VISIBLE);
-				searchFragment.searchQuery = query;
+				searchFragment.searchQuery = new String[] { query };
 				FragmentTransaction transaction = manager.beginTransaction();
 				transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
 				if(searchFragment.isAdded())

@@ -20,17 +20,35 @@
                 android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
-                <androidx.appcompat.widget.SearchView
-                    android:id="@+id/search"
-                    android:layout_marginHorizontal="20dp"
+                <LinearLayout
+                    android:orientation="horizontal"
                     android:layout_width="match_parent"
-                    app:iconifiedByDefault="false"
-                    android:layout_height="match_parent"
-                    android:focusable="true"
-                    android:background="@drawable/standar_bg" />
+                    android:layout_height="wrap_content">
+                    <ImageButton
+                        android:id="@+id/return_button"
+                        android:visibility="gone"
+                        android:src="@drawable/ic_baseline_arrow_back_24"
+                        android:layout_width="wrap_content"
+                        android:background="@null"
+                        android:padding="10dp"
+                        android:contentDescription="@string/image_desc"
+                        android:layout_height="wrap_content" />
+                    <androidx.appcompat.widget.SearchView
+                        android:visibility="visible"
+                        android:id="@+id/search"
+                        android:layout_marginHorizontal="20dp"
+                        android:layout_width="match_parent"
+                        app:iconifiedByDefault="false"
+                        android:layout_height="match_parent"
+                        android:focusable="true"
+                        android:background="@drawable/standar_bg" />
+
+                </LinearLayout>
                 <TextView
                     android:layout_gravity="center"
                     android:layout_width="wrap_content"
+                    android:id="@+id/mensaje"
+                    android:visibility="visible"
                     android:padding="10dp"
                     android:layout_marginVertical="20dp"
                     android:layout_marginHorizontal="40dp"
@@ -63,5 +81,25 @@
             android:visibility="gone"
             app:spanCount="3"
             tools:listitem="@layout/item_ingredient" />
+
+        <FrameLayout
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            android:id="@+id/searchFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone" />
     </LinearLayout>
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:layout_width="wrap_content"
+        android:id="@+id/buscar_receta"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|bottom"
+        android:text="Buscar"
+        android:insetRight="20dp"
+        android:textAlignment="center"
+        app:backgroundTint="@color/primary"
+        android:insetBottom="20dp"
+        android:contentDescription="@string/btn"
+        tools:ignore="RtlCompat">
+    </com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -4,7 +4,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/item_search_layout"
-    app:cardElevation="0dp"
+    app:cardElevation="10dp"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_margin="5dp"
@@ -23,15 +23,14 @@
                     android:foreground="@drawable/image_gradient"
                     android:foregroundTintMode="src_over"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/ic_launcher_background"
-                    android:contentDescription="@string/image_desc" />
+                    android:src="@drawable/ic_launcher_background" />
 
                 <TextView
                     android:id="@+id/texto"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="bottom"
-                    android:layout_marginStart="10dp"
+                    android:layout_marginLeft="10dp"
                     android:fontFamily="@font/cabin_bold"
                     android:text="TextView"
                     android:textColor="@color/white"

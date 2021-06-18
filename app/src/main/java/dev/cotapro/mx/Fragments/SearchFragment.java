@@ -6,6 +6,7 @@ import android.os.Looper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
@@ -31,7 +32,8 @@ public class SearchFragment extends Fragment {
 	private final Handler handler;
 	private RecyclerView recyclerView;
 	private SwipeRefreshLayout refreshLayout;
-	public String searchQuery;
+	public String[] searchQuery;
+	private ImageView imageView;
 	private int page;
 	boolean loading;
 
@@ -43,11 +45,12 @@ public class SearchFragment extends Fragment {
 	}
 
 	public void getSearch() {
-		RecetasEntity recetasEntity = RequestData.Kiwilimon.get_search(
-			new String[]{searchQuery}, page);
+		RecetasEntity recetasEntity = RequestData.Kiwilimon.get_search(searchQuery, page);
 		handler.post(() -> {
 			refreshLayout.setRefreshing(false);
 			if (recetasEntity != null) {
+				recyclerView.setVisibility(View.VISIBLE);
+				imageView.setVisibility(View.GONE);
 				if (recetasEntity.quantity > 0) {
 					for (DescripcionEntity desc : recetasEntity.payload)
 						if (desc.type.equals("receta"))
@@ -60,9 +63,10 @@ public class SearchFragment extends Fragment {
 				Toast.makeText(getContext(),
 					"No se ha podido hacer la busqueda!",
 					Toast.LENGTH_LONG).show();
+				recyclerView.setVisibility(View.GONE);
+				imageView.setVisibility(View.VISIBLE);
 			}
 			loading = false;
-			recyclerView.setVisibility(View.VISIBLE);
 		});
 
 	}
@@ -87,6 +91,8 @@ public class SearchFragment extends Fragment {
 		recyclerView.setHasFixedSize(true);
 		recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
 		recyclerView.setAdapter(adapter);
+
+		imageView = view.findViewById(R.id.image);
 
 		executor.execute(this::getSearch);
 		return view;

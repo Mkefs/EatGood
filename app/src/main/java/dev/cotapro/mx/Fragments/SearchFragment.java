@@ -38,7 +38,7 @@ public class SearchFragment extends Fragment {
 	public SearchFragment() {
 		loading = false;
 		executor = Executors.newSingleThreadExecutor();
-		handler = new Handler(Looper.getMainLooper());
+		handler = new Handler(Looper.myLooper());
 		adapter = new RecipeAdapter(2);
 	}
 

@@ -5,6 +5,7 @@ import android.content.Context;
 import androidx.room.Room;
 
 import java.io.IOException;
+import java.io.StringWriter;
 
 import dev.cotapro.mx.Database.GuardadosDB;
 import dev.cotapro.mx.KiwilimonApi.ApiManagement;
@@ -36,8 +37,17 @@ public class RequestData {
 		started = true;
 	}
 
+	public static class Ingredients {
+		private static String ingredients_url =
+			"https://ingredients-eatgood.000webhostapp.com/i/%s";
+		public static String getIngredientImg (String name) {
+			return String.format(ingredients_url, name);
+		}
+	}
+
 	public static class Kiwilimon {
 		private static final String image_url = "https://cdn7.kiwilimon.com/recetaimagen/";
+
 		public static String getImageUrl(String key, String imagen) {
 			String url = image_url + "%s/%s";
 			return String.format(url, key, imagen);

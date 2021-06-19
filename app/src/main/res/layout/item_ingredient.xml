@@ -3,16 +3,18 @@
 <androidx.cardview.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/item_search_layout"
     app:cardElevation="0dp"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_margin="5dp"
-    android:background="@drawable/standar_bg"
     android:orientation="vertical"
     app:cardCornerRadius="15dp">
 
         <androidx.coordinatorlayout.widget.CoordinatorLayout
+            android:id="@+id/coordinator_container"
+            android:background="@color/black"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
 
@@ -26,14 +28,26 @@
                     android:src="@drawable/ic_launcher_background"
                     android:contentDescription="@string/image_desc" />
 
+                <ImageView
+                    android:alpha="0"
+                    android:id="@+id/selected_icon"
+                    android:src="@drawable/ic_paloma"
+                    android:layout_gravity="top|right"
+                    android:layout_margin="8dp"
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    tools:ignore="RtlHardcoded"
+                    android:contentDescription="@string/image_desc" />
+
                 <TextView
+                    android:layout_weight="1"
                     android:id="@+id/texto"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
                     android:layout_gravity="bottom"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
                     android:fontFamily="@font/cabin_bold"
-                    android:text="TextView"
+                    android:text="@string/textview"
                     android:textColor="@color/white"
                     android:textSize="14sp" />
         </androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -33,13 +33,13 @@
 
                 <TextView
                     android:id="@+id/recipe_name"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center|center_vertical"
                     android:layout_weight="1"
                     android:background="@drawable/standar_bg"
                     android:padding="10dp"
-                    android:text="Receta"
+                    android:text="@string/receta"
                     android:textAlignment="center"
                     android:textSize="18sp"
                     android:textStyle="bold" />
@@ -107,7 +107,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
                     android:layout_marginBottom="5dp"
-                    android:text="INGREDIENTES: "
+                    android:text="@string/ingredientes"
                     android:textSize="20sp"
                     android:textStyle="italic" />
 
@@ -115,14 +115,14 @@
                     android:id="@+id/recipe_ingredients"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="- R1, \n -R2" />
+                    android:text="@string/textview" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="5dp"
-                    android:text="PREPARACIÓN:"
+                    android:text="@string/preparaci_n"
                     android:textSize="20sp"
                     android:textStyle="italic" />
 
@@ -130,7 +130,7 @@
                     android:id="@+id/recipe_steps"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="- R1, \n -R2" />
+                    android:text="@string/textview" />
             </LinearLayout>
         </ScrollView>
     </androidx.core.widget.NestedScrollView>

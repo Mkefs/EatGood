@@ -6,4 +6,9 @@
     <string name="image_desc">Image</string>
     <string name="ingredientes_tool">Personaliza las recetas seleccionando algunos de los ingredientes que tengas en casa.</string>
     <string name="btn">btn</string>
+    <string name="textview">TextView</string>
+    <string name="receta">Receta</string>
+    <string name="ingredientes">INGREDIENTES:</string>
+    <string name="preparaci_n">PREPARACIÓN:</string>
+    <string name="buscar">Buscar</string>
 </resources>

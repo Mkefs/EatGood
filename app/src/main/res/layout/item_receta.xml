@@ -30,7 +30,7 @@
         android:orientation="vertical">
         <TextView
             android:id="@+id/platillo"
-            android:text="Platillo"
+            android:text="@string/textview"
             android:textColor="@color/black"
             android:textSize="20sp"
             android:fontFamily="@font/cabin_bold"
@@ -40,7 +40,7 @@
             android:id="@+id/chef"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="chef"
+            android:text="@string/textview"
             android:fontFamily="@font/cabin"/>
 
         <RatingBar

@@ -94,7 +94,7 @@
         android:id="@+id/buscar_receta"
         android:layout_height="wrap_content"
         android:layout_gravity="end|bottom"
-        android:text="Buscar"
+        android:text="@string/buscar"
         android:insetRight="20dp"
         android:textAlignment="center"
         app:backgroundTint="@color/primary"

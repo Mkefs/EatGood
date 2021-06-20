@@ -3,17 +3,17 @@
 
     <item
         android:id="@+id/navigation_home"
-        android:icon="@drawable/ic_baseline_bookmark_24"
+        android:icon="@drawable/ic_nopresionado"
         android:title="@string/title_home" />
 
     <item
         android:id="@+id/navigation_feed"
-        android:icon="@drawable/ic_baseline_dynamic_feed_24"
-        android:title="@string/title_feed" />
+        android:icon="@drawable/ic_baseline_search_24"
+        android:title="@string/title_search" />
 
     <item
         android:id="@+id/navigation_search"
-        android:icon="@drawable/ic_baseline_search_24"
-        android:title="@string/title_search" />
+        android:icon="@drawable/ic_ingredientesnopre"
+        android:title="Ingredientes" />
 
 </menu>

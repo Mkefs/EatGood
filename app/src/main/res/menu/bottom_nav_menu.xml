@@ -14,6 +14,6 @@
     <item
         android:id="@+id/navigation_search"
         android:icon="@drawable/ic_ingredientesnopre"
-        android:title="@string/title_feed" />
+        android:title="Ingredientes" />
 
 </menu>
